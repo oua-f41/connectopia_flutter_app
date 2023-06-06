@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:f41/product/constants/lottie_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -6,7 +5,6 @@ import 'package:lottie/lottie.dart';
 
 import '../../../product/constants/image_constants.dart';
 
-@RoutePage()
 class MainLoginPage extends StatelessWidget {
   const MainLoginPage({super.key});
 
