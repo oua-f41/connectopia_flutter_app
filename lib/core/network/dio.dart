@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../product/constants/network_costants.dart';
+import 'auth_interceptor.dart';
 
 @module
 abstract class DioModule {
@@ -21,7 +22,7 @@ abstract class DioModule {
     dio.options = options;
     dio.interceptors.add(
         LogInterceptor(error: true, requestBody: true, responseBody: true));
-
+    dio.interceptors.add(AuthInterceptor());
     return dio;
   }
 }

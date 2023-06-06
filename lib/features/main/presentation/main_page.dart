@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:f41/app/student_app.dart';
 import 'package:f41/app/student_app_cubit.dart';
 
+import '../../../app/app_router.dart';
+
 @RoutePage()
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -32,7 +34,11 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(onPressed: () {}, child: const Text("onboard"))
+            TextButton(
+                onPressed: () {
+                  context.router.push(const OnboardRoute());
+                },
+                child: const Text("onboard"))
           ],
         ),
       ),
