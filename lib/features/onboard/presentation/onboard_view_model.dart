@@ -1,5 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:f41/app/app_router.dart';
 import 'package:flutter/material.dart';
 import 'models/onboard_model.dart';
 import 'onboard_page.dart';
@@ -54,6 +52,6 @@ abstract class OnboardPageModel extends State<OnboardPage> {
   }
 
   void goToLogin() {
-    context.router.replace(const MainLoginRoute());
+    /* context.router.replace(const MainLoginRoute()); */
   }
 }
