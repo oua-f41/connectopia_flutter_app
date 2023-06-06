@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:f41/features/onboard/presentation/widgets/onboard_bottom_bar.dart';
 import 'package:f41/features/onboard/presentation/widgets/onboard_card.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import '../../../product/widgets/skip_button.dart';
 import 'models/onboard_model.dart';
 import 'onboard_view_model.dart';
 
-@RoutePage()
 class OnboardPage extends StatefulWidget {
   const OnboardPage({Key? key}) : super(key: key);
 
