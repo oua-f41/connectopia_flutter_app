@@ -17,7 +17,6 @@ abstract class SplashViewModel extends State<SplashPage> {
   Future<void> setup() async {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Hive.initFlutter();
-      await configureDependencies();
       await SetupToken.refreshToken();
       Future.delayed(const Duration(seconds: 2), () {
         context.router

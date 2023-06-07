@@ -60,6 +60,15 @@ dependencies:
   image_picker: ^0.8.7+5
   image_cropper: ^4.0.1
 
+  #firebase
+  firebase_core: ^2.13.1
+  firebase_auth: ^4.6.2
+  cloud_firestore: ^4.8.0
+  firebase_messaging: ^14.6.2
+  firebase_storage: ^11.2.2
+  firebase_analytics: ^10.4.2
+  firebase_dynamic_links: ^5.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,6 +88,5 @@ flutter:
   assets:
     - assets/images/
     - assets/lottie/
-    - assets/fonts/
 
 
