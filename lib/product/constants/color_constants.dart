@@ -9,4 +9,5 @@ class ColorConstants{
   static Color appBlue = const Color(0xff418CF5);
   static Color appGreen = const Color(0xff31AB5C);
   static Color appYellow = const Color(0xffFABD07);
+  static Color denemeColor = const Color.fromARGB(255, 250, 7, 205);
 }
