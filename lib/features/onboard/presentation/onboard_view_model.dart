@@ -27,6 +27,7 @@ abstract class OnboardPageModel extends State<OnboardPage> {
     if (isFirstItem) {
       return;
     }
+    print("object");
     setSelectedPage(currentIndex - 1);
   }
 
