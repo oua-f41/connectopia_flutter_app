@@ -2,7 +2,8 @@ enum LottieConstants {
   onboardThinking,
   onboardTeam,
   onboardProject,
-  mainLoginAnimation
+  mainLoginAnimation,
+  loadingAnimation,
 }
 
 extension LottieItemsExtention on LottieConstants {
@@ -16,6 +17,8 @@ extension LottieItemsExtention on LottieConstants {
         return "onboard_project";
       case LottieConstants.mainLoginAnimation:
         return "main_login_animation";
+      case LottieConstants.loadingAnimation:
+        return "loading_animation";
     }
   }
 
