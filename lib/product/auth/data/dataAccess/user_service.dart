@@ -23,6 +23,6 @@ abstract class UserManager implements IUserService {
   Future<UserResponse?> addUser(@Body() UserRequest userRequest);
 
   @override
-  @POST("/users/getById")
+  @GET("/users/getById")
   Future<UserResponse?> getByUserId(@Query("userId") String userId);
 }

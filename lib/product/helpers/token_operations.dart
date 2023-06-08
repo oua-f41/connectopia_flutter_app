@@ -36,4 +36,9 @@ class TokenOperations {
           .write(key: "token", value: newToken?.token.toString());
     }
   }
+
+  static Future<void> removeTokens() async {
+    await getIt.get<FlutterSecureStorage>().delete(key: "refresh");
+    await getIt.get<FlutterSecureStorage>().delete(key: "token");
+  }
 }
