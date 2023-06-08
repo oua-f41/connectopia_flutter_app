@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
+import 'package:f41/product/helpers/token_operations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../product/di/injection.dart';
-import '../helpers/refresh_token.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
@@ -23,7 +23,7 @@ class AuthInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) async {
     /* Refresh token imp */
     if (err.response?.statusCode == 401) {
-      SetupToken.refreshToken();
+      TokenOperations.refreshToken();
     }
     super.onError(err, handler);
   }

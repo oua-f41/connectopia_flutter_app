@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import '../../app/app_router.dart';
-import '../../core/helpers/refresh_token.dart';
-import '../../product/di/injection.dart';
+import '../helpers/token_operations.dart';
 
 abstract class SplashViewModel extends State<SplashPage> {
   @override
@@ -17,7 +16,7 @@ abstract class SplashViewModel extends State<SplashPage> {
   Future<void> setup() async {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Hive.initFlutter();
-      await SetupToken.refreshToken();
+      await TokenOperations.refreshToken();
       Future.delayed(const Duration(seconds: 2), () {
         context.router
             .pushAndPopUntil(const MainRoute(), predicate: (route) => true);
