@@ -38,7 +38,12 @@ class _MainPageState extends State<MainPage> {
                 onPressed: () {
                   context.router.push(const OnboardRoute());
                 },
-                child: const Text("onboard"))
+                child: const Text("onboard")),
+            TextButton(
+                onPressed: () {
+                  context.router.push(const DenemeRoute());
+                },
+                child: const Text("deneme"))
           ],
         ),
       ),

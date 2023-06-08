@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    DenemeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DenemePage(),
+      );
+    },
   };
 }
 
@@ -94,6 +100,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DenemePage]
+class DenemeRoute extends PageRouteInfo<void> {
+  const DenemeRoute({List<PageRouteInfo>? children})
+      : super(
+          DenemeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DenemeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../features/deneme/deneme.dart';
 import '../features/main/presentation/main_page.dart';
 import '../features/onboard/presentation/main_login_page.dart';
 import '../features/onboard/presentation/onboard_page.dart';
@@ -15,5 +16,6 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: MainRoute.page),
     AutoRoute(page: OnboardRoute.page),
     AutoRoute(page: MainLoginRoute.page),
+    AutoRoute(page: DenemeRoute.page),
   ];
 }
