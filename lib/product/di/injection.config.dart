@@ -11,10 +11,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i3;
 import 'package:f41/core/error/error_separator.dart' as _i8;
-import 'package:f41/core/network/dio.dart' as _i10;
-import 'package:f41/core/security/secure_storage.dart' as _i11;
+import 'package:f41/core/network/dio.dart' as _i11;
+import 'package:f41/core/security/secure_storage.dart' as _i12;
 import 'package:f41/product/auth/data/dataAccess/login_service.dart' as _i5;
 import 'package:f41/product/auth/data/dataAccess/user_service.dart' as _i6;
+import 'package:f41/product/auth/data/operations/login_operations.dart' as _i10;
 import 'package:f41/product/auth/data/repositories/login_repository.dart'
     as _i7;
 import 'package:f41/product/auth/data/repositories/user_repository.dart' as _i9;
@@ -47,10 +48,12 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i6.IUserService>(),
           gh<_i8.ErrorSeparator>(),
         ));
+    gh.factory<_i10.ILoginOperations>(
+        () => _i10.LoginOperations(gh<_i9.IUserRepository>()));
     return this;
   }
 }
 
-class _$DioModule extends _i10.DioModule {}
+class _$DioModule extends _i11.DioModule {}
 
-class _$SecureStorageModule extends _i11.SecureStorageModule {}
+class _$SecureStorageModule extends _i12.SecureStorageModule {}
