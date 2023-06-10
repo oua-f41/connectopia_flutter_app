@@ -36,7 +36,7 @@ class ThemeConsts {
         fontStyle: FontStyle.normal,
       ),
       headlineMedium: TextStyle(
-        color: Color(0x8a000000),
+        color: Colors.black87,
         fontSize: null,
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,

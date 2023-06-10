@@ -1,3 +1,4 @@
+import 'package:f41/app/app_router.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import '../../core/helpers/properties_app.dart';
@@ -12,6 +13,8 @@ final getIt = GetIt.instance;
 @InjectableInit()
 Future<void> configureDependencies() async {
   getIt.init();
+
+  getIt.registerLazySingleton<AppRouter>(() => AppRouter());
 
   getIt.registerLazySingleton(() => ErrorFactory);
   getIt.registerLazySingleton(() => DefaultErrorFactory());

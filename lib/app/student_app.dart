@@ -1,3 +1,4 @@
+import 'package:f41/product/di/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -10,16 +11,12 @@ import 'package:f41/product/constants/theme.dart';
 import 'app_router.dart';
 
 class StudentApp extends StatelessWidget {
-  StudentApp({super.key});
-
-  final _appRouter = AppRouter();
+  const StudentApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => StudentAppCubit())
-      ],
+      providers: [BlocProvider(create: (context) => StudentAppCubit())],
       child: BlocBuilder<StudentAppCubit, StudentAppViewModel>(
         builder: (context, state) {
           return MaterialApp.router(
@@ -28,7 +25,7 @@ class StudentApp extends StatelessWidget {
             theme: ThemeConsts.light,
             darkTheme: ThemeConsts.dark,
             themeMode: state.themeMode,
-            routerConfig: _appRouter.config(),
+            routerConfig: getIt.get<AppRouter>().config(),
             scaffoldMessengerKey: snackbarKey,
             supportedLocales: L10n.all,
             locale: Locale(state.localeKey.name),

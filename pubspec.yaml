@@ -28,6 +28,7 @@ dependencies:
   select_searchable_list: ^0.1.5
   animated_snack_bar: ^0.3.1
   pinput: ^2.2.31
+  flutter_multi_formatter: ^2.11.1
 
   #animation
   lottie: ^2.3.0
