@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'color_sheme.dart';
+import 'color_scheme.dart';
 import 'project_colors.dart';
 
 class ThemeConsts {
