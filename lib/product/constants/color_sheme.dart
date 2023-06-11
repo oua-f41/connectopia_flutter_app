@@ -31,7 +31,7 @@ class ColorSchemes {
     inversePrimary: Color(0xFFD0BCFF),
     shadow: Color(0xFF000000),
     surfaceTint: Color(0xFF6750A4),
-    outlineVariant: Color(0xFFCAC4D0),
+    outlineVariant: Color.fromARGB(255, 240, 240, 240),
     scrim: Color(0xFF000000),
   );
 
@@ -65,7 +65,7 @@ class ColorSchemes {
     inversePrimary: Color(0xFF6750A4),
     shadow: Color(0xFF000000),
     surfaceTint: Color(0xFFD0BCFF),
-    outlineVariant: Color(0xFF49454F),
+    outlineVariant: Color.fromARGB(255, 40, 40, 40),
     scrim: Color(0xFF000000),
   );
 }

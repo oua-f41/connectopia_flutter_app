@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AppWrapperRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AppWrapperPage(),
+      );
+    },
+    DenemeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DenemePage(),
+      );
+    },
     MainRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -39,13 +51,35 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
-    DenemeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DenemePage(),
-      );
-    },
   };
+}
+
+/// generated route for
+/// [AppWrapperPage]
+class AppWrapperRoute extends PageRouteInfo<void> {
+  const AppWrapperRoute({List<PageRouteInfo>? children})
+      : super(
+          AppWrapperRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AppWrapperRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DenemePage]
+class DenemeRoute extends PageRouteInfo<void> {
+  const DenemeRoute({List<PageRouteInfo>? children})
+      : super(
+          DenemeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DenemeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -100,20 +134,6 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [DenemePage]
-class DenemeRoute extends PageRouteInfo<void> {
-  const DenemeRoute({List<PageRouteInfo>? children})
-      : super(
-          DenemeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'DenemeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

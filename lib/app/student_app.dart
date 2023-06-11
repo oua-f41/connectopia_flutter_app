@@ -16,7 +16,9 @@ class StudentApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => StudentAppCubit())],
+      providers: [
+        BlocProvider(create: (context) => getIt.get<StudentAppCubit>())
+      ],
       child: BlocBuilder<StudentAppCubit, StudentAppViewModel>(
         builder: (context, state) {
           return MaterialApp.router(

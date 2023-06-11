@@ -9,7 +9,9 @@ import '../core/presentation/base_view_model.dart';
 class StudentAppCubit extends BaseCubit<StudentAppViewModel> {
   StudentAppCubit()
       : super(StudentAppViewModel(
-            localeKey: LocaleKeys.en, themeMode: ThemeMode.light));
+            localeKey: LocaleKeys.en,
+            themeMode: ThemeMode.light,
+            isLoading: false));
 
   void changeLocale(LocaleKeys localeKey) {
     emit(state.copyWith(localeKey: localeKey));
@@ -22,14 +24,16 @@ class StudentAppCubit extends BaseCubit<StudentAppViewModel> {
       emit(state.copyWith(themeMode: ThemeMode.dark));
     }
   }
+
+  void changeIsLoading() {
+    emit(state.copyWith(isLoading: !state.isLoading));
+  }
 }
 
 @immutable
 class StudentAppViewModel extends BaseViewModel {
-  StudentAppViewModel({
-    required this.localeKey,
-    this.themeMode,
-  }) : super(isLoading: false);
+  StudentAppViewModel(
+      {required this.localeKey, this.themeMode, super.isLoading});
 
   late LocaleKeys localeKey;
   late ThemeMode? themeMode;
@@ -40,8 +44,10 @@ class StudentAppViewModel extends BaseViewModel {
   StudentAppViewModel copyWith({
     LocaleKeys? localeKey,
     ThemeMode? themeMode,
+    bool? isLoading,
   }) {
     return StudentAppViewModel(
+      isLoading: isLoading ?? this.isLoading,
       localeKey: localeKey ?? this.localeKey,
       themeMode: themeMode ?? this.themeMode,
     );

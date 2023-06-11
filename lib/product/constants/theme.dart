@@ -5,302 +5,325 @@ import 'project_colors.dart';
 
 class ThemeConsts {
   static ThemeData light = ThemeData.light(useMaterial3: true).copyWith(
-    appBarTheme: AppBarTheme(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle.dark
-            .copyWith(statusBarColor: Colors.transparent)),
-    textTheme: const TextTheme(
-      displayLarge: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.dark
+              .copyWith(statusBarColor: Colors.transparent)),
+      textTheme: const TextTheme(
+        displayLarge: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        displayMedium: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        displaySmall: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        headlineLarge: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        headlineMedium: TextStyle(
+          color: Colors.black87,
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        headlineSmall: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleMedium: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodyLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodyMedium: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodySmall: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        labelLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleSmall: TextStyle(
+          color: Color(0xff000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        labelSmall: TextStyle(
+          color: Color(0xff000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
       ),
-      displayMedium: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
+      primaryTextTheme: const TextTheme(
+        displayLarge: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        displayMedium: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        displaySmall: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        headlineMedium: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        headlineSmall: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleMedium: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodyLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodyMedium: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        bodySmall: TextStyle(
+          color: Color(0x8a000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        labelLarge: TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        titleSmall: TextStyle(
+          color: Color(0xff000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        labelSmall: TextStyle(
+          color: Color(0xff000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
       ),
-      displaySmall: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      headlineLarge: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      headlineMedium: TextStyle(
-        color: Colors.black87,
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      headlineSmall: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleMedium: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodyLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodyMedium: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodySmall: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      labelLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleSmall: TextStyle(
-        color: Color(0xff000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      labelSmall: TextStyle(
-        color: Color(0xff000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-    ),
-    primaryTextTheme: const TextTheme(
-      displayLarge: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      displayMedium: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      displaySmall: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      headlineMedium: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      headlineSmall: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleMedium: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodyLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodyMedium: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      bodySmall: TextStyle(
-        color: Color(0x8a000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      labelLarge: TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      titleSmall: TextStyle(
-        color: Color(0xff000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      labelSmall: TextStyle(
-        color: Color(0xff000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      labelStyle: TextStyle(
-        color: ProjectColors.disabledColor,
-        fontSize: null,
-        fontWeight: FontWeight.w500,
-        fontStyle: FontStyle.normal,
-      ),
-      floatingLabelStyle: TextStyle(
-        color: ProjectColors.hintColor,
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      helperStyle: const TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      hintStyle: const TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      errorStyle: TextStyle(
-        color: ProjectColors.errorColor,
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      errorMaxLines: null,
-      isDense: false,
-      contentPadding: const EdgeInsets.all(15),
-      isCollapsed: false,
-      prefixStyle: const TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      suffixStyle: const TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      counterStyle: const TextStyle(
-        color: Color(0xdd000000),
-        fontSize: null,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal,
-      ),
-      filled: false,
-      fillColor: const Color.fromARGB(10, 0, 0, 0),
-      floatingLabelBehavior: FloatingLabelBehavior.auto,
-      errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: ProjectColors.disabledColor,
+          fontSize: null,
+          fontWeight: FontWeight.w500,
+          fontStyle: FontStyle.normal,
+        ),
+        floatingLabelStyle: TextStyle(
+          color: ProjectColors.hintColor,
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        helperStyle: const TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        hintStyle: const TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        errorStyle: TextStyle(
           color: ProjectColors.errorColor,
-          width: 1,
-          style: BorderStyle.solid,
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: ProjectColors.highlightColor,
-          width: 1,
-          style: BorderStyle.solid,
+        errorMaxLines: null,
+        isDense: false,
+        contentPadding: const EdgeInsets.all(15),
+        isCollapsed: false,
+        prefixStyle: const TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: ProjectColors.highlightColor,
-          width: 1,
-          style: BorderStyle.solid,
+        suffixStyle: const TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-      disabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: ProjectColors.highlightColor,
-          width: 1,
-          style: BorderStyle.solid,
+        counterStyle: const TextStyle(
+          color: Color(0xdd000000),
+          fontSize: null,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: ProjectColors.highlightColor,
-          width: 1,
-          style: BorderStyle.solid,
+        filled: false,
+        fillColor: const Color.fromARGB(10, 0, 0, 0),
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.errorColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: ProjectColors.highlightColor,
-          width: 1,
-          style: BorderStyle.solid,
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.highlightColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.highlightColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.highlightColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.highlightColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColors.highlightColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+        ),
       ),
-    ),
-    tabBarTheme: const TabBarTheme(
-      indicatorSize: TabBarIndicatorSize.tab,
-      labelColor: Color(0xdd000000),
-      unselectedLabelColor: Color(0xb2000000),
-    ),
-    dialogTheme: const DialogTheme(
-        shape: RoundedRectangleBorder(
-      side: BorderSide(
-        color: Color(0xff000000),
-        width: 0,
-        style: BorderStyle.none,
+      tabBarTheme: const TabBarTheme(
+        indicatorSize: TabBarIndicatorSize.tab,
+        labelColor: Color(0xdd000000),
+        unselectedLabelColor: Color(0xb2000000),
       ),
-      borderRadius: BorderRadius.all(Radius.circular(0.0)),
-    )),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Color(0xff4285f4),
-      selectionColor: Color(0xffa5f3c3),
-      selectionHandleColor: Color(0xff79eca4),
-    ),
-  );
+      dialogTheme: const DialogTheme(
+          shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: Color(0xff000000),
+          width: 0,
+          style: BorderStyle.none,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(0.0)),
+      )),
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: Color(0xff4285f4),
+        selectionColor: Color(0xffa5f3c3),
+        selectionHandleColor: Color(0xff79eca4),
+      ),
+      bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xff424242)),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return const Color(0xff64ffda);
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return const Color(0xff64ffda);
+          }
+          return null;
+        }),
+      ),
+      colorScheme: ColorSchemes.lightColorScheme);
 
   /* *************************************************************** */
 
