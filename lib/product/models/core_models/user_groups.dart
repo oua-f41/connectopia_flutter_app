@@ -7,4 +7,6 @@ class UserGroups {
   String? groupId;
   Group? group;
   User? user;
+
+  UserGroups({this.id, this.userId, this.groupId, this.group, this.user});
 }

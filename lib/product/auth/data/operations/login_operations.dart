@@ -2,11 +2,11 @@ import 'package:f41/product/auth/data/repositories/user_repository.dart';
 import 'package:f41/product/helpers/token_operations.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../models/user/request/create_user_request.dart';
+import '../../../models/user/request/user_request.dart';
 import '../../../models/user/response/user_response.dart';
 
 abstract class ILoginOperations {
-  Future<bool> login(CreateUserRequest createUserRequest);
+  Future<bool> login(UserRequest userRequest);
 }
 
 @Injectable(as: ILoginOperations)
@@ -15,23 +15,23 @@ class LoginOperations implements ILoginOperations {
   LoginOperations(this._userRepository);
 
   @override
-  Future<bool> login(CreateUserRequest createUserRequest) async {
+  Future<bool> login(UserRequest userRequest) async {
     bool isNewUser = false;
 
     UserResponse? userResponse = await _userRepository
-        .getByUserId(createUserRequest.id ?? "")
+        .getByUserId(userRequest.id ?? "")
         .catchError((onError) {
       return null;
     });
     if (userResponse is! UserResponse) {
-      await _userRepository.addUser(createUserRequest).catchError((onError) {
+      await _userRepository.addUser(userRequest).catchError((onError) {
         print(onError);
         return null;
       });
       isNewUser = true;
     }
     await TokenOperations.registerToken(
-        userResponse ?? UserResponse(id: createUserRequest.id));
+        userResponse ?? UserResponse(id: userRequest.id));
     return isNewUser;
   }
 }

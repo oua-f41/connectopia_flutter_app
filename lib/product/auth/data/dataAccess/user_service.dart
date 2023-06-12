@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
-import '../../../models/user/request/create_user_request.dart';
+import '../../../models/user/request/user_request.dart';
 import '../../../models/user/response/user_response.dart';
 
 part 'user_service.g.dart';
 
 abstract class IUserService {
-  Future<UserResponse?> addUser(@Body() CreateUserRequest userRequest);
+  Future<UserResponse?> addUser(@Body() UserRequest userRequest);
   Future<UserResponse?> getByUserId(@Query("userId") String userId);
 }
 
@@ -19,7 +19,7 @@ abstract class UserManager implements IUserService {
 
   @override
   @POST("/users/add")
-  Future<UserResponse?> addUser(@Body() CreateUserRequest userRequest);
+  Future<UserResponse?> addUser(@Body() UserRequest userRequest);
 
   @override
   @GET("/users/getById")

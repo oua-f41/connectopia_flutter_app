@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_user_request.dart';
+part of 'user_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$CreateUserRequestToJson(CreateUserRequest instance) =>
+Map<String, dynamic> _$UserRequestToJson(UserRequest instance) =>
     <String, dynamic>{
       'id': instance.id,
       'email': instance.email,

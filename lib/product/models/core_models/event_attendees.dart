@@ -8,4 +8,6 @@ class EventAttendees {
   DateTime? createdAt;
   Event? event;
   User? user;
+
+  EventAttendees({this.id, this.eventId, this.userId, this.createdAt});
 }

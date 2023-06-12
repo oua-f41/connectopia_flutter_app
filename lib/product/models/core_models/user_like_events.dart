@@ -8,4 +8,6 @@ class UserLikeEvents {
   DateTime? createdAt;
   Event? event;
   User? user;
+
+  UserLikeEvents({this.id, this.userId, this.eventId, this.createdAt});
 }

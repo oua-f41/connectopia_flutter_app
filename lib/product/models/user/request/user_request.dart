@@ -1,20 +1,20 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'create_user_request.g.dart';
+part 'user_request.g.dart';
 
 @JsonSerializable(createFactory: false)
-class CreateUserRequest {
+class UserRequest {
   String? id;
   String? email;
   String? phoneNumber;
   String? fullName;
   String? profilePhotoUrl;
 
-  CreateUserRequest(
+  UserRequest(
       {this.id,
       this.email,
       this.phoneNumber,
       this.fullName,
       this.profilePhotoUrl});
 
-  Map<String, dynamic> toJson() => _$CreateUserRequestToJson(this);
+  Map<String, dynamic> toJson() => _$UserRequestToJson(this);
 }

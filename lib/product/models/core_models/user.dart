@@ -15,4 +15,13 @@ class User {
   List<UserGroups>? userGroups;
   List<EventAttendees>? eventAttendees;
   List<UserLikeEvents>? userLikeEvents;
+
+  User(
+      {this.id,
+      this.userName,
+      this.fullName,
+      this.email,
+      this.phoneNumber,
+      this.profilePhotoUrl,
+      this.about});
 }
