@@ -19,7 +19,7 @@ class _UserManager implements UserManager {
   String? baseUrl;
 
   @override
-  Future<UserResponse?> addUser(UserRequest userRequest) async {
+  Future<UserResponse?> addUser(CreateUserRequest userRequest) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

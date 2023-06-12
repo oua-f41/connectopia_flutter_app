@@ -37,7 +37,7 @@ class ColorSchemes {
 
   static ColorScheme darkColorScheme = const ColorScheme(
     brightness: Brightness.dark,
-    primary: Color(0xFFA3C9FF),
+    primary: Color.fromARGB(255, 212, 216, 222),
     onPrimary: Color(0xFF00315D),
     primaryContainer: Color(0xFF004883),
     onPrimaryContainer: Color(0xFFD3E3FF),
