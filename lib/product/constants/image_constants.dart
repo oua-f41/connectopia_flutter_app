@@ -1,10 +1,8 @@
 enum ImageConstants {
   google,
-  phone,
-  mail,
-  onBoardWorking,
-  onBoardThinking,
-  onBoardDeneme
+  onBoardAnnouncement,
+  onBoardNetworking,
+  onBoardHelping,
 }
 
 extension ImageItemsExtention on ImageConstants {
@@ -12,16 +10,12 @@ extension ImageItemsExtention on ImageConstants {
     switch (this) {
       case ImageConstants.google:
         return "google";
-      case ImageConstants.phone:
-        return "phone";
-      case ImageConstants.mail:
-        return "mail";
-      case ImageConstants.onBoardWorking:
-        return "onboard_working";
-      case ImageConstants.onBoardThinking:
-        return "onboard_thinking";
-      case ImageConstants.onBoardDeneme:
-        return "onboard_deneme";
+      case ImageConstants.onBoardAnnouncement:
+        return "onboard_announcement";
+      case ImageConstants.onBoardHelping:
+        return "onboard_helping";
+      case ImageConstants.onBoardNetworking:
+        return "onboard_networking";
     }
   }
 
