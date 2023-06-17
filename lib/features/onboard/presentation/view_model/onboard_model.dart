@@ -14,20 +14,21 @@ class OnboardModel {
 
 List<OnboardModel> contents = [
   OnboardModel(
-    title: "Track Your work and get the result",
-    image: ImageConstants.onBoardWorking.imagePath,
-    desc: "Remember to keep track of your professional accomplishments.",
+    title: "Toplulukları Keşfet, Etkinlikleri Kaçırma!",
+    image: ImageConstants.onBoardNetworking.imagePath,
+    desc:
+        "Connectopia'da sosyal sorumluluk projeleri, kariyer veya kişisel gelişim için etkinlikler bulabilir, topluluklarda, sizin alanınızdaki insanlarla yeni bağlantılar kurabilirsiniz.",
   ),
   OnboardModel(
-    title: "Stay organized with team",
-    image: ImageConstants.onBoardThinking.imagePath,
+    title: "Kendi topluluğunu kur, etkinliğini duyur!",
+    image: ImageConstants.onBoardAnnouncement.imagePath,
     desc:
-        "But understanding the contributions our colleagues make to our teams and companies.",
+        "Connectopia'da kendi topluluğunu oluşturabilir ve etkinlikler düzenleyip paylaşabilirsin.",
   ),
   OnboardModel(
-    title: "Get notified when work happens",
-    image: ImageConstants.onBoardDeneme.imagePath,
+    title: "Toplulukları Destekle, Gelişimlerine Katkıda Bulun!",
+    image: ImageConstants.onBoardHelping.imagePath,
     desc:
-        "Take control of notifications, collaborate live or on your own time.",
+        "Connectopia'da topluluklara bağış yapabilir veya kendi topluluğuna bağış alabilirsin. Unutma, bağışlar, toplulukların büyümesine yardımcı olacaktır.",
   ),
 ];

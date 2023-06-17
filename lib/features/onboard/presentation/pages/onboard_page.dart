@@ -45,43 +45,49 @@ class _OnboardPageState extends OnboardViewModel {
               flex: 5,
               child: PageView.builder(
                 physics: const BouncingScrollPhysics(
-                    decelerationRate: ScrollDecelerationRate.fast,
-                    parent: AlwaysScrollableScrollPhysics()),
+                  decelerationRate: ScrollDecelerationRate.fast,
+                ),
                 controller: controller,
                 onPageChanged: (value) => setState(() => currentPage = value),
                 itemCount: contents.length,
                 itemBuilder: (context, i) {
                   return Padding(
-                    padding: const EdgeInsets.all(40.0),
+                    padding: context.paddingLow,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          contents[i].image,
-                          height: context.dynamicHeight(0.4),
-                        ),
-                        SizedBox(
-                          height: (context.dynamicHeight(1) >= 840) ? 60 : 30,
-                        ),
-                        Text(
-                          contents[i].title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: "Mulish",
-                            fontWeight: FontWeight.w600,
-                            fontSize:
-                                (context.dynamicWidth(1) <= 550) ? 30 : 35,
+                        Container(
+                          padding: context.verticalPaddingNormal,
+                          child: Image.asset(
+                            contents[i].image,
+                            height: context.dynamicHeight(0.35),
                           ),
                         ),
-                        const SizedBox(height: 15),
-                        Text(
-                          contents[i].desc,
-                          style: TextStyle(
-                            fontFamily: "Mulish",
-                            fontWeight: FontWeight.w300,
-                            fontSize:
-                                (context.dynamicWidth(1) <= 550) ? 17 : 25,
+                        Container(
+                          padding: context.verticalPaddingNormal,
+                          child: Text(
+                            contents[i].title,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: "Mulish",
+                              fontWeight: FontWeight.w600,
+                              fontSize:
+                                  (context.dynamicWidth(1) <= 550) ? 30 : 35,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
+                        ),
+                        Container(
+                          padding: context.horizontalPaddingMedium,
+                          child: Text(
+                            contents[i].desc,
+                            style: TextStyle(
+                              fontFamily: "Mulish",
+                              fontWeight: FontWeight.w300,
+                              fontSize:
+                                  (context.dynamicWidth(1) <= 550) ? 17 : 25,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         )
                       ],
                     ),
