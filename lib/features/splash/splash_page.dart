@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:f41/product/constants/lottie_constants.dart';
-import 'package:f41/features/splash/splash_view_model.dart';
+import 'package:connectopia/product/constants/lottie_constants.dart';
+import 'package:connectopia/features/splash/splash_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:lottie/lottie.dart';

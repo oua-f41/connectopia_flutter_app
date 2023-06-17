@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:f41/product/cache/cache_enums.dart';
-import 'package:f41/features/splash/splash_page.dart';
+import 'package:connectopia/product/cache/cache_enums.dart';
+import 'package:connectopia/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/app_router.dart';
