@@ -47,7 +47,7 @@
 ## Hedef Kitle 
    * Etkinliklerini daha çok kişiye duyurmak isteyen topluluklar
    * Bulunduğu bölgede toplulukların düzenlediği etkinliklerden haberdar olmak isteyenler
-   * 
+   * Gençler
 
 # Sprint-1
 
@@ -59,6 +59,7 @@ Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır
 
 ## **Daily Scrum:** 
 F-41 Discord kanalında her gün 21.00 da Daily Scrum toplantılarını  yapmaktayız. Yapılan toplantılara her gün katılım sağlayamayan grup arkadaşlarımızla arkadaşlar WhatsUpp üzerinden konuşulmuştur. Sürecin başından itibaren yapılan önemli toplantılar , alınan kararlar , daily scrum konuşmalarımızın özetleri vs. tüm ayrıntıları aşağıdaki linkte yer alan pdf'te bulabilirsiniz. 
+
 [SPRİNT-1](https://drive.google.com/file/d/1mYVxBwsMYS3fFdf4pWmiZidySn05xMqP/view?usp=sharing)
 
 ## **Sprint board update:** 
@@ -71,7 +72,6 @@ Ekran görüntüleri:
 | |  | |
 | :--- | :---: | ---: |
 | ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/fc5beea4-1494-42eb-9e85-c456a839d54f) |![image](https://github.com/oua-f41/f41_flutter/assets/123990805/1120d6de-d7c1-49fc-93d4-ec41008a9214)  | ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/d03b373d-6a8a-4cce-b116-0197480c67ed) |
-
 
 | |  | |
 | :--- | :---: | ---: |
@@ -89,7 +89,7 @@ Ekran görüntüleri:
   * İlk sprintte hedeflenen görevler tamamlanmıştır.
   * 2.Sprint için planlama toplantısı 19/06/2023 tarihinde gerçekleştirilmesi planlanmıştır.
     
-Sprint Review toplantımızın toplantı raporu aşağıdaki linkte yer alan  pdf'in son sayfasında bulunmaktadır.
+Sprint Review toplantımızın toplantı raporSPRİNT-1 linkinde yer alan pdf'in son sayfasında bulunmaktadır.
 
 [SPRİNT-1](https://drive.google.com/file/d/1mYVxBwsMYS3fFdf4pWmiZidySn05xMqP/view?usp=sharing)
 
@@ -97,6 +97,4 @@ Sprint Review toplantımızın toplantı raporu aşağıdaki linkte yer alan  pd
   * Sprint süreci içerisinde roller ile ilgili düzenleme yapılmış, Product Owner olarak Erhan GÖCEN'nin devam etmesine karar verilmiştir.
   * 2.Sprintte grup üyelerine daha fazla görev ataması yapılcağı belirtilmiştir.
 
-Sprint Review toplantımızın toplantı raporu aşağıdaki linkte yer alan pdf'in son sayfasında bulunmaktadır.
-
-[SPRİNT-1](https://drive.google.com/file/d/1mYVxBwsMYS3fFdf4pWmiZidySn05xMqP/view?usp=sharing)
+Sprint Retrospective toplantımızın toplantı raporu  SPRİNT-1 linkinde yer alan pdf'in son sayfasında bulunmaktadır.
