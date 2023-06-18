@@ -1,8 +1,4 @@
-enum LottieConstants {
-  mainLoginAnimation,
-  loadingAnimation,
-  loadingProgress
-}
+enum LottieConstants { mainLoginAnimation, loadingAnimation, loadingProgress }
 
 extension LottieItemsExtention on LottieConstants {
   String _path() {
