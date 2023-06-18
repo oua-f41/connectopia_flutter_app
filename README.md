@@ -91,8 +91,6 @@ Ekran görüntüleri:
     
 Sprint Review toplantımızın toplantı raporSPRİNT-1 linkinde yer alan pdf'in son sayfasında bulunmaktadır.
 
-[SPRİNT-1](https://drive.google.com/file/d/1mYVxBwsMYS3fFdf4pWmiZidySn05xMqP/view?usp=sharing)
-
 ## Sprint Retrospective:
   * Sprint süreci içerisinde roller ile ilgili düzenleme yapılmış, Product Owner olarak Erhan GÖCEN'nin devam etmesine karar verilmiştir.
   * 2.Sprintte grup üyelerine daha fazla görev ataması yapılcağı belirtilmiştir.
