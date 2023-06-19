@@ -43,14 +43,14 @@ class _MainLoginPageState extends MainLoginViewModel {
                       symbol: const Icon(Icons.mail),
                       text: 'Log In with Email',
                       onPressed: () {
-                        context.router.replace(const LoginWithEmailRoute());
+                        context.router.push(const LoginWithEmailRoute());
                       },
                     ),
                     LoginOptionButton(
                       symbol: const Icon(Icons.phone),
                       text: 'Log in with phone',
                       onPressed: () {
-                        context.router.replace(const LoginWithPhoneRoute());
+                        context.router.push(const LoginWithPhoneRoute());
                       },
                     ),
                     LoginOptionButton(

@@ -45,7 +45,7 @@ abstract class MainLoginViewModel extends State<MainLoginPage> {
               .get<AppRouter>()
               .replace(RegisterRoute(userRequest: createdUserRequest));
         } else {
-          getIt.get<AppRouter>().replace(const OnboardRoute());
+          getIt.get<AppRouter>().replace(const HomeRoute());
         }
       }
     } catch (e) {
