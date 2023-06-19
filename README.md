@@ -51,6 +51,9 @@
 
 # Sprint-1
 
+## **Sprint Notları:**
+Onboard screen de yer alan açıklama yazıları ve kullanılan görseller daha sonra tekrar gözden geçirilecek. Uygulamanın kullanıcı girişi ekranları tamamen bittiğinden 2. sprintte uygulamanın ana gövdesine daha çok ağırlık verilip daha fazla görev dağılımı yapılacaktır. 
+
 ## **Sprint içinde tamamlanması tahmin edilen puan:** 
 100 Puan
 
