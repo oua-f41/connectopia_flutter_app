@@ -47,9 +47,12 @@
 ## Hedef Kitle 
    * Etkinliklerini daha çok kişiye duyurmak isteyen topluluklar
    * Bulunduğu bölgede toplulukların düzenlediği etkinliklerden haberdar olmak isteyenler
-   * Gençler
+   * Kendi ilgi alanına sahip kişilerle yeni topluluklar kurmak isteyenler.
 
 # Sprint-1
+
+## **Sprint Notları:**
+Onboard screen de yer alan açıklama yazıları ve kullanılan görseller daha sonra tekrar gözden geçirilecek. Uygulamanın kullanıcı girişi ekranları tamamen bittiğinden 2. sprintte uygulamanın ana gövdesine daha çok ağırlık verilip daha fazla görev dağılımı yapılacaktır. 
 
 ## **Sprint içinde tamamlanması tahmin edilen puan:** 
 100 Puan
