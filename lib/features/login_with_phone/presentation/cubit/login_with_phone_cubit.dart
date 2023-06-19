@@ -95,7 +95,7 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
         if (isNewUser) {
           getIt.get<AppRouter>().replace(RegisterRoute(userRequest: createdUser));
         } else {
-          getIt.get<AppRouter>().replace(const OnboardRoute());
+          getIt.get<AppRouter>().replace(const HomeRoute());
         }
       }
     } catch (e) {
