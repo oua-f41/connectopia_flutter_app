@@ -47,7 +47,7 @@
 ## Hedef Kitle 
    * Etkinliklerini daha çok kişiye duyurmak isteyen topluluklar
    * Bulunduğu bölgede toplulukların düzenlediği etkinliklerden haberdar olmak isteyenler
-   * Gençler
+   * Kendi ilgi alanına sahip kişilerle yeni topluluklar kurmak isteyenler.
 
 # Sprint-1
 
