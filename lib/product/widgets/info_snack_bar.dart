@@ -12,11 +12,19 @@ class InfoSnackBar extends SnackBar {
             content: Row(
               children: [
                 const Icon(Icons.info_outline),
-                Text(
-                  contentText,
-                  softWrap: true,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Container(
+                    padding: context?.horizontalPaddingLow ??
+                        const EdgeInsets.symmetric(horizontal: 8),
+                    width: context?.dynamicWidth(0.7) ?? 280,
+                    child: Text(
+                      contentText,
+                      softWrap: true,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
               ],
             ),

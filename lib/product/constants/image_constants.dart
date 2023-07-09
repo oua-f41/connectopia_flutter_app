@@ -7,7 +7,10 @@ enum ImageConstants {
   defaultGroupPhoto,
   logo,
   locationMarker,
-  expandedLogo
+  expandedLogo,
+  loginWithPhone,
+  loginWithEmail,
+  register
 }
 
 extension ImageItemsExtention on ImageConstants {
@@ -31,6 +34,12 @@ extension ImageItemsExtention on ImageConstants {
         return "location_marker";
       case ImageConstants.expandedLogo:
         return "expanded_logo";
+      case ImageConstants.loginWithPhone:
+        return "login_with_phone";
+      case ImageConstants.loginWithEmail:
+        return "login_with_email";
+      case ImageConstants.register:
+        return "register";
     }
   }
 
