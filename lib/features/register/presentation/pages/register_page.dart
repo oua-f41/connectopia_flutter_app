@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../../../app/app_router.dart';
 import '../../../../product/models/user/request/user_request.dart';
 import '../../../../product/widgets/skip_button.dart';
 import '../cubit/register_cubit.dart';

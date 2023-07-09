@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../../app/app_router.dart';
 import '../../../../product/cache/application_properties.dart';
 import '../../../../product/cache/application_properties_manager.dart';
 import '../../../../product/cache/cache_enums.dart';

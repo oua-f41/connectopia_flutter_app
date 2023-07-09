@@ -10,7 +10,9 @@ part of 'user_group_service.dart';
 
 class _UserGroupManager implements UserGroupManager {
   _UserGroupManager(
-    this._dio);
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
@@ -35,11 +37,7 @@ class _UserGroupManager implements UserGroupManager {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : ResponseData.fromJson(_result.data!);
     return value;
@@ -50,7 +48,7 @@ class _UserGroupManager implements UserGroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<ResponseData>(Options(
       method: 'DELETE',
@@ -63,11 +61,7 @@ class _UserGroupManager implements UserGroupManager {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : ResponseData.fromJson(_result.data!);
     return value;
@@ -84,22 +78,5 @@ class _UserGroupManager implements UserGroupManager {
       }
     }
     return requestOptions;
-  }
-
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
-    if (baseUrl == null || baseUrl.trim().isEmpty) {
-      return dioBaseUrl;
-    }
-
-    final url = Uri.parse(baseUrl);
-
-    if (url.isAbsolute) {
-      return url.toString();
-    }
-
-    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
