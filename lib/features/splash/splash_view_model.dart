@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:f41/features/category/data/cache/category_cache_manager.dart';
+import 'package:connectopia/features/category/data/cache/category_cache_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/app_router.dart';

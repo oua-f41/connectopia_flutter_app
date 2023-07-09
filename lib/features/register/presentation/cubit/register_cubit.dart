@@ -1,4 +1,4 @@
-import 'package:f41/product/constants/error_constants.dart';
+import 'package:connectopia/product/constants/error_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_router.dart';
