@@ -25,8 +25,7 @@ abstract class SplashViewModel extends State<SplashPage> {
 
       CategoryCacheManager categoryCacheManager =
           getIt.get<CategoryCacheManager>();
-      await categoryCacheManager.init();
-
+      await categoryCacheManager.init(); 
       var applicationProperties = applicationPropertiesManager
           .getItem(CacheEnums.applicationProperties.name);
 
