@@ -40,10 +40,9 @@ class _OnboardPageState extends OnboardViewModel {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
-            SizedBox(
-              height: context.dynamicHeight(0.8),
+            Expanded(
+              flex: 5,
               child: PageView.builder(
                 physics: const BouncingScrollPhysics(
                   decelerationRate: ScrollDecelerationRate.fast,
@@ -96,10 +95,9 @@ class _OnboardPageState extends OnboardViewModel {
                 },
               ),
             ),
-            SizedBox(
-              height: context.dynamicHeight(0.12),
+            Expanded(
+              flex: 1,
               child: Column(
-                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -111,10 +109,10 @@ class _OnboardPageState extends OnboardViewModel {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: context.horizontalPaddingNormal,
-                    child: currentPage + 1 == contents.length
-                        ? ElevatedButton(
+                  currentPage + 1 == contents.length
+                      ? Padding(
+                          padding: const EdgeInsets.all(30),
+                          child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 100, vertical: 15),
@@ -127,8 +125,11 @@ class _OnboardPageState extends OnboardViewModel {
                                   fontWeight: FontWeight.w700,
                                   color: context.colorScheme.primary,
                                 )),
-                          )
-                        : Row(
+                          ),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.all(30),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               TextButton(
@@ -155,7 +156,7 @@ class _OnboardPageState extends OnboardViewModel {
                               ),
                             ],
                           ),
-                  )
+                        )
                 ],
               ),
             ),
