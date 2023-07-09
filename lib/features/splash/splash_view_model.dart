@@ -3,7 +3,6 @@ import 'package:connectopia/product/cache/cache_enums.dart';
 import 'package:connectopia/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../app/app_router.dart';
 import '../../product/cache/application_properties_manager.dart';
 import '../../product/di/injection.dart';
 import '../../product/helpers/setup_token.dart';
