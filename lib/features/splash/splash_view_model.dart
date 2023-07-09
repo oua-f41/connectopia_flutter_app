@@ -1,12 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:connectopia/features/category/data/cache/category_cache_manager.dart';
+import 'package:f41/product/cache/cache_enums.dart';
+import 'package:f41/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../product/cache/application_properties_manager.dart';
-import '../../product/cache/cache_enums.dart';
 import '../../product/di/injection.dart';
 import '../../product/helpers/setup_token.dart';
-import 'splash_page.dart';
 
 abstract class SplashViewModel extends State<SplashPage> {
   @override
@@ -23,10 +22,6 @@ abstract class SplashViewModel extends State<SplashPage> {
           getIt.get<ApplicationPropertiesManager>();
       await applicationPropertiesManager.init();
 
-      CategoryCacheManager categoryCacheManager =
-          getIt.get<CategoryCacheManager>();
-      await categoryCacheManager.init();
-
       var applicationProperties = applicationPropertiesManager
           .getItem(CacheEnums.applicationProperties.name);
 
@@ -36,7 +31,7 @@ abstract class SplashViewModel extends State<SplashPage> {
                 if (applicationProperties?.isNewUser ?? true)
                   {context.router.replace(const OnboardRoute())}
                 else
-                  {context.router.replace(const HomeRoute())}
+                  {context.router.replace(const MainRoute())}
               });
     });
   }
