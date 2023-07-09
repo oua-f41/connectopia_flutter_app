@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:f41/features/category/data/cache/category_cache_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/app_router.dart';
 import '../../product/cache/application_properties_manager.dart';
 import '../../product/cache/cache_enums.dart';
 import '../../product/di/injection.dart';
@@ -25,7 +26,8 @@ abstract class SplashViewModel extends State<SplashPage> {
 
       CategoryCacheManager categoryCacheManager =
           getIt.get<CategoryCacheManager>();
-      await categoryCacheManager.init(); 
+      await categoryCacheManager.init();
+
       var applicationProperties = applicationPropertiesManager
           .getItem(CacheEnums.applicationProperties.name);
 
