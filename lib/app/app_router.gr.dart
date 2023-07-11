@@ -18,7 +18,7 @@ abstract class _$AppRouter extends RootStackRouter {
     AppWrapperRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AppWrapperPage(),
+        child: WrappedRoute(child: const AppWrapperPage()),
       );
     },
     CategoryRoute.name: (routeData) {
@@ -31,6 +31,17 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DiscoverPage(),
+      );
+    },
+    DonateRoute.name: (routeData) {
+      final args = routeData.argsAs<DonateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: DonatePage(
+          key: args.key,
+          group: args.group,
+        )),
       );
     },
     AddEventRoute.name: (routeData) {
@@ -302,6 +313,43 @@ class DiscoverRoute extends PageRouteInfo<void> {
   static const String name = 'DiscoverRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DonatePage]
+class DonateRoute extends PageRouteInfo<DonateRouteArgs> {
+  DonateRoute({
+    Key? key,
+    required Group group,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DonateRoute.name,
+          args: DonateRouteArgs(
+            key: key,
+            group: group,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DonateRoute';
+
+  static const PageInfo<DonateRouteArgs> page = PageInfo<DonateRouteArgs>(name);
+}
+
+class DonateRouteArgs {
+  const DonateRouteArgs({
+    this.key,
+    required this.group,
+  });
+
+  final Key? key;
+
+  final Group group;
+
+  @override
+  String toString() {
+    return 'DonateRouteArgs{key: $key, group: $group}';
+  }
 }
 
 /// generated route for

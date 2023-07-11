@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../features/category/domain/models/response/category_details_response.dart';
 import '../features/category/presentation/pages/category_page.dart';
 import '../features/discover/presentation/discover_page.dart';
+import '../features/donate/presentation/pages/donate_page.dart';
 import '../features/event/presentation/pages/add_event_page.dart';
 import '../features/event/presentation/pages/edit_event_page.dart';
 import '../features/event/presentation/pages/event_detail_page.dart';

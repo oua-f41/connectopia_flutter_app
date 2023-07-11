@@ -40,6 +40,21 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDBWdI2ZT7yGu15y8y_We0VFHoXrUz8eMA",
+  authDomain: "f41-flutterfire.firebaseapp.com",
+  projectId: "f41-flutterfire",
+  storageBucket: "f41-flutterfire.appspot.com",
+  messagingSenderId: "875664835580",
+  appId: "1:875664835580:web:ee871d4945314123f82879",
+  measurementId: "G-SX2Y3RG0BF"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

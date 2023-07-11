@@ -519,13 +519,16 @@ class GroupDetailPage extends StatelessWidget with AutoRouteWrapper {
                 ),
               ]),
         onPressed: () async {
-          if (group?.userId != FirebaseAuth.instance.currentUser?.uid ||
-              group == null) return;
-          final isSuccess =
-              await context.router.push(AddEventRoute(groupId: group!.id!));
-          if (isSuccess == true) {
-            await context.read<GroupDetailCubit>().refresh();
-            await context.read<MapsCubit>().refresh();
+          if (group == null) return;
+          if (group?.userId == FirebaseAuth.instance.currentUser?.uid) {
+            final isSuccess =
+                await context.router.push(AddEventRoute(groupId: group!.id!));
+            if (isSuccess == true) {
+              await context.read<GroupDetailCubit>().refresh();
+              await context.read<MapsCubit>().refresh();
+            }
+          } else {
+            context.router.push(DonateRoute(group: group!));
           }
         },
       ),

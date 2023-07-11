@@ -1,4 +1,4 @@
-import 'package:f41/features/donate/presentation/cubit/view_model/donate_view_model.dart';
+import 'package:connectopia/features/donate/presentation/cubit/view_model/donate_view_model.dart';
 
 import '../../../../app/base_cubit.dart';
 

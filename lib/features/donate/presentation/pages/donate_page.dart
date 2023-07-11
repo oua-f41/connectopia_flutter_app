@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:f41/features/donate/presentation/cubit/view_model/donate_view_model.dart';
+import 'package:connectopia/features/donate/presentation/cubit/view_model/donate_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
