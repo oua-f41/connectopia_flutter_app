@@ -4,6 +4,7 @@ import 'package:connectopia/product/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:skeletons/skeletons.dart';
 
 class ProfilePhotoAndBackground extends StatelessWidget {
   const ProfilePhotoAndBackground({
@@ -46,6 +47,12 @@ class ProfilePhotoAndBackground extends StatelessWidget {
                                       state.defaultUser?.profilePhotoUrl ??
                                       '',
                                   fit: BoxFit.cover,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return const SkeletonAvatar(
+                                      
+                                    );
+                                  },
                                 )
                               : Image.asset(
                                   ImageConstants.defaultProfilePhoto.imagePath,

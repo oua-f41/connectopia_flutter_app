@@ -193,61 +193,65 @@ class MapsPage extends StatelessWidget {
                                         ),
                                       ),
                                       SizedBox(
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Row(children: [
-                                                    Container(
-                                                      padding:
-                                                          context.paddingLow,
-                                                      child: ClipOval(
-                                                        child: mapsState
-                                                                    .selectedEvent
-                                                                    ?.group
-                                                                    ?.iconUrl
-                                                                    .isNotNullOrNoEmpty ==
-                                                                true
-                                                            ? Image.network(
-                                                                mapsState
-                                                                        .selectedEvent
-                                                                        ?.group
-                                                                        ?.iconUrl ??
-                                                                    "",
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                                height: 20,
-                                                                width: 20,
-                                                              )
-                                                            : Image.asset(
-                                                                ImageConstants
-                                                                    .defaultGroupPhoto
-                                                                    .imagePath,
-                                                                height: 20,
-                                                                width: 20,
-                                                              ),
+                                        width: context.dynamicWidth(0.5), 
+                                        child: FittedBox(
+                                          fit: BoxFit.fitWidth,
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Row(children: [
+                                                      Container(
+                                                        padding:
+                                                            context.paddingLow,
+                                                        child: ClipOval(
+                                                          child: mapsState
+                                                                      .selectedEvent
+                                                                      ?.group
+                                                                      ?.iconUrl
+                                                                      .isNotNullOrNoEmpty ==
+                                                                  true
+                                                              ? Image.network(
+                                                                  mapsState
+                                                                          .selectedEvent
+                                                                          ?.group
+                                                                          ?.iconUrl ??
+                                                                      "",
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                  height: 20,
+                                                                  width: 20,
+                                                                )
+                                                              : Image.asset(
+                                                                  ImageConstants
+                                                                      .defaultGroupPhoto
+                                                                      .imagePath,
+                                                                  height: 20,
+                                                                  width: 20,
+                                                                ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      mapsState.selectedEvent
-                                                              ?.group?.name ??
-                                                          "",
-                                                      maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                    ),
-                                                  ]),
-                                                ],
+                                                      Text(
+                                                        mapsState.selectedEvent
+                                                                ?.group?.name ??
+                                                            "",
+                                                        maxLines: 1,
+                                                        overflow:
+                                                            TextOverflow.ellipsis,
+                                                      ),
+                                                    ]),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            const Text(" • "),
-                                            Text(
-                                              mapsState.selectedEvent?.group
-                                                      ?.category?.name ??
-                                                  "",
-                                            ),
-                                          ],
+                                              const Text(" • "),
+                                              Text(
+                                                mapsState.selectedEvent?.group
+                                                        ?.category?.name ??
+                                                    "",
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Expanded(

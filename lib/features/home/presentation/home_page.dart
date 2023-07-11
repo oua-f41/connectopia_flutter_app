@@ -164,11 +164,11 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: state.isLoading
+                            itemCount: state.eventsLoading
                                 ? 10
                                 : state.events?.length ?? 0,
                             itemBuilder: (context, index) {
-                              return state.isLoading
+                              return state.eventsLoading
                                   ? const EventCardLoading()
                                   : EventCard(
                                       event: state.events![index],
@@ -182,11 +182,11 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: state.isLoading
+                            itemCount: state.eventsOnCityLoading
                                 ? 10
                                 : state.eventsOnCity?.length ?? 0,
                             itemBuilder: (context, index) {
-                              return state.isLoading
+                              return state.eventsOnCityLoading
                                   ? const EventCardLoading()
                                   : EventCard(
                                       event: state.eventsOnCity![index],
@@ -200,11 +200,11 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: state.isLoading
+                            itemCount: state.otherEventsLoading
                                 ? 10
                                 : state.otherEvents?.length ?? 0,
                             itemBuilder: (context, index) {
-                              return state.isLoading
+                              return state.otherEventsLoading
                                   ? const EventCardLoading()
                                   : EventCard(
                                       event: state.otherEvents![index],

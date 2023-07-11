@@ -3,6 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:connectopia/product/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:skeletons/skeletons.dart';
 
 import '../../../../app/app_router.dart';
 import '../../../../app/connectopia_app_cubit.dart';
@@ -60,6 +61,10 @@ class GroupCard extends StatelessWidget {
                                   fit: BoxFit.cover,
                                   color: Colors.black.withOpacity(0.4),
                                   colorBlendMode: BlendMode.darken,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return const SkeletonAvatar();
+                                  },
                                 )
                               : Image.asset(
                                   ImageConstants.defaultProfilePhoto.imagePath),
@@ -144,6 +149,10 @@ class GroupCard extends StatelessWidget {
                           ? Image.network(
                               group?.iconUrl ?? "",
                               fit: BoxFit.cover,
+                              loadingBuilder: (context, child, loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return const SkeletonAvatar();
+                              },
                             )
                           : Image.asset(
                               ImageConstants.defaultGroupPhoto.imagePath,

@@ -391,7 +391,7 @@ class EventDetailPage extends StatelessWidget with AutoRouteWrapper {
                           ],
                         ),
                       ),
-                      Container(
+                      state.groups?.isNotEmpty == true ? Container(
                         padding: context.verticalPaddingNormal,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -432,7 +432,7 @@ class EventDetailPage extends StatelessWidget with AutoRouteWrapper {
                             )
                           ],
                         ),
-                      ),
+                      ):const SizedBox(),
                     ],
                   ),
                 ),
@@ -446,7 +446,7 @@ class EventDetailPage extends StatelessWidget with AutoRouteWrapper {
                       border: Border(
                           top: BorderSide(
                     width: 1.0,
-                    color: context.colorScheme.outline.withOpacity(0.1),
+                    color: context.general.colorScheme.outline.withOpacity(0.1),
                   ))),
                   padding: context.horizontalPaddingNormal,
                   height: 80.0,

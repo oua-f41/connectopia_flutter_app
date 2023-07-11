@@ -28,7 +28,16 @@ class HomeCubit extends BaseCubit<HomeViewModel> {
 
   Future<void> getAllDataWithLoading() async {
     emit(state.copyWith(isLoading: true));
-    await getAllData();
+    await getIt.get<ConnectopiaAppCubit>().getCurrentPosition();
+    emit(state.copyWith(eventsLoading: true));
+    await getSpecials();
+    emit(state.copyWith(eventsLoading: false));
+    emit(state.copyWith(eventsOnCityLoading: true));
+    await getByCity();
+    emit(state.copyWith(eventsOnCityLoading: false));
+    emit(state.copyWith(otherEventsLoading: true));
+    await getOtherEvents();
+    emit(state.copyWith(otherEventsLoading: false));
     emit(state.copyWith(isLoading: false));
   }
 
