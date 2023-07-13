@@ -3,6 +3,7 @@ import 'package:connectopia/features/category/domain/models/response/category_de
 import 'package:connectopia/features/groups/presentation/cubit/groups_cubit.dart';
 import 'package:connectopia/features/groups/presentation/cubit/view_model/groups_view_model.dart';
 import 'package:connectopia/features/groups/presentation/widgets/group_grid.dart';
+import 'package:connectopia/features/groups/presentation/widgets/group_list.dart';
 import 'package:connectopia/features/groups/presentation/widgets/group_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,82 +38,8 @@ class GroupsPage extends StatelessWidget with AutoRouteWrapper {
                   child: Container(
                     color: context.colorScheme.background,
                     child: SizedBox(
-                      height: context.dynamicHeight(0.09),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: context.paddingLow,
-                              alignment: Alignment.centerLeft,
-                              child: context
-                                          .watch<GroupsCubit>()
-                                          .state
-                                          .currentCategory
-                                          ?.id ==
-                                      null
-                                  ? ElevatedButton(
-                                      onPressed: () {},
-                                      child: const Text("All"),
-                                    )
-                                  : OutlinedButton(
-                                      onPressed: () {
-                                        context
-                                            .read<GroupsCubit>()
-                                            .getAllGroups();
-                                      },
-                                      child: const Text("All"),
-                                    ),
-                            ),
-                            BlocBuilder<CategoryCubit, CategoryViewModel>(
-                              builder: (context, state) {
-                                return ListView.builder(
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount:
-                                      state.categoriesWithDetails?.length ?? 0,
-                                  itemBuilder: (context, index) {
-                                    return Container(
-                                      padding: context.paddingLow,
-                                      alignment: Alignment.centerLeft,
-                                      child: context
-                                                  .watch<GroupsCubit>()
-                                                  .state
-                                                  .currentCategory ==
-                                              state
-                                                  .categoriesWithDetails?[index]
-                                          ? ElevatedButton(
-                                              onPressed: () {},
-                                              child: Text(state
-                                                      .categoriesWithDetails?[
-                                                          index]
-                                                      ?.name ??
-                                                  ""),
-                                            )
-                                          : OutlinedButton(
-                                              onPressed: () {
-                                                context
-                                                    .read<GroupsCubit>()
-                                                    .changeCategory(state
-                                                            .categoriesWithDetails?[
-                                                        index]);
-                                              },
-                                              child: Text(state
-                                                      .categoriesWithDetails?[
-                                                          index]
-                                                      ?.name ??
-                                                  ""),
-                                            ),
-                                    );
-                                  },
-                                );
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                        height: context.dynamicHeight(0.09),
+                        child: const GroupList()),
                   ),
                 ),
               ),

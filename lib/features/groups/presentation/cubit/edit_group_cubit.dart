@@ -75,4 +75,21 @@ class EditGroupCubit extends BaseCubit<EditGroupViewModel> {
     getIt.get<ConnectopiaAppCubit>().changeIsLoading();
     return false;
   }
+
+  Future<bool> deleteGroup() async {
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    try {
+      if (state.updateGroupRequest?.id != null) {
+        await _groupRepository.delete(state.updateGroupRequest!.id!);
+        getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+        return true;
+      }
+    } catch (e) {
+      print(e);
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      return false;
+    }
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    return false;
+  }
 }

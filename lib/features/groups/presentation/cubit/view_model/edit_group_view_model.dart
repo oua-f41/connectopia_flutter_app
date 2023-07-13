@@ -3,7 +3,6 @@ import 'package:connectopia/features/groups/domain/models/request/update_group_r
 import 'package:flutter/material.dart';
 
 import '../../../../category/domain/models/response/category_response.dart';
-import '../../../domain/models/request/group_request.dart';
 
 class EditGroupViewModel extends BaseViewModel {
   UpdateGroupRequest? updateGroupRequest;
@@ -11,10 +10,7 @@ class EditGroupViewModel extends BaseViewModel {
   CategoryResponse? selectedCategory;
 
   EditGroupViewModel(
-      {
-      this.updateGroupRequest,
-      required this.formKey,
-      this.selectedCategory});
+      {this.updateGroupRequest, required this.formKey, this.selectedCategory});
 
   EditGroupViewModel copyWith({
     UpdateGroupRequest? updateGroupRequest,
@@ -31,3 +27,5 @@ class EditGroupViewModel extends BaseViewModel {
   @override
   List<Object?> get props => [updateGroupRequest, formKey, selectedCategory];
 }
+
+enum EditGroupActions { update, delete }

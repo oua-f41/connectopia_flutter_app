@@ -1,18 +1,16 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:connectopia/features/category/domain/models/response/category_response.dart';
 import 'package:connectopia/features/groups/presentation/cubit/edit_group_cubit.dart';
-import 'package:connectopia/features/groups/presentation/cubit/view_model/edit_group_view_model.dart';
+import 'package:connectopia/features/groups/presentation/widgets/edit_group_form.dart';
+import 'package:connectopia/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../product/constants/image_constants.dart';
 import '../../../../product/models/core_models/category.dart';
-import '../../../../product/widgets/dropdown_form_field.dart';
-import '../../../../product/widgets/title_text.dart';
-import '../../../category/presentation/cubit/category_cubit.dart';
-import '../../../category/presentation/cubit/view_model/category_view_model.dart';
+import '../../../maps/presentation/cubit/maps_cubit.dart';
 import '../../domain/models/response/group_response.dart';
+import '../cubit/view_model/edit_group_view_model.dart';
 
 @RoutePage()
 class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
@@ -26,7 +24,54 @@ class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Edit Group"),
+          actions: [
+            IconButton(
+              onPressed: () async {
+                final isDeleteing = await showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      shape: ShapeBorder.lerp(
+                          RoundedRectangleBorder(
+                              borderRadius: context.normalBorderRadius),
+                          RoundedRectangleBorder(
+                              borderRadius: context.normalBorderRadius),
+                          1)!,
+                      title: const Text("Delete Event"),
+                      content: const Text(
+                          "Are you sure you want to delete this event?"),
+                      actions: [
+                        OutlinedButton(
+                            onPressed: () {
+                              context.router.pop(false);
+                            },
+                            child: const Text("Back")),
+                        TextButton(
+                            onPressed: () {
+                              context.router.pop(true);
+                            },
+                            child: Text(
+                              "Delete",
+                              style:
+                                  TextStyle(color: context.colorScheme.error),
+                            )),
+                      ],
+                    );
+                  },
+                );
+                if (isDeleteing == true) {
+                  bool response =
+                      await context.read<EditGroupCubit>().deleteGroup();
+                  if (response == true) {
+                    context.router.pop(EditGroupActions.delete);
+                    await context.read<MapsCubit>().refresh();
+                    await context.read<ProfileCubit>().refresh();
+                  }
+                }
+              },
+              icon: const Icon(Icons.delete),
+            )
+          ],
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -47,106 +92,7 @@ class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
                       ),
                     ),
                   ),
-                  BlocBuilder<EditGroupCubit, EditGroupViewModel>(
-                    bloc: context.read<EditGroupCubit>(),
-                    builder: (context, state) {
-                      return Form(
-                        key: state.formKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                                padding: context.verticalPaddingLow,
-                                alignment: Alignment.centerLeft,
-                                child: const TitleText(text: "Edit Group ;")),
-                            Container(
-                              padding: context.verticalPaddingLow,
-                              child: TextFormField(
-                                initialValue: state.updateGroupRequest?.name,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter group name';
-                                  }
-                                  return null;
-                                },
-                                onChanged: (value) {
-                                  context
-                                      .read<EditGroupCubit>()
-                                      .setGroupName(value);
-                                },
-                                decoration: const InputDecoration(
-                                  label: Text("Group Name"),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: context.verticalPaddingLow,
-                              child: TextFormField(
-                                initialValue:
-                                    state.updateGroupRequest?.description,
-                                minLines: 2,
-                                maxLines: 8,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter group description';
-                                  }
-                                  return null;
-                                },
-                                onChanged: (value) {
-                                  context
-                                      .read<EditGroupCubit>()
-                                      .setGroupDescription(value);
-                                },
-                                decoration: const InputDecoration(
-                                    label: Text("Group Description"),
-                                    alignLabelWithHint: true),
-                              ),
-                            ),
-                            Container(
-                              padding: context.verticalPaddingLow,
-                              child: DropdownFormField(
-                                  onTap: () async {
-                                    final response = await showModalBottomSheet<
-                                        CategoryResponse>(
-                                      context: context,
-                                      builder: (context) {
-                                        return BlocBuilder<CategoryCubit,
-                                            CategoryViewModel>(
-                                          builder: (context, state) {
-                                            return ListView.builder(
-                                              itemCount:
-                                                  state.categories?.length,
-                                              itemBuilder: (context, index) {
-                                                return ListTile(
-                                                  title: Text(state
-                                                          .categories?[index]
-                                                          ?.name ??
-                                                      ""),
-                                                  onTap: () {
-                                                    context.pop(state
-                                                        .categories![index]);
-                                                  },
-                                                );
-                                              },
-                                            );
-                                          },
-                                        );
-                                      },
-                                    );
-                                    if (response != null) {
-                                      context
-                                          .read<EditGroupCubit>()
-                                          .setGroupCategoryId(response);
-                                    }
-                                  },
-                                  label: state.selectedCategory?.name ??
-                                      "Select Category"),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
+                  const EditGroupForm()
                 ],
               )),
         ),
@@ -154,7 +100,7 @@ class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
           onPressed: () async {
             bool isSuccess = await context.read<EditGroupCubit>().updateGroup();
             if (isSuccess) {
-              context.router.pop(true);
+              context.router.pop(EditGroupActions.update);
             }
           },
           child: const Icon(Icons.done),

@@ -19,6 +19,7 @@ abstract class IGroupService {
       {@Query("userId") String? userId});
   Future<ResponseData?> add(@Body() GroupRequest request);
   Future<ResponseData?> update(@Body() UpdateGroupRequest request);
+  Future<ResponseData?> delete(@Query("groupId") String groupId);
 }
 
 @RestApi()
@@ -52,4 +53,8 @@ abstract class GroupManager implements IGroupService {
   @override
   @POST("/groups/update")
   Future<ResponseData?> update(@Body() UpdateGroupRequest request);
+
+  @override
+  @DELETE("/groups/delete")
+  Future<ResponseData?> delete(@Query("id") String groupId);
 }

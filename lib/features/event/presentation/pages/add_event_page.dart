@@ -16,7 +16,7 @@ class AddEventPage extends StatelessWidget with AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(forceMaterialTransparency: true,),
       body: SingleChildScrollView(
         child: Container(
           padding: context.paddingLow,

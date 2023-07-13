@@ -18,6 +18,7 @@ abstract class IGroupRepository {
       {String? userId});
   Future<ResponseData?> add(GroupRequest request);
   Future<ResponseData?> update(UpdateGroupRequest request);
+  Future<ResponseData?> delete(String groupId);
 }
 
 @Injectable(as: IGroupRepository)
@@ -54,6 +55,12 @@ class GroupRepository implements IGroupRepository {
   @override
   Future<ResponseData?> update(UpdateGroupRequest request) async {
     return await _groupService.update(request).catchError((error) =>
+        throw _errorSeparator.createError(error, StackTrace.current).handle());
+  }
+
+  @override
+  Future<ResponseData?> delete(String groupId) async {
+    return await _groupService.delete(groupId).catchError((error) =>
         throw _errorSeparator.createError(error, StackTrace.current).handle());
   }
 

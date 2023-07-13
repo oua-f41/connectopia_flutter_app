@@ -4,7 +4,6 @@ import 'package:connectopia/features/groups/data/repositories/group_repository.d
 import 'package:connectopia/features/user_attend_event/data/repository/user_attend_event_repository.dart';
 import 'package:connectopia/features/user_like_event/data/repository/user_like_event_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 import '../../../../core/helpers/globals.dart';
 import '../../../../core/helpers/image_upload.dart';
@@ -113,20 +112,10 @@ class EventDetailCubit extends BaseCubit<EventDetailViewModel> {
 
   Future<void> likeEvent() async {
     emit(state.copyWith(likingLoading: true));
-
-    await FirebaseMessaging.instance.sendMessage(
-      to: state.event!.groupId,
-      data: {
-        'title': 'New Like',
-        'body': 'Someone liked your event',
-      },  
-    );
-
+    UserLikeEventRequest request = UserLikeEventRequest(
+        eventId: state.event!.id!,
+        userId: FirebaseAuth.instance.currentUser!.uid);
     try {
-      UserLikeEventRequest request = UserLikeEventRequest(
-          eventId: state.event!.id!,
-          userId: FirebaseAuth.instance.currentUser!.uid);
-
       await _userLikeEventRepository.add(request);
 
       setIsLiked(isLikedDirectly: true);

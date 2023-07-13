@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
+import '../../../../product/widgets/title_text.dart';
 import '../../../location_picking/domain/models/event_location.dart';
 import '../cubit/add_event_cubit.dart';
 import '../cubit/view_model/add_event_view_model.dart';
@@ -18,14 +19,18 @@ class AddEventForm extends StatelessWidget {
       builder: (context, state) {
         return Form(
           key: state.formKey,
-          child: const Column(
+          child:  Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _ImagePicker(),
-              _EventNameInput(),
-              _EventDescriptionInput(),
-              _EventDatePicker(),
-              _EventLocationPicker(),
+              const _ImagePicker(),
+              Container(
+                  padding: context.paddingNormal,
+                  alignment: Alignment.centerLeft,
+                  child: const TitleText(text: "Create Event ;")),
+              const _EventNameInput(),
+              const _EventDescriptionInput(),
+              const _EventDatePicker(),
+              const _EventLocationPicker(),
             ],
           ),
         );

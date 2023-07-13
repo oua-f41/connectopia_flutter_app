@@ -21,7 +21,7 @@ class GroupCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.dynamicWidth(0.5), //card boyutu
+      width: context.dynamicWidth(0.5),
       height: context.dynamicHeight(0.3),
       child: TextButton(
         style: TextButton.styleFrom(
@@ -61,9 +61,18 @@ class GroupCard extends StatelessWidget {
                                   fit: BoxFit.cover,
                                   color: Colors.black.withOpacity(0.4),
                                   colorBlendMode: BlendMode.darken,
-                                  loadingBuilder: (context, child, loadingProgress) {
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
                                     if (loadingProgress == null) return child;
                                     return const SkeletonAvatar();
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Image.asset(
+                                      ImageConstants.logo.imagePath,
+                                      fit: BoxFit.cover,
+                                      color: Colors.black.withOpacity(0.4),
+                                      colorBlendMode: BlendMode.darken,
+                                    );
                                   },
                                 )
                               : Image.asset(
@@ -149,7 +158,8 @@ class GroupCard extends StatelessWidget {
                           ? Image.network(
                               group?.iconUrl ?? "",
                               fit: BoxFit.cover,
-                              loadingBuilder: (context, child, loadingProgress) {
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
                                 if (loadingProgress == null) return child;
                                 return const SkeletonAvatar();
                               },

@@ -10,9 +10,7 @@ part of 'group_service.dart';
 
 class _GroupManager implements GroupManager {
   _GroupManager(
-    this._dio, {
-    this.baseUrl,
-  });
+    this._dio);
 
   final Dio _dio;
 
@@ -24,7 +22,7 @@ class _GroupManager implements GroupManager {
     final queryParameters = <String, dynamic>{r'userId': userId};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<GroupResponse>>(Options(
       method: 'GET',
@@ -55,7 +53,7 @@ class _GroupManager implements GroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'groupId': groupId};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<GroupResponse>(Options(
       method: 'GET',
@@ -83,7 +81,7 @@ class _GroupManager implements GroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'userId': userId};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<Group>>(Options(
       method: 'GET',
@@ -119,7 +117,7 @@ class _GroupManager implements GroupManager {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<GroupResponse>>(Options(
       method: 'GET',
@@ -188,6 +186,34 @@ class _GroupManager implements GroupManager {
             .compose(
               _dio.options,
               '/groups/update',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value =
+        _result.data == null ? null : ResponseData.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ResponseData?> delete(String groupId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': groupId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>?>(_setStreamType<ResponseData>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/groups/delete',
               queryParameters: queryParameters,
               data: _data,
             )
