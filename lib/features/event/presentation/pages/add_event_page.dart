@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
-
 @RoutePage()
 class AddEventPage extends StatelessWidget with AutoRouteWrapper {
   const AddEventPage({super.key, required this.groupId});
@@ -16,14 +15,15 @@ class AddEventPage extends StatelessWidget with AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(forceMaterialTransparency: true,),
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+      ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: context.paddingLow,
-          child: const AddEventForm()
-        ),
+        child:
+            Container(padding: context.paddingLow, child: const AddEventForm()),
       ),
       floatingActionButton: FloatingActionButton.extended(
+          heroTag: "",
           onPressed: () async {
             bool? response = await context.read<AddEventCubit>().createEvent();
             if (response == true) {

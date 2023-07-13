@@ -21,7 +21,7 @@ import '../features/login_with_email/presentation/pages/login_with_email_wrapper
 import '../features/login_with_phone/presentation/pages/login_verify_phone_page.dart';
 import '../features/login_with_phone/presentation/pages/login_with_phone_page.dart';
 import '../features/login_with_phone/presentation/pages/login_with_phone_wrapper.dart';
-import '../features/home/presentation/home_page.dart';
+import '../features/home/presentation/pages/home_page.dart';
 import '../features/main_login/presentation/pages/main_login_page.dart';
 import '../features/maps/presentation/pages/maps_page.dart';
 import '../features/onboard/presentation/pages/onboard_page.dart';

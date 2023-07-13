@@ -49,6 +49,7 @@ class RegisterPage extends StatelessWidget with AutoRouteWrapper {
           )),
         ),
         floatingActionButton: FloatingActionButton(
+          heroTag: "",
           onPressed: () {
             context.read<RegisterCubit>().updateUser();
           },

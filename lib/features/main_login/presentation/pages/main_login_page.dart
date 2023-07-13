@@ -56,9 +56,8 @@ class _MainLoginPageState extends MainLoginViewModel {
                     LoginOptionButton(
                       symbol: Image.asset(ImageConstants.google.imagePath),
                       text: 'Log in with Google',
-                      onPressed: () {
-                        /* print('Log in with Google'); */
-                        signInWtihGoogle();
+                      onPressed: () async {
+                        await signInWtihGoogle();
                       },
                     ),
                     Container(

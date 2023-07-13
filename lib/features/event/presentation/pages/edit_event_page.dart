@@ -27,19 +27,18 @@ class EditEventPage extends StatelessWidget with AutoRouteWrapper {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: context.paddingLow,
-          child: const EditEventForm()
-        ),
+            padding: context.paddingLow, child: const EditEventForm()),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          bool? response = await context.read<EditEventCubit>().updateEvent();
-          if (response == true) {
-            context.router.pop(EditEventActions.update);
-            await context.read<MapsCubit>().refresh();
-          }
-        },
-        label: const Text('Update Event')),
+          heroTag: "",
+          onPressed: () async {
+            bool? response = await context.read<EditEventCubit>().updateEvent();
+            if (response == true) {
+              context.router.pop(EditEventActions.update);
+              await context.read<MapsCubit>().refresh();
+            }
+          },
+          label: const Text('Update Event')),
     );
   }
 

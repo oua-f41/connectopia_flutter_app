@@ -74,7 +74,12 @@ class EditProfilePage extends StatelessWidget with AutoRouteWrapper {
                                       return null;
                                     },
                                     initialValue: state.userRequest?.fullName
-                                        ?.split(" ")[0],
+                                                .isNotNullOrNoEmpty ==
+                                            true
+                                        ? state.userRequest?.fullName
+                                                ?.split(" ")[0] ??
+                                            ""
+                                        : "",
                                     onChanged: (value) {
                                       context
                                           .read<EditProfileCubit>()
@@ -96,8 +101,12 @@ class EditProfilePage extends StatelessWidget with AutoRouteWrapper {
                                       return null;
                                     },
                                     initialValue: state.userRequest?.fullName
-                                            ?.split(" ")[1] ??
-                                        "",
+                                                .isNotNullOrNoEmpty ==
+                                            true
+                                        ? state.userRequest?.fullName
+                                                ?.split(" ")[1] ??
+                                            ""
+                                        : "",
                                     onChanged: (value) {
                                       context
                                           .read<EditProfileCubit>()
@@ -213,6 +222,7 @@ class EditProfilePage extends StatelessWidget with AutoRouteWrapper {
                 )),
           ),
           floatingActionButton: FloatingActionButton(
+              heroTag: "",
               child: const Icon(Icons.done),
               onPressed: () async {
                 bool isSuccess =

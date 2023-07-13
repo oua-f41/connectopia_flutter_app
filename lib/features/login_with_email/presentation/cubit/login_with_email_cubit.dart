@@ -5,6 +5,9 @@ import '../../../../app/app_router.dart';
 import '../../../../app/base_cubit.dart';
 import '../../../../app/connectopia_app_cubit.dart';
 import '../../../../product/auth/data/operations/login_operations.dart';
+import '../../../../product/cache/application_properties.dart';
+import '../../../../product/cache/application_properties_manager.dart';
+import '../../../../product/cache/cache_enums.dart';
 import '../../../../product/di/injection.dart';
 import '../../../../product/models/user/request/user_request.dart';
 import '../../domain/models/request/login_with_email_request.dart';
@@ -99,6 +102,15 @@ class LoginWithEmailCubit extends BaseCubit<LoginWithEmailViewModel> {
           .login(UserRequest(id: user.user!.uid, email: user.user!.email));
       getIt.get<AppRouter>().pop();
       getIt.get<AppRouter>().replace(const MainRoute(children: [HomeRoute()]));
+      ApplicationPropertiesManager applicationPropertiesManager =
+          getIt.get<ApplicationPropertiesManager>();
+
+      applicationPropertiesManager.putItem(
+          CacheEnums.applicationProperties.name,
+          applicationPropertiesManager
+                  .getItem(CacheEnums.applicationProperties.name)
+                  ?.copyWith(isNewUser: false) ??
+              ApplicationProperties(isNewUser: false));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         await createUserWithEmailAndPassword();

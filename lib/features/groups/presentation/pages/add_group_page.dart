@@ -7,7 +7,6 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../product/constants/image_constants.dart';
 
-
 @RoutePage()
 class AddGroupPage extends StatelessWidget with AutoRouteWrapper {
   const AddGroupPage({super.key});
@@ -22,7 +21,7 @@ class AddGroupPage extends StatelessWidget with AutoRouteWrapper {
         child: Container(
             alignment: Alignment.center,
             padding: context.horizontalPaddingNormal,
-            child:  Column(
+            child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
@@ -33,7 +32,7 @@ class AddGroupPage extends StatelessWidget with AutoRouteWrapper {
                         context.isKeyBoardOpen ? 0 : context.dynamicHeight(0.2),
                     child: Image.asset(
                       ImageConstants.logo.imagePath,
-                    ) ,
+                    ),
                   ),
                 ),
                 const AddGroupForm()
@@ -41,6 +40,7 @@ class AddGroupPage extends StatelessWidget with AutoRouteWrapper {
             )),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "",
         onPressed: () async {
           bool isSuccess = await context.read<AddGroupCubit>().addGroup();
           if (isSuccess) {

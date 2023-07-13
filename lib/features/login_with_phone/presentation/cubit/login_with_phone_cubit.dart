@@ -6,6 +6,9 @@ import '../../../../app/app_router.dart';
 import '../../../../app/base_cubit.dart';
 import '../../../../app/connectopia_app_cubit.dart';
 import '../../../../product/auth/data/operations/login_operations.dart';
+import '../../../../product/cache/application_properties.dart';
+import '../../../../product/cache/application_properties_manager.dart';
+import '../../../../product/cache/cache_enums.dart';
 import '../../../../product/constants/duration_constants.dart';
 import '../../../../product/di/injection.dart';
 import '../../../../product/models/user/request/user_request.dart';
@@ -101,6 +104,15 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
               .get<AppRouter>()
               .replace(const MainRoute(children: [HomeRoute()]));
         }
+        ApplicationPropertiesManager applicationPropertiesManager =
+            getIt.get<ApplicationPropertiesManager>();
+
+        applicationPropertiesManager.putItem(
+            CacheEnums.applicationProperties.name,
+            applicationPropertiesManager
+                    .getItem(CacheEnums.applicationProperties.name)
+                    ?.copyWith(isNewUser: false) ??
+                ApplicationProperties(isNewUser: false));
       }
     } catch (e) {
       print("$e hata oluştu");

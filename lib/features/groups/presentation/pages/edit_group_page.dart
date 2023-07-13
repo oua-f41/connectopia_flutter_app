@@ -97,6 +97,7 @@ class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
               )),
         ),
         floatingActionButton: FloatingActionButton(
+          heroTag: "",
           onPressed: () async {
             bool isSuccess = await context.read<EditGroupCubit>().updateGroup();
             if (isSuccess) {
