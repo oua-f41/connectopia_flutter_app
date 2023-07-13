@@ -35,6 +35,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   skeletons: ^0.0.3
   auto_size_text: ^3.0.0
+  flutter_local_notifications: ^9.8.0+1
 
   #animation
   lottie: ^2.3.0

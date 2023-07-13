@@ -109,6 +109,7 @@ class AppRouter extends _$AppRouter {
         AuthGuard(),
       ]),
       AutoRoute(page: SettingsRoute.page, guards: [AuthGuard()]),
+      AutoRoute(page: DonateRoute.page, guards: [AuthGuard()]),
     ]),
   ];
 }

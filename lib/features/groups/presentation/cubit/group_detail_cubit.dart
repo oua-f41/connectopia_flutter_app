@@ -6,6 +6,7 @@ import 'package:connectopia/features/groups/presentation/cubit/view_model/group_
 import 'package:connectopia/product/di/injection.dart';
 import 'package:connectopia/product/helpers/firebase_utilities.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_cropper/image_cropper.dart';
 
@@ -82,6 +83,7 @@ class GroupDetailCubit extends BaseCubit<GroupDetailViewModel> {
           groupId: state.groupResponse!.id!,
           userId: FirebaseAuth.instance.currentUser!.uid);
       final response = await _userGroupRepository.add(userGroupRequest);
+      FirebaseMessaging.instance.subscribeToTopic(state.groupResponse!.id!);
       snackbarKey.currentState!
           .showSnackBar(InfoSnackBar(contentText: response!.message ?? ""));
       setIsAttended(isAttendedDirectly: true);
@@ -102,6 +104,7 @@ class GroupDetailCubit extends BaseCubit<GroupDetailViewModel> {
           (user) => user.userId == FirebaseAuth.instance.currentUser!.uid);
       if (userGroup?.id != null) {
         final response = await _userGroupRepository.delete(userGroup!.id!);
+        FirebaseMessaging.instance.unsubscribeFromTopic(state.groupResponse!.id!);
         snackbarKey.currentState!
             .showSnackBar(InfoSnackBar(contentText: response!.message ?? ""));
         setIsAttended(isAttendedDirectly: false);

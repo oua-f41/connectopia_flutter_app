@@ -1,4 +1,7 @@
+
+
 class FirebaseUtilities {
+  
   static String firebaseStoragePath =
       "https://firebasestorage.googleapis.com/v0/b/f41-flutterfire.appspot.com/o/";
 
@@ -11,4 +14,6 @@ class FirebaseUtilities {
     var c = b?.split("?alt=media")[0];
     return c ?? "";
   }
+
+  
 }

@@ -11,6 +11,7 @@ import '../../core/error/default_error_factory.dart';
 import '../../core/error/error_factory.dart';
 import '../../core/error/error_separator.dart';
 import '../cache/application_properties_manager.dart';
+import '../helpers/firebase_notification.dart';
 import 'injection.config.dart';
 
 final getIt = GetIt.instance;
@@ -34,4 +35,5 @@ Future<void> configureDependencies() async {
 
   getIt.registerLazySingleton(() => CategoryCacheManager());
   getIt.registerLazySingleton(() => WeatherCubit());
+  getIt.registerLazySingleton(() => FirebaseNotification());
 }

@@ -13,23 +13,28 @@ import 'package:skeletons/skeletons.dart';
 import '../../../../product/constants/image_constants.dart';
 import '../../../../product/models/core_models/event.dart';
 
-class EventCard extends StatelessWidget {
+class EventCard extends StatefulWidget {
   const EventCard({super.key, this.event});
 
   final Event? event;
 
   @override
+  State<EventCard> createState() => _EventCardState();
+}
+
+class _EventCardState extends State<EventCard> {
+  @override
   Widget build(BuildContext context) {
-    return event != null
+    return widget.event != null
         ? BlocProvider(
-            create: (context) => EventCardCubit()..init(event!),
+            create: (context) => EventCardCubit()..init(widget.event!),
             child: BlocBuilder<EventCardCubit, EventCardViewModel>(
               builder: (context, state) {
                 return Container(
                   child: InkWell(
                     onTap: () {
-                      if (event != null) {
-                        context.router.push(EventDetailRoute(event: event!));
+                      if (widget.event != null) {
+                        context.router.push(EventDetailRoute(event: widget.event!));
                       }
                     },
                     child: Container(
@@ -45,11 +50,11 @@ class EventCard extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ClipOval(
-                                    child: event?.group?.iconUrl
+                                    child: widget.event?.group?.iconUrl
                                                 .isNotNullOrNoEmpty ==
                                             true
                                         ? Image.network(
-                                            event!.group!.iconUrl!,
+                                            widget.event!.group!.iconUrl!,
                                             height: 45,
                                             width: 45,
                                             loadingBuilder: (context, child,
@@ -169,7 +174,7 @@ class EventCard extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      event?.name ?? '',
+                                      widget.event?.name ?? '',
                                       style: context.textTheme.titleLarge
                                           ?.copyWith(
                                         fontWeight: FontWeight.bold,
@@ -182,7 +187,7 @@ class EventCard extends StatelessWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            '- ${event?.group?.category?.name ?? ''}',
+                                            '- ${widget.event?.group?.category?.name ?? ''}',
                                             style: context.textTheme.bodyMedium
                                                 ?.copyWith(
                                               color:
@@ -190,12 +195,12 @@ class EventCard extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            '${DateTime.now().difference(event?.eventDate ?? DateTime.now()).inDays.abs()} days ${DateTime.now().difference(event?.eventDate ?? DateTime.now()).isNegative ? "letter" : "ago"} ',
+                                            '${DateTime.now().difference(widget.event?.eventDate ?? DateTime.now()).inDays.abs()} days ${DateTime.now().difference(widget.event?.eventDate ?? DateTime.now()).isNegative ? "letter" : "ago"} ',
                                             style: context.textTheme.bodyMedium
                                                 ?.copyWith(
                                               color: DateTime.now()
                                                       .difference(
-                                                          event?.eventDate ??
+                                                          widget.event?.eventDate ??
                                                               DateTime.now())
                                                       .isNegative
                                                   ? context.colorScheme.outline
@@ -210,11 +215,12 @@ class EventCard extends StatelessWidget {
                                       child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(12.0),
-                                          child: event?.eventPhotoUrl
+                                          child: widget.event?.eventPhotoUrl
                                                       .isNotNullOrNoEmpty ==
                                                   true
                                               ? Image.network(
-                                                  event!.eventPhotoUrl!,
+                                                  widget.event!.eventPhotoUrl!,
+                                                  
                                                   loadingBuilder: (context,
                                                           child,
                                                           loadingProgress) =>

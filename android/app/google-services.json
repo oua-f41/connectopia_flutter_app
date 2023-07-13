@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "875664835580-kg7r8t82b299t35jogb3v2sc6usfgmod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.connectopia",
+            "certificate_hash": "283b410ac27f44b0f7d2b42d9c872255ab8d6014"
+          }
+        },
+        {
           "client_id": "875664835580-fi1o5arfr16gs55jbg2inb1jq8km4r73.apps.googleusercontent.com",
           "client_type": 3
         }
