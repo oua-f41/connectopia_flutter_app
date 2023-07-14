@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget with AutoRouteWrapper {
     return BlocBuilder<MainCubit, MainViewModel>(
       builder: (context, state) {
         return AutoTabsScaffold(
-          homeIndex: 2,
+          homeIndex: 1,
           routes: const [
             MapsRoute(),
             HomeRoute(),

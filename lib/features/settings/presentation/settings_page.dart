@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:connectopia/app/app_router.dart';
 import 'package:connectopia/app/connectopia_app_cubit.dart';
 import 'package:connectopia/product/di/injection.dart';
+import 'package:connectopia/product/helpers/firebase_notification.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -161,6 +162,8 @@ class SettingsPage extends StatelessWidget {
                               onPressed: () async {
                                 getIt<ConnectopiaAppCubit>().changeIsLoading();
                                 await SetupToken.removeTokens();
+                                FirebaseNotification().unSubscribeToGroups();
+                                FirebaseNotification().unSubscribeToPersonal();
                                 FirebaseAuth.instance.signOut();
                                 getIt.get<AppRouter>().pop();
                                 getIt.get<AppRouter>().pop();

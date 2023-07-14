@@ -45,9 +45,6 @@ class ChatPage extends StatelessWidget with AutoRouteWrapper {
                     MessageRoom room = MessageRoom.fromJson(datas);
                     room = room.copyWith(
                         messages: room.messages?.reversed.toList());
-                    /* setState(() {
-                      roomId = room.id;
-                    }); */
                     return ListView.builder(
                       reverse: true,
                       itemCount: data["messages"].length,

@@ -30,7 +30,7 @@ class FirebaseNotification {
     await _localNotifications.initialize(settings,
         onSelectNotification: (payload) {
       final message = RemoteMessage.fromMap(jsonDecode(payload!));
-      print(message.data);
+      handleMessage(message);
     });
 
     final platform = _localNotifications.resolvePlatformSpecificImplementation<
@@ -40,13 +40,23 @@ class FirebaseNotification {
 
   Future<void> initNotifications() async {
     await _firebaseMessaging.requestPermission();
-    final token = await _firebaseMessaging.getToken();
 
     await subscribeToGroups();
     await subscribeToPersonal();
 
-    FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-    FirebaseMessaging.onMessage.listen(firebaseMessagingBackgroundHandler);
+    initPushNotifications();
+    initLocalNotifications();
+  }
+
+  Future initPushNotifications() async {
+    FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+        alert: true, badge: true, sound: true);
+    FirebaseMessaging.instance.getInitialMessage().then((message) {
+      if (message != null) {
+        handleMessage(message);
+      }
+    });
+    FirebaseMessaging.onBackgroundMessage(handleMessage);
     FirebaseMessaging.onMessage.listen((message) {
       final notification = message.notification;
       if (notification == null) return;
@@ -64,16 +74,20 @@ class FirebaseNotification {
     });
   }
 
-  Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  Future<void> handleMessage(RemoteMessage message) async {
     if (message.data['route'] != null) {
       if (message.data['route'] == "chat" && message.data['id'] != null) {
-        getIt.get<AppRouter>().push(ChatRoute(
-            profileResponse: ProfileResponse(id: message.data['id'])));
+        getIt.get<AppRouter>().push(AppWrapperRoute(children: [
+              const MainRoute(children: [HomeRoute()]),
+              ChatRoute(
+                  profileResponse: ProfileResponse(id: message.data['id']))
+            ]));
       }
       if (message.data['route'] == "event" && message.data['id'] != null) {
-        getIt
-            .get<AppRouter>()
-            .push(EventDetailRoute(event: Event(id: message.data['id'])));
+        getIt.get<AppRouter>().push(AppWrapperRoute(children: [
+              const MainRoute(children: [HomeRoute()]),
+              EventDetailRoute(event: Event(id: message.data['id']))
+            ]));
       }
     }
   }
@@ -90,9 +104,27 @@ class FirebaseNotification {
         });
   }
 
+  Future<void> unSubscribeToGroups() async {
+    if (FirebaseAuth.instance.currentUser == null) return;
+    ProfileResponse? currentUser = await _profileRepository
+        .getByUserId(FirebaseAuth.instance.currentUser!.uid);
+    currentUser?.userGroups?.forEach((e) => {
+          if (e.groupId != null)
+            {
+              _firebaseMessaging.unsubscribeFromTopic(e.group!.id!),
+            }
+        });
+  }
+
   Future<void> subscribeToPersonal() async {
     if (FirebaseAuth.instance.currentUser == null) return;
     await _firebaseMessaging
         .subscribeToTopic(FirebaseAuth.instance.currentUser!.uid);
+  }
+
+  Future<void> unSubscribeToPersonal() async {
+    if (FirebaseAuth.instance.currentUser == null) return;
+    await _firebaseMessaging
+        .unsubscribeFromTopic(FirebaseAuth.instance.currentUser!.uid);
   }
 }
