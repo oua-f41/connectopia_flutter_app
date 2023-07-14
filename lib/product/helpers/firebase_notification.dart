@@ -66,15 +66,14 @@ class FirebaseNotification {
 
   Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     if (message.data['route'] != null) {
-      if (message.data['route'] == "chat" &&
-          message.data['chatUserId'] != null) {
+      if (message.data['route'] == "chat" && message.data['id'] != null) {
         getIt.get<AppRouter>().push(ChatRoute(
-            profileResponse: ProfileResponse(id: message.data['chatUserId'])));
+            profileResponse: ProfileResponse(id: message.data['id'])));
       }
-      if (message.data['route'] == "event" && message.data['evenId'] != null) {
+      if (message.data['route'] == "event" && message.data['id'] != null) {
         getIt
             .get<AppRouter>()
-            .push(EventDetailRoute(event: Event(id: message.data['evenId'])));
+            .push(EventDetailRoute(event: Event(id: message.data['id'])));
       }
     }
   }
