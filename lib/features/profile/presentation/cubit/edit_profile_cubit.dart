@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:connectopia/product/models/user/request/user_request.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:kartal/kartal.dart';
 
 import '../../../../app/base_cubit.dart';
 import '../../../../app/connectopia_app_cubit.dart';
@@ -70,39 +73,44 @@ class EditProfileCubit extends BaseCubit<EditProfileViewModel> {
         userRequest: state.userRequest?.copyWith(phoneNumber: phoneNumber)));
   }
 
-  Future<void> profilePhotoChange() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
-    CroppedFile? pickedImage = await _imageUploadManager.cropWithFetch();
+  void changeProfilePhoto() async {
+    CroppedFile? file = await _imageUploadManager.cropWithFetch();
+    saveLocalFile(file);
+  }
 
-    if (pickedImage != null) {
-      TaskSnapshot task = await store
-          .ref(pickedImage.path.split("/").last)
-          .putData(await pickedImage.readAsBytes());
+  void saveLocalFile(CroppedFile? file) {
+    if (file == null) return;
+    emit(state.copyWith(profilePhoto: File(file.path)));
+  }
 
-      /* That code throw exception when debug mode but its working normally on prod mode */
-      /* if (state.userRequest?.profilePhotoUrl != "") {
+  Future<void> saveProfilePhoto() async {
+    if (state.profilePhoto != null) {
+      if (state.userRequest?.profilePhotoUrl.isNotNullOrNoEmpty == true) {
         try {
-          await store
+          await FirebaseStorage.instance
               .ref(FirebaseUtilities.convertFireStoreName(
-                  state.userRequest?.profilePhotoUrl.toString()))
+                  state.userRequest!.profilePhotoUrl!.toString()))
               .delete();
         } catch (e) {
           print(e);
         }
-      } */
+      }
+      TaskSnapshot task = await FirebaseStorage.instance
+          .ref(state.profilePhoto!.path.split("/").last)
+          .putData(await state.profilePhoto!.readAsBytes());
 
       emit(state.copyWith(
-          userRequest: state.userRequest!.copyWith(
+          userRequest: state.userRequest?.copyWith(
               profilePhotoUrl: FirebaseUtilities.convertFireStorePath(
-                  task.metadata?.fullPath ?? ""))));
+                  task.metadata!.fullPath))));
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
   }
 
   Future<bool> updateUser() async {
     getIt.get<ConnectopiaAppCubit>().changeIsLoading();
     if (state.updateProfileFormKey.currentState!.validate()) {
       try {
+        await saveProfilePhoto();
         ResponseData? response =
             await _profileRepository.updateProfile(state.userRequest!);
         snackbarKey.currentState!
