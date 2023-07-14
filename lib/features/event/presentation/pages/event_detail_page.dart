@@ -29,63 +29,64 @@ class EventDetailPage extends StatelessWidget with AutoRouteWrapper {
     return BlocBuilder<EventDetailCubit, EventDetailViewModel>(
       builder: (context, state) {
         return Scaffold(
-          body: CustomScrollView(
-            slivers: <Widget>[
-              SliverAppBar(
-                toolbarHeight: 40,
-                expandedHeight: context.dynamicHeight(0.5),
-                backgroundColor: context.colorScheme.background,
-                elevation: 5,
-                pinned: true,
-                stretch: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: EventDetailImage(event: event),
-                  stretchModes: const [
-                    StretchMode.blurBackground,
-                    StretchMode.zoomBackground,
-                  ],
-                ),
-                leading: const _AutoBackButton(),
-                actions: [
-                  state.event?.group?.userId ==
-                          FirebaseAuth.instance.currentUser?.uid
-                      ? const EventDetailEditButton()
-                      : const SizedBox(),
-                ],
-                bottom: const PreferredSize(
-                  preferredSize: Size.fromHeight(0.0),
-                  child: _EventDetailScrollControl(),
-                ),
-              ),
-
-              SliverToBoxAdapter(
-                child: Container(
-                  color: context.colorScheme.background,
-                  padding: EdgeInsetsConstants.eventDetailGeneralPadding,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TitleText(text: state.event?.name ?? event.name ?? "",),
-                      EventDetailCategoryAndDate(event: event),
-                      EventDetailGroupAndLike(event: event),
-                      Text(state.event?.description ?? event.description ?? "",
-                          style: Theme.of(context).textTheme.titleSmall),
-                      EventDetailAttendeesButton(event: event),
-                      Container(
-                          padding: context.verticalPaddingLow,
-                          child: const Divider()),
-                      const EventDetailLocation(),
-                      const EventDetailInterestedGroups()
+            body: CustomScrollView(
+              slivers: <Widget>[
+                SliverAppBar(
+                  toolbarHeight: 40,
+                  expandedHeight: context.dynamicHeight(0.5),
+                  backgroundColor: context.colorScheme.background,
+                  elevation: 5,
+                  pinned: true,
+                  stretch: true,
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: EventDetailImage(event: event),
+                    stretchModes: const [
+                      StretchMode.blurBackground,
+                      StretchMode.zoomBackground,
                     ],
                   ),
+                  leading: const _AutoBackButton(),
+                  actions: [
+                    state.event?.group?.userId ==
+                            FirebaseAuth.instance.currentUser?.uid
+                        ? const EventDetailEditButton()
+                        : const SizedBox(),
+                  ],
+                  bottom: const PreferredSize(
+                    preferredSize: Size.fromHeight(0.0),
+                    child: _EventDetailScrollControl(),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          bottomNavigationBar: state.isLoading
-              ? const SizedBox()
-              : EventDetailBottomActions(event: event)
-        );
+                SliverToBoxAdapter(
+                  child: Container(
+                    color: context.colorScheme.background,
+                    padding: EdgeInsetsConstants.eventDetailGeneralPadding,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TitleText(
+                          text: state.event?.name ?? event.name ?? "",
+                        ),
+                        EventDetailCategoryAndDate(event: event),
+                        EventDetailGroupAndLike(event: event),
+                        Text(
+                            state.event?.description ?? event.description ?? "",
+                            style: Theme.of(context).textTheme.titleSmall),
+                        EventDetailAttendeesButton(event: event),
+                        Container(
+                            padding: context.verticalPaddingLow,
+                            child: const Divider()),
+                        const EventDetailLocation(),
+                        const EventDetailInterestedGroups()
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            bottomNavigationBar: state.isLoading
+                ? const SizedBox()
+                : EventDetailBottomActions(event: event));
       },
     );
   }
@@ -104,20 +105,21 @@ class _AutoBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: AutoLeadingButton(builder: (context, leadingType, action) {
-      return IconButton(
-        style: IconButton.styleFrom(
-            backgroundColor:
-                context.colorScheme.outline.withOpacity(0.25),
+    return Center(child: AutoLeadingButton(
+      builder: (context, leadingType, action) {
+        return IconButton(
+          style: IconButton.styleFrom(
+            backgroundColor: context.colorScheme.outlineVariant,
           ),
-        onPressed: () {
-          if(leadingType == LeadingType.back){
-            context.router.pop();
-          }
-        },
-        icon: const Icon(Icons.arrow_back),
-      );
-    },));
+          onPressed: () {
+            if (leadingType == LeadingType.back) {
+              context.router.pop();
+            }
+          },
+          icon: const Icon(Icons.arrow_back),
+        );
+      },
+    ));
   }
 }
 

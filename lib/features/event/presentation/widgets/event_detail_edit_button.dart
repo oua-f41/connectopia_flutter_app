@@ -17,12 +17,12 @@ class EventDetailEditButton extends StatelessWidget {
       builder: (context, state) {
         return IconButton(
           style: IconButton.styleFrom(
-            backgroundColor: context.colorScheme.outline.withOpacity(0.25),
+            backgroundColor: context.colorScheme.outlineVariant,
           ),
           onPressed: () async {
             if (state.event == null) return;
-            final action = await context.router
-                .push(EditEventRoute(event: state.event!));
+            final action =
+                await context.router.push(EditEventRoute(event: state.event!));
             if (action == EditEventActions.update) {
               context.read<EventDetailCubit>().refresh();
             }

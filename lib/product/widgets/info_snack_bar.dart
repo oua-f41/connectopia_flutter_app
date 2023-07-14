@@ -1,3 +1,4 @@
+import 'package:connectopia/core/helpers/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -8,10 +9,11 @@ class InfoSnackBar extends SnackBar {
       super.key,
       BuildContext? context})
       : super(
-            backgroundColor: context?.colorScheme.secondary ?? Colors.grey,
+            backgroundColor: snackbarKey.currentContext?.colorScheme.surface,
             content: Row(
               children: [
-                const Icon(Icons.info_outline),
+                Icon(Icons.info_outline,
+                    color: snackbarKey.currentContext?.colorScheme.onSurface),
                 FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Container(
@@ -23,6 +25,10 @@ class InfoSnackBar extends SnackBar {
                       softWrap: true,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
+                      style: snackbarKey.currentContext?.textTheme.bodyLarge
+                          ?.copyWith(
+                              color: snackbarKey
+                                  .currentContext?.colorScheme.onSurface),
                     ),
                   ),
                 ),

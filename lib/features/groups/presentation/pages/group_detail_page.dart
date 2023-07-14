@@ -43,6 +43,7 @@ class GroupDetailPage extends StatelessWidget with AutoRouteWrapper {
                 headerSliverBuilder: (context, innerBoxIsScrolled) {
                   return [
                     SliverAppBar(
+                      leading: const _AutoBackButton(),
                       scrolledUnderElevation: 0,
                       shadowColor: Colors.black,
                       actions: state.groupResponse?.userId ==
@@ -113,6 +114,31 @@ class GroupDetailPage extends StatelessWidget with AutoRouteWrapper {
   }
 }
 
+class _AutoBackButton extends StatelessWidget {
+  const _AutoBackButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: AutoLeadingButton(
+        builder: (context, leadingType, action) {
+          return IconButton(
+            style: IconButton.styleFrom(
+              backgroundColor: context.colorScheme.outlineVariant,
+            ),
+            onPressed: () {
+              if (leadingType == LeadingType.back) {
+                context.router.pop();
+              }
+            },
+            icon: const Icon(Icons.arrow_back),
+          );
+        },
+      ),
+    );
+  }
+}
+
 class _GroupDetailDescriptioLoading extends StatelessWidget {
   const _GroupDetailDescriptioLoading();
 
@@ -153,6 +179,9 @@ class _EditGroupIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      style: IconButton.styleFrom(
+        backgroundColor: context.colorScheme.outlineVariant,
+      ),
       onPressed: () async {
         if (state.groupResponse == null ||
             state.groupResponse?.category == null) {

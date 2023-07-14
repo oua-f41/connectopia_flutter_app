@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:skeletons/skeletons.dart';
 
 import '../../../../product/constants/image_constants.dart';
 import '../../../../product/models/core_models/group.dart';
@@ -26,21 +27,29 @@ class GroupDetailPhoto extends StatelessWidget {
                 width: context.dynamicWidth(1),
                 child: Hero(
                   tag: "${group?.category?.photoUrl}${group?.id}",
-                  child:
-                      group?.category?.photoUrl?.isNotNullOrNoEmpty == true ||
-                              state.groupResponse?.category?.photoUrl
-                                      ?.isNotNullOrNoEmpty ==
-                                  true
-                          ? Image.network(
-                              state.groupResponse?.category?.photoUrl ??
-                                  group?.category?.photoUrl ??
-                                  "",
-                              fit: BoxFit.cover,
-                              color: Colors.black.withOpacity(0.5),
-                              colorBlendMode: BlendMode.darken,
-                            )
-                          : Image.asset(
-                              ImageConstants.defaultProfilePhoto.imagePath),
+                  child: group?.category?.photoUrl?.isNotNullOrNoEmpty ==
+                              true ||
+                          state.groupResponse?.category?.photoUrl
+                                  ?.isNotNullOrNoEmpty ==
+                              true
+                      ? Image.network(
+                          state.groupResponse?.category?.photoUrl ??
+                              group?.category?.photoUrl ??
+                              "",
+                          fit: BoxFit.cover,
+                          color: Colors.black.withOpacity(0.5),
+                          colorBlendMode: BlendMode.darken,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
+                              child: SkeletonAvatar(),
+                            );
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(child: Icon(Icons.category));
+                          },
+                        )
+                      : const Center(child: Icon(Icons.category)),
                 ),
               ),
               Container(
@@ -62,6 +71,19 @@ class GroupDetailPhoto extends StatelessWidget {
                             ? Image.network(
                                 state.groupResponse?.iconUrl ?? group!.iconUrl!,
                                 fit: BoxFit.cover,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                  if (loadingProgress == null) return child;
+                                  return const Center(
+                                    child: SkeletonAvatar(),
+                                  );
+                                },
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Image.asset(
+                                    ImageConstants.defaultGroupPhoto.imagePath,
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               )
                             : Image.asset(
                                 ImageConstants.defaultGroupPhoto.imagePath,

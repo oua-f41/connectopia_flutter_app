@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/connectopia_app_cubit.dart';
 import '../../../../core/helpers/globals.dart';
+import '../../../../product/models/response_data.dart';
 import '../../../../product/widgets/info_snack_bar.dart';
 import '../../../../product/di/injection.dart';
 import '../../../../product/models/core_models/category.dart';
@@ -63,7 +64,9 @@ class EditGroupCubit extends BaseCubit<EditGroupViewModel> {
         UpdateGroupRequest request = state.updateGroupRequest!.copyWith(
           categoryId: state.selectedCategory?.id,
         );
-        await _groupRepository.update(request);
+        ResponseData? response = await _groupRepository.update(request);
+        snackbarKey.currentState!.showSnackBar(
+            InfoSnackBar(contentText: response?.message ?? "Group updated"));
         getIt.get<ConnectopiaAppCubit>().changeIsLoading();
         return true;
       } catch (error) {

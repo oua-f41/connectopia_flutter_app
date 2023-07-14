@@ -163,6 +163,12 @@ class GroupCard extends StatelessWidget {
                                 if (loadingProgress == null) return child;
                                 return const SkeletonAvatar();
                               },
+                              errorBuilder: (context, error, stackTrace) {
+                                return Image.asset(
+                                  ImageConstants.defaultGroupPhoto.imagePath,
+                                  fit: BoxFit.cover,
+                                );
+                              },
                             )
                           : Image.asset(
                               ImageConstants.defaultGroupPhoto.imagePath,

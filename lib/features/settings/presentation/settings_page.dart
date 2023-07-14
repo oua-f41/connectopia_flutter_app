@@ -176,6 +176,11 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: TextButton(
+          onPressed: () {
+            context.router.push(const PrivacyPolicyRoute());
+          },
+          child: const Text("Privacy Policy")),
     );
   }
 }

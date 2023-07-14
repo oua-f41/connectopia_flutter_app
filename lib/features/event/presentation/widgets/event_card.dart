@@ -26,40 +26,40 @@ class _EventCardState extends State<EventCard> {
   @override
   Widget build(BuildContext context) {
     return widget.event != null
-    ? BlocProvider(
-        create: (context) => EventCardCubit()..init(widget.event!),
-        child: BlocBuilder<EventCardCubit, EventCardViewModel>(
-          builder: (context, state) {
-            return Container(
-              child: InkWell(
-                onTap: () {
-                  if (widget.event != null) {
-                    context.router
-                        .push(EventDetailRoute(event: widget.event!));
-                  }
-                },
-                child: Container(
-                  padding: context.paddingNormal,
-                  child: Container(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _EventCardActions(
-                          event: widget.event!,
+        ? BlocProvider(
+            create: (context) => EventCardCubit()..init(widget.event!),
+            child: BlocBuilder<EventCardCubit, EventCardViewModel>(
+              builder: (context, state) {
+                return Container(
+                  child: InkWell(
+                    onTap: () {
+                      if (widget.event != null) {
+                        context.router
+                            .push(EventDetailRoute(event: widget.event!));
+                      }
+                    },
+                    child: Container(
+                      padding: context.paddingNormal,
+                      child: Container(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _EventCardActions(
+                              event: widget.event!,
+                            ),
+                            _EventCardContent(
+                              event: widget.event!,
+                            ),
+                          ],
                         ),
-                        _EventCardContent(
-                          event: widget.event!,
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-            );
-          },
-        ),
-      )
-    : const SizedBox();
+                );
+              },
+            ),
+          )
+        : const SizedBox();
   }
 }
 
@@ -79,42 +79,32 @@ class _EventCardContent extends StatelessWidget {
             padding: context.onlyLeftPaddingNormal,
             alignment: Alignment.centerLeft,
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(event.name ?? '',
-                  style: context.textTheme.titleLarge
-                      ?.copyWith(
+                Text(
+                  event.name ?? '',
+                  style: context.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Container(
                   padding: context.paddingLow,
                   child: Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         '- ${event.group?.category?.name ?? ''}',
-                        style: context
-                            .textTheme.bodyMedium
-                            ?.copyWith(
-                          color: context
-                              .colorScheme.outline,
+                        style: context.textTheme.bodyMedium?.copyWith(
+                          color: context.colorScheme.outline,
                         ),
                       ),
                       Text(
                         '${DateTime.now().difference(event.eventDate ?? DateTime.now()).inDays.abs()} days ${DateTime.now().difference(event.eventDate ?? DateTime.now()).isNegative ? "letter" : "ago"} ',
-                        style: context
-                            .textTheme.bodyMedium
-                            ?.copyWith(
+                        style: context.textTheme.bodyMedium?.copyWith(
                           color: DateTime.now()
-                                  .difference(event
-                                          .eventDate ??
-                                      DateTime.now())
+                                  .difference(event.eventDate ?? DateTime.now())
                                   .isNegative
-                              ? context
-                                  .colorScheme.outline
+                              ? context.colorScheme.outline
                               : Colors.red,
                         ),
                       ),
@@ -124,35 +114,35 @@ class _EventCardContent extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.circular(12.0),
-                    child: event.eventPhotoUrl.isNotNullOrNoEmpty ==true
-                    ? Image.network(
-                        event
-                            .eventPhotoUrl!,
-                        loadingBuilder: (context,
-                                child,
-                                loadingProgress) =>
-                            loadingProgress ==
-                                    null
-                                ? child
-                                : SkeletonLine(
-                                    style: SkeletonLineStyle(
-                                        height: context
-                                            .dynamicWidth(
-                                                0.8))),
-                      )
-                    : Container(
-                        padding:
-                            context.paddingHigh,
-                        child: const Center(
-                            child: Icon(
-                          Icons.event,
-                          size: 120,
-                        )
-                      )
-                    )
-                  ),
+                      borderRadius: BorderRadius.circular(12.0),
+                      child: event.eventPhotoUrl.isNotNullOrNoEmpty == true
+                          ? Image.network(
+                              event.eventPhotoUrl!,
+                              loadingBuilder: (context, child,
+                                      loadingProgress) =>
+                                  loadingProgress == null
+                                      ? child
+                                      : SkeletonLine(
+                                          style: SkeletonLineStyle(
+                                              height:
+                                                  context.dynamicWidth(0.8))),
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                alignment: Alignment.center,
+                                padding: context.paddingHigh,
+                                child: const Icon(
+                                  Icons.event,
+                                  size: 120,
+                                ),
+                              ),
+                            )
+                          : Container(
+                              padding: context.paddingHigh,
+                              child: const Center(
+                                  child: Icon(
+                                Icons.event,
+                                size: 120,
+                              )))),
                 ),
               ],
             ),
@@ -195,6 +185,12 @@ class _EventCardActions extends StatelessWidget {
                           );
                         },
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image.asset(
+                              ImageConstants.defaultGroupPhoto.imagePath,
+                              height: 45,
+                              width: 45);
+                        },
                       )
                     : Image.asset(ImageConstants.defaultGroupPhoto.imagePath,
                         height: 45, width: 45),
@@ -216,7 +212,8 @@ class _EventCardActions extends StatelessWidget {
                         )),
                     IconButton(
                         onPressed: () async {
-                          if (state.event?.eventPhotoUrl.isNullOrEmpty == true) {
+                          if (state.event?.eventPhotoUrl.isNullOrEmpty ==
+                              true) {
                             return;
                           }
                           final response = await Dio().get(
