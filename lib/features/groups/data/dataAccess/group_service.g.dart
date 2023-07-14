@@ -10,7 +10,9 @@ part of 'group_service.dart';
 
 class _GroupManager implements GroupManager {
   _GroupManager(
-    this._dio);
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
@@ -22,7 +24,7 @@ class _GroupManager implements GroupManager {
     final queryParameters = <String, dynamic>{r'userId': userId};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<GroupResponse>>(Options(
       method: 'GET',
@@ -53,7 +55,7 @@ class _GroupManager implements GroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'groupId': groupId};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<GroupResponse>(Options(
       method: 'GET',
@@ -81,7 +83,7 @@ class _GroupManager implements GroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'userId': userId};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<Group>>(Options(
       method: 'GET',
@@ -117,7 +119,7 @@ class _GroupManager implements GroupManager {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<GroupResponse>>(Options(
       method: 'GET',
@@ -204,7 +206,7 @@ class _GroupManager implements GroupManager {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'id': groupId};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>?>(_setStreamType<ResponseData>(Options(
       method: 'DELETE',

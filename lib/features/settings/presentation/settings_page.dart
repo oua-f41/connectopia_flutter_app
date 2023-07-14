@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../product/helpers/setup_token.dart';
 
@@ -177,8 +178,9 @@ class SettingsPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: TextButton(
-          onPressed: () {
-            context.router.push(const PrivacyPolicyRoute());
+          onPressed: () async {
+            await launchUrl(Uri.parse(
+                "https://www.freeprivacypolicy.com/live/6d458022-3135-46bd-ba8d-53d1799456c9"));
           },
           child: const Text("Privacy Policy")),
     );

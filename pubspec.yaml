@@ -36,6 +36,7 @@ dependencies:
   skeletons: ^0.0.3
   auto_size_text: ^3.0.0
   flutter_local_notifications: ^9.8.0+1
+  chat_bubbles: ^1.4.1
 
   #animation
   lottie: ^2.3.0
@@ -75,11 +76,12 @@ dependencies:
   share_plus: ^7.0.0
   path_provider: ^2.0.15
   pay: ^1.1.1
+  url_launcher: ^6.1.12
 
   #firebase
   firebase_core: ^2.13.1
   firebase_auth: ^4.6.2
-  cloud_firestore: ^4.8.0
+  cloud_firestore: ^4.8.3
   firebase_messaging: ^14.6.2
   firebase_storage: ^11.2.2
   firebase_analytics: ^10.4.2

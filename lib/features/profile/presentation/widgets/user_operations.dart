@@ -56,25 +56,39 @@ class UserOperations extends StatelessWidget {
                                                   .follow();
                                             },
                                       child: const Text("Takip Et"))
-                                  : ElevatedButton(
-                                      onPressed: state.followingLoading
-                                          ? null
-                                          : () {
-                                              context
-                                                  .read<ProfileCubit>()
-                                                  .unfollow();
-                                            },
-                                      child: const Text("Takibi Bırak"))),
+                                  : Row(
+                                      children: [
+                                        Expanded(
+                                          child: ElevatedButton(
+                                              onPressed: state.followingLoading
+                                                  ? null
+                                                  : () {
+                                                      context
+                                                          .read<ProfileCubit>()
+                                                          .unfollow();
+                                                    },
+                                              child:
+                                                  const Text("Takibi Bırak")),
+                                        ),
+                                        Container(
+                                          padding: context.horizontalPaddingLow,
+                                          child: IconButton(
+                                              onPressed: state.followingLoading
+                                                  ? null
+                                                  : () {
+                                                      if (state
+                                                              .profileResponse ==
+                                                          null) return;
+                                                      context.router.push(ChatRoute(
+                                                          profileResponse: state
+                                                              .profileResponse!));
+                                                    },
+                                              icon: const Icon(
+                                                  Icons.message_outlined)),
+                                        )
+                                      ],
+                                    )),
                     ),
-                    state.profileResponse?.id !=
-                            FirebaseAuth.instance.currentUser?.uid
-                        ? Container(
-                            padding: context.horizontalPaddingLow,
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.message_outlined)),
-                          )
-                        : const SizedBox()
                   ],
                 ),
               )

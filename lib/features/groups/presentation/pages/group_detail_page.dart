@@ -56,8 +56,8 @@ class GroupDetailPage extends StatelessWidget with AutoRouteWrapper {
                           ? context.dynamicHeight(0.62)
                           : state.groupResponse?.userId ==
                                   FirebaseAuth.instance.currentUser?.uid
-                              ? context.dynamicHeight(0.57)
-                              : context.dynamicHeight(0.7),
+                              ? context.dynamicHeight(0.6)
+                              : context.dynamicHeight(0.72),
                       automaticallyImplyLeading: true,
                       floating: true,
                       flexibleSpace: FlexibleSpaceBar(
