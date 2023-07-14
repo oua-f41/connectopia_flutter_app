@@ -51,7 +51,7 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
     print(state.message);
   }
 
-  void onMessageSend() {
+  void onMessageSend() async {
     if (state.message == "" || state.isLoading) return;
     FirebaseFirestore.instance.collection("rooms").doc(state.roomId).update({
       "messages": FieldValue.arrayUnion([
@@ -62,7 +62,7 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
             .toJson()
       ])
     });
-    _notificationRepository.sendMessage(NotificationRequest(
+    await _notificationRepository.sendMessage(NotificationRequest(
       id: state.otherUser?.id ?? "",
       title: state.ownUser?.userName ?? "",
       body: state.message ?? "",
