@@ -53,18 +53,27 @@ class ProfileCubit extends BaseCubit<ProfileViewModel> {
     try {
       await _followingRepository.add(request);
       await refresh();
-      final rooms = await FirebaseFirestore.instance.collection("rooms").get();
-      final room = rooms.docs.firstWhere((a) {
-        final data = a.data();
-        return data['users'].contains(FirebaseAuth.instance.currentUser!.uid) &&
-            data['users'].contains(state.profileResponse!.id!);
-      });
-      if (!room.exists) {
-        MessageRoom room = MessageRoom(users: [
-          FirebaseAuth.instance.currentUser!.uid,
-          state.profileResponse!.id!
-        ], messages: []);
-        await FirebaseFirestore.instance.collection("rooms").add(room.toJson());
+      try {
+        final rooms =
+            await FirebaseFirestore.instance.collection("rooms").get();
+        final room = rooms.docs.firstWhere((a) {
+          final data = a.data();
+          return data['users']
+                  .contains(FirebaseAuth.instance.currentUser!.uid) &&
+              data['users'].contains(state.profileResponse!.id!);
+        });
+      } catch (e) {
+        if (e is StateError) {
+          if (e.message == "No element") {
+            MessageRoom room = MessageRoom(users: [
+              FirebaseAuth.instance.currentUser!.uid,
+              state.profileResponse!.id!
+            ], messages: []);
+            await FirebaseFirestore.instance
+                .collection("rooms")
+                .add(room.toJson());
+          }
+        }
       }
     } catch (e) {
       print(e);

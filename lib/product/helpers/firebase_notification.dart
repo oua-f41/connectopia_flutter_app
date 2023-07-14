@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:developer';
 
+import 'package:connectopia/app/app_router.dart';
 import 'package:connectopia/features/profile/data/repository/profile_repository.dart';
 import 'package:connectopia/product/di/injection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,6 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../../features/profile/domain/models/response/profile_response.dart';
+import '../models/core_models/event.dart';
 
 class FirebaseNotification {
   final _firebaseMessaging = FirebaseMessaging.instance;
@@ -64,9 +65,18 @@ class FirebaseNotification {
   }
 
   Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-    inspect("asd");
-    print(message.data);
-    print(message.notification?.title);
+    if (message.data['route'] != null) {
+      if (message.data['route'] == "chat" &&
+          message.data['chatUserId'] != null) {
+        getIt.get<AppRouter>().push(ChatRoute(
+            profileResponse: ProfileResponse(id: message.data['chatUserId'])));
+      }
+      if (message.data['route'] == "event" && message.data['evenId'] != null) {
+        getIt
+            .get<AppRouter>()
+            .push(EventDetailRoute(event: Event(id: message.data['evenId'])));
+      }
+    }
   }
 
   Future<void> subscribeToGroups() async {

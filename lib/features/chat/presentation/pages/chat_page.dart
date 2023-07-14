@@ -73,7 +73,9 @@ class ChatPage extends StatelessWidget with AutoRouteWrapper {
                       ),
                     );
                   } else {
-                    return const Center();
+                    return const Center(
+                      child: Text(""),
+                    );
                   }
                 } else {
                   return Center(
