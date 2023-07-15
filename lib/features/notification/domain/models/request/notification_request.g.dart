@@ -11,6 +11,7 @@ NotificationRequest _$NotificationRequestFromJson(Map<String, dynamic> json) =>
       body: json['body'] as String?,
       title: json['title'] as String?,
       id: json['id'] as String?,
+      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$NotificationRequestToJson(
@@ -19,4 +20,5 @@ Map<String, dynamic> _$NotificationRequestToJson(
       'body': instance.body,
       'title': instance.title,
       'id': instance.id,
+      'topic': instance.topic,
     };

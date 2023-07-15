@@ -64,6 +64,7 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
     });
     emit(state.copyWith(message: ""));
     await _notificationRepository.sendMessage(NotificationRequest(
+      topic: state.otherUser?.id ?? "",
       id: state.ownUser?.id ?? "",
       title: state.ownUser?.userName ?? "",
       body: state.message ?? "",

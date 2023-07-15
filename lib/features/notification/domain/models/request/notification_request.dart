@@ -6,8 +6,9 @@ class NotificationRequest {
   String? body;
   String? title;
   String? id;
+  String? topic;
 
-  NotificationRequest({this.body, this.title, this.id});
+  NotificationRequest({this.body, this.title, this.id, this.topic});
 
   factory NotificationRequest.fromJson(Map<String, dynamic> json) =>
       _$NotificationRequestFromJson(json);
@@ -18,13 +19,13 @@ class NotificationRequest {
     String? topic,
     String? body,
     String? title,
-    String? route,
     String? id,
   }) {
     return NotificationRequest(
       body: body ?? this.body,
       title: title ?? this.title,
       id: id ?? this.id,
+      topic: topic ?? this.topic,
     );
   }
 }
