@@ -23,9 +23,10 @@ class ChatPage extends StatelessWidget with AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          forceMaterialTransparency: true,
           title: ChatHead(
-        profileResponse: profileResponse,
-      )),
+            profileResponse: profileResponse,
+          )),
       body: Container(
         child: Column(children: [
           Expanded(

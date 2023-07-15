@@ -62,11 +62,11 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
             .toJson()
       ])
     });
+    emit(state.copyWith(message: ""));
     await _notificationRepository.sendMessage(NotificationRequest(
-      id: state.otherUser?.id ?? "",
+      id: state.ownUser?.id ?? "",
       title: state.ownUser?.userName ?? "",
       body: state.message ?? "",
     ));
-    emit(state.copyWith(message: ""));
   }
 }
