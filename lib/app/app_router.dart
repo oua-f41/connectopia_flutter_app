@@ -25,6 +25,7 @@ import '../features/home/presentation/pages/home_page.dart';
 import '../features/main_login/presentation/pages/main_login_page.dart';
 import '../features/maps/presentation/pages/maps_page.dart';
 import '../features/chat/presentation/pages/chat_page.dart';
+import '../features/notification/presentation/pages/notification_page.dart';
 import '../features/onboard/presentation/pages/onboard_page.dart';
 import '../features/privacy_policy/presentation/privacy_policy_page.dart';
 import '../features/profile/domain/models/response/profile_response.dart';
@@ -113,6 +114,7 @@ class AppRouter extends _$AppRouter {
       AutoRoute(page: SettingsRoute.page, guards: [AuthGuard()]),
       AutoRoute(page: DonateRoute.page, guards: [AuthGuard()]),
       AutoRoute(page: ChatRoute.page, guards: [AuthGuard()]),
+      AutoRoute(page: NotificationRoute.page, guards: [AuthGuard()]),
       AutoRoute(page: PrivacyPolicyRoute.page),
     ]),
   ];

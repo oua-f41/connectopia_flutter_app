@@ -1,10 +1,12 @@
 import 'package:connectopia/product/models/user/response/user_response.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../../core/helpers/globals.dart';
 import '../auth/data/repositories/login_repository.dart';
 import '../auth/domain/models/request/login_request.dart';
 import '../di/injection.dart';
 import '../models/refresh_token/request/refresh_request.dart';
 import '../models/refresh_token/response/refresh_response.dart';
+import '../widgets/info_snack_bar.dart';
 
 class SetupToken {
   static Future<void> registerToken(UserResponse userResponse) async {
@@ -29,7 +31,8 @@ class SetupToken {
       RefreshResponse? newToken = await getIt
           .get<ILoginRepository>()
           .refresh(RefreshRequest(refresh: refresh ?? ""))
-          .catchError((onError) => print(onError));
+          .catchError((onError) => snackbarKey.currentState!
+              .showSnackBar(InfoSnackBar(contentText: onError)));
 
       await getIt
           .get<FlutterSecureStorage>()

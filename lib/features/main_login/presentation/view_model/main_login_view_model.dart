@@ -27,7 +27,7 @@ abstract class MainLoginViewModel extends State<MainLoginPage> {
       idToken: googleAuth?.idToken,
     );
 
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
 
     try {
       UserCredential user =
@@ -54,6 +54,6 @@ abstract class MainLoginViewModel extends State<MainLoginPage> {
       print(e);
     }
 
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }

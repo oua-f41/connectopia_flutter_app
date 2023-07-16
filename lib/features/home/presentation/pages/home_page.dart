@@ -87,7 +87,9 @@ class _HomeAppBar extends PreferredSize {
                   icon: const Icon(Icons.search),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    getIt.get<AppRouter>().push(const NotificationRoute());
+                  },
                   icon: const Icon(Icons.notifications),
                 ),
                 Container(child: const ProfilePhotoButton())

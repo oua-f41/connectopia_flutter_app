@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:875664835580:android:cdedf32b58e7e6aaf82879",
+        "android_client_info": {
+          "package_name": "com.erhangocen.connectopia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875664835580-fi1o5arfr16gs55jbg2inb1jq8km4r73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzrjMhgR7wChpgTsaDiBKqeDww7DaQDyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875664835580-fi1o5arfr16gs55jbg2inb1jq8km4r73.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875664835580-hcc6gkla1d8f5fcp0gbgb012aj7q50ff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.erhangocen.connectopia"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:875664835580:android:5888b91a2e016ff1f82879",
         "android_client_info": {
           "package_name": "com.example.connectopia"
@@ -39,10 +75,10 @@
               "client_type": 3
             },
             {
-              "client_id": "875664835580-ngodn3mvpmkg3be6fl4077639dn936qb.apps.googleusercontent.com",
+              "client_id": "875664835580-hcc6gkla1d8f5fcp0gbgb012aj7q50ff.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.f41Flutter"
+                "bundle_id": "com.erhangocen.connectopia"
               }
             }
           ]
@@ -83,10 +119,10 @@
               "client_type": 3
             },
             {
-              "client_id": "875664835580-ngodn3mvpmkg3be6fl4077639dn936qb.apps.googleusercontent.com",
+              "client_id": "875664835580-hcc6gkla1d8f5fcp0gbgb012aj7q50ff.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.f41Flutter"
+                "bundle_id": "com.erhangocen.connectopia"
               }
             }
           ]

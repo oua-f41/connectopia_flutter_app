@@ -43,7 +43,7 @@ class AddGroupCubit extends BaseCubit<AddGroupViewModel> {
   }
 
   Future<bool> addGroup() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (state.formKey.currentState!.validate()) {
       if (state.selectedCategory != null) {
         GroupRequest groupRequest = state.groupRequest.copyWith(
@@ -53,12 +53,12 @@ class AddGroupCubit extends BaseCubit<AddGroupViewModel> {
           final response = await _groupRepository.add(groupRequest);
           snackbarKey.currentState!
               .showSnackBar(InfoSnackBar(contentText: response!.message ?? ""));
-          getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+          getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
           return true;
         } catch (error) {
           snackbarKey.currentState!
               .showSnackBar(InfoSnackBar(contentText: "error.toString()"));
-          getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+          getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
           return false;
         }
       } else {
@@ -66,7 +66,7 @@ class AddGroupCubit extends BaseCubit<AddGroupViewModel> {
             .showSnackBar(InfoSnackBar(contentText: "Please select category"));
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
     return false;
   }
 }

@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <application
-        android:label="connectopia"
+        android:label="Connectopia"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

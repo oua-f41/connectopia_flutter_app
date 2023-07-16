@@ -29,9 +29,9 @@ class SearchCubit extends BaseCubit<SearchViewModel> {
   }
 
   Future<void> getAllGroups() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     final groups = await _groupRepository.getAll();
     emit(state.copyWith(allGroups: groups, searchResult: []));
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }

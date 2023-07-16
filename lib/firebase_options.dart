@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAzrjMhgR7wChpgTsaDiBKqeDww7DaQDyA',
-    appId: '1:875664835580:android:5888b91a2e016ff1f82879',
+    appId: '1:875664835580:android:cdedf32b58e7e6aaf82879',
     messagingSenderId: '875664835580',
     projectId: 'f41-flutterfire',
     storageBucket: 'f41-flutterfire.appspot.com',
@@ -66,12 +66,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCGjvSeoEQzsc2SVF7A3UJFlvHl_ODtZUw',
-    appId: '1:875664835580:ios:e4766c9fac058f13f82879',
+    appId: '1:875664835580:ios:93984e1517cb4f85f82879',
     messagingSenderId: '875664835580',
     projectId: 'f41-flutterfire',
     storageBucket: 'f41-flutterfire.appspot.com',
-    androidClientId: '875664835580-lp8ulecm21ll0sm03072vi3k984jja9t.apps.googleusercontent.com',
-    iosClientId: '875664835580-rt5gun4t30tn9qs2c1nd83hskhp76om0.apps.googleusercontent.com',
-    iosBundleId: 'com.example.connectopia',
+    androidClientId: '875664835580-kg7r8t82b299t35jogb3v2sc6usfgmod.apps.googleusercontent.com',
+    iosClientId: '875664835580-hcc6gkla1d8f5fcp0gbgb012aj7q50ff.apps.googleusercontent.com',
+    iosBundleId: 'com.erhangocen.connectopia',
   );
 }

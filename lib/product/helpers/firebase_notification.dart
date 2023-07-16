@@ -50,7 +50,7 @@ class FirebaseNotification {
 
   Future initPushNotifications() async {
     FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-        alert: true, badge: true, sound: true);
+        alert: false, badge: false, sound: false);
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       if (message != null) {
         handleMessage(message);

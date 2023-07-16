@@ -79,7 +79,7 @@ class EditEventCubit extends BaseCubit<EditEventViewModel> {
   }
 
   Future<void> setEventLocation(EventLocation location) async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (location.city != null) {
       try {
         City? selectedCity =
@@ -91,17 +91,16 @@ class EditEventCubit extends BaseCubit<EditEventViewModel> {
           eventLat: location.latitude.toString(),
           eventLng: location.longitude.toString(),
         )));
-        print(state.eventRequest.toJson());
       } catch (e) {
         print(e);
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 
   Future<bool> updateEvent() async {
     if (state.formKey.currentState!.validate()) {
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
       try {
         if (state.image != null) {
           TaskSnapshot task = await FirebaseStorage.instance
@@ -131,26 +130,26 @@ class EditEventCubit extends BaseCubit<EditEventViewModel> {
         getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return false;
       }
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
       return true;
     }
     return false;
   }
 
   Future<bool> deleteEvent() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     try {
       if (state.eventRequest.id != null) {
         await _eventRepository.delete(state.eventRequest.id!);
-        getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+        getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return true;
       }
     } catch (e) {
       print(e);
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
       return false;
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
     return false;
   }
 }

@@ -37,9 +37,9 @@ class EditGroupPage extends StatelessWidget with AutoRouteWrapper {
                           RoundedRectangleBorder(
                               borderRadius: context.normalBorderRadius),
                           1)!,
-                      title: const Text("Delete Event"),
+                      title: const Text("Delete Group"),
                       content: const Text(
-                          "Are you sure you want to delete this event?"),
+                          "Are you sure you want to delete this group?"),
                       actions: [
                         OutlinedButton(
                             onPressed: () {

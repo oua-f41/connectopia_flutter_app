@@ -50,7 +50,6 @@ class EditProfileCubit extends BaseCubit<EditProfileViewModel> {
         userRequest: state.userRequest?.copyWith(
             fullName:
                 "${firstName ?? state.userRequest?.fullName?.split(" ")[0]} ${lastName ?? state.userRequest?.fullName?.split(" ")[1]}")));
-    print(state.userRequest?.fullName);
   }
 
   void onUserNameChange(String userName) {
@@ -107,7 +106,7 @@ class EditProfileCubit extends BaseCubit<EditProfileViewModel> {
   }
 
   Future<bool> updateUser() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (state.updateProfileFormKey.currentState!.validate()) {
       try {
         await saveProfilePhoto();
@@ -115,7 +114,7 @@ class EditProfileCubit extends BaseCubit<EditProfileViewModel> {
             await _profileRepository.updateProfile(state.userRequest!);
         snackbarKey.currentState!
             .showSnackBar(InfoSnackBar(contentText: response?.message ?? ""));
-        getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+        getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return true;
       } catch (e) {
         if (e == ErrorConstants.userAlreadyExists.value) {
@@ -124,7 +123,7 @@ class EditProfileCubit extends BaseCubit<EditProfileViewModel> {
         print(e);
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
     return false;
   }
 }

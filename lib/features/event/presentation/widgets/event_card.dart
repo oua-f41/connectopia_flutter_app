@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';
 import 'package:connectopia/app/app_router.dart';
@@ -99,7 +101,14 @@ class _EventCardContent extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${DateTime.now().difference(event.eventDate ?? DateTime.now()).inDays.abs()} days ${DateTime.now().difference(event.eventDate ?? DateTime.now()).isNegative ? "letter" : "ago"} ',
+                        DateTime.now()
+                                    .difference(
+                                        event.eventDate ?? DateTime.now())
+                                    .inDays
+                                    .abs() ==
+                                0
+                            ? 'Today'
+                            : '${DateTime.now().difference(event.eventDate ?? DateTime.now()).inDays.abs()} days ${DateTime.now().difference(event.eventDate ?? DateTime.now()).isNegative ? "letter" : "ago"} ',
                         style: context.textTheme.bodyMedium?.copyWith(
                           color: DateTime.now()
                                   .difference(event.eventDate ?? DateTime.now())
@@ -222,11 +231,9 @@ class _EventCardActions extends StatelessWidget {
                                   Options(responseType: ResponseType.bytes));
                           final bytes = response.data;
                           final temp = await getTemporaryDirectory();
-                          final path = '${temp.path}/temp';
-                          XFile aaa =
-                              XFile.fromData(bytes, name: 'deneme', path: path);
-
-                          await Share.shareXFiles([aaa]);
+                          final path = '${temp.path}/${event.id}.png';
+                          await File(path).writeAsBytes(bytes);
+                          await Share.shareFiles([path]);
                         },
                         icon: const Icon(
                           Icons.share_outlined,

@@ -7,7 +7,8 @@ class MapsViewModel extends BaseViewModel {
   List<Event>? allEvents;
   List<Event>? eventsByCity;
   Event? selectedEvent;
-  Set<Marker>? markers;
+  Set<Marker>? allMarkers;
+  Set<Marker>? cityMarkers;
   bool mapSelectedJustCity;
 
   MapsViewModel(
@@ -15,14 +16,16 @@ class MapsViewModel extends BaseViewModel {
       this.eventsByCity,
       this.selectedEvent,
       super.isLoading,
-      this.markers,
+      this.allMarkers,
+      this.cityMarkers,
       this.mapSelectedJustCity = true});
 
   MapsViewModel copyWith({
     List<Event>? allEvents,
     List<Event>? eventsByCity,
     Event? selectedEvent,
-    Set<Marker>? markers,
+    Set<Marker>? allMarkers,
+    Set<Marker>? cityMarkers,
     bool? isLoading,
     bool? mapSelectedJustCity,
   }) {
@@ -31,7 +34,8 @@ class MapsViewModel extends BaseViewModel {
       eventsByCity: eventsByCity ?? this.eventsByCity,
       selectedEvent: selectedEvent ?? this.selectedEvent,
       isLoading: isLoading ?? this.isLoading,
-      markers: markers ?? this.markers,
+      allMarkers: allMarkers ?? this.allMarkers,
+      cityMarkers: cityMarkers ?? this.cityMarkers,
       mapSelectedJustCity: mapSelectedJustCity ?? this.mapSelectedJustCity,
     );
   }
@@ -42,7 +46,8 @@ class MapsViewModel extends BaseViewModel {
         eventsByCity,
         selectedEvent,
         isLoading,
-        markers,
+        allMarkers,
+        cityMarkers,
         mapSelectedJustCity
       ];
 }

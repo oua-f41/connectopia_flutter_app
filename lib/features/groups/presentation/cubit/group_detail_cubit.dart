@@ -139,7 +139,7 @@ class GroupDetailCubit extends BaseCubit<GroupDetailViewModel> {
   Future<void> setGroupIcon() async {
     CroppedFile? pickedImage = await _imageUploadManager.cropWithFetch();
 
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
 
     if (pickedImage != null) {
       TaskSnapshot task = await FirebaseStorage.instance
@@ -176,6 +176,6 @@ class GroupDetailCubit extends BaseCubit<GroupDetailViewModel> {
         }
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }

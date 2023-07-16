@@ -1,5 +1,4 @@
 import 'package:connectopia/features/maps/presentation/extensions/map_marker_extension.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -35,20 +34,10 @@ class EventMap extends StatelessWidget {
           },
           myLocationButtonEnabled: false,
           markers: mapsState.mapSelectedJustCity
-              ? mapsState.eventsByCity.toMapMarkers(context)
-              : mapsState.allEvents
-                      ?.map((e) => Marker(
-                          onTap: () => context.read<MapsCubit>().selectEvent(e),
-                          markerId: MarkerId(e.id ?? ""),
-                          position: LatLng(double.parse(e.eventLat ?? "0.0"),
-                              double.parse(e.eventLng ?? "0.0")),
-                          icon: e.group?.userId ==
-                                  FirebaseAuth.instance.currentUser?.uid
-                              ? BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueGreen)
-                              : BitmapDescriptor.defaultMarker))
-                      .toSet() ??
-                  {},
+              ? mapsState.cityMarkers?.toSet() ??
+                  mapsState.eventsByCity.toMapMarkers(context)
+              : mapsState.allMarkers?.toSet() ??
+                  mapsState.allEvents.toMapMarkers(context),
         );
       },
     );

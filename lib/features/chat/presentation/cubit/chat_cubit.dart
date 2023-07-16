@@ -48,7 +48,6 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
 
   void onMessageChanged(String value) {
     emit(state.copyWith(message: value));
-    print(state.message);
   }
 
   void onMessageSend() async {
@@ -62,12 +61,14 @@ class ChatCubit extends BaseCubit<ChatViewModel> {
             .toJson()
       ])
     });
-    emit(state.copyWith(message: ""));
-    await _notificationRepository.sendMessage(NotificationRequest(
+
+    _notificationRepository.sendMessage(NotificationRequest(
       topic: state.otherUser?.id ?? "",
       id: state.ownUser?.id ?? "",
       title: state.ownUser?.userName ?? "",
       body: state.message ?? "",
     ));
+
+    emit(state.copyWith(message: ""));
   }
 }

@@ -79,12 +79,19 @@ class ConnectopiaAppCubit extends BaseCubit<ConnectopiaAppViewModel> {
     }
   }
 
-  void changeIsLoading({bool? isLoading}) {
+  void changeIsLoading({bool? isLoading}) async {
+    if (isLoading == null) {
+      emit(state.copyWith(isLoading: !state.isLoading));
+    }
     if (isLoading != null) {
       emit(state.copyWith(isLoading: isLoading));
-      return;
     }
-    emit(state.copyWith(isLoading: !state.isLoading));
+    /* Eğer hata olursa 5 saniye sonra göstermesin */
+    await Future.delayed(const Duration(seconds: 5), () {
+      if (state.isLoading == true) {
+        emit(state.copyWith(isLoading: false));
+      }
+    });
   }
 
   Future<void> getCurrentPosition() async {

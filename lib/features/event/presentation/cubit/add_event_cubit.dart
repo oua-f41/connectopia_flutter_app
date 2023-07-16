@@ -61,7 +61,7 @@ class AddEventCubit extends BaseCubit<AddEventViewModel> {
   }
 
   Future<void> setEventLocation(EventLocation location) async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (location.city != null) {
       try {
         City? selectedCity =
@@ -73,20 +73,18 @@ class AddEventCubit extends BaseCubit<AddEventViewModel> {
           eventLat: location.latitude.toString(),
           eventLng: location.longitude.toString(),
         )));
-        print(state.eventRequest.toJson());
       } catch (e) {
         snackbarKey.currentState!.showSnackBar(const SnackBar(
           content: Text("Application is not working in this city"),
         ));
-        print(e);
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 
   Future<bool> createEvent() async {
     if (state.formKey.currentState!.validate()) {
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
       try {
         if (state.image != null) {
           TaskSnapshot task = await FirebaseStorage.instance
@@ -104,7 +102,7 @@ class AddEventCubit extends BaseCubit<AddEventViewModel> {
         getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return false;
       }
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
       return true;
     }
     return false;

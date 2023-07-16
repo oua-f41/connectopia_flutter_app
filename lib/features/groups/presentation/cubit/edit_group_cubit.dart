@@ -58,7 +58,7 @@ class EditGroupCubit extends BaseCubit<EditGroupViewModel> {
   }
 
   Future<bool> updateGroup() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (state.formKey.currentState!.validate()) {
       try {
         UpdateGroupRequest request = state.updateGroupRequest!.copyWith(
@@ -67,7 +67,7 @@ class EditGroupCubit extends BaseCubit<EditGroupViewModel> {
         ResponseData? response = await _groupRepository.update(request);
         snackbarKey.currentState!.showSnackBar(
             InfoSnackBar(contentText: response?.message ?? "Group updated"));
-        getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+        getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return true;
       } catch (error) {
         snackbarKey.currentState!
@@ -75,24 +75,24 @@ class EditGroupCubit extends BaseCubit<EditGroupViewModel> {
         return false;
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
     return false;
   }
 
   Future<bool> deleteGroup() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     try {
       if (state.updateGroupRequest?.id != null) {
         await _groupRepository.delete(state.updateGroupRequest!.id!);
-        getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+        getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
         return true;
       }
     } catch (e) {
       print(e);
-      getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+      getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
       return false;
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
     return false;
   }
 }

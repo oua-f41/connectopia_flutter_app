@@ -27,7 +27,6 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
         userRequest: state.userRequest?.copyWith(
             fullName:
                 "${firstName ?? state.userRequest?.fullName?.split(" ")[0]} ${lastName ?? state.userRequest?.fullName?.split(" ")[1]}")));
-    print(state.userRequest?.fullName);
   }
 
   void onUserNameChange(String userName) {
@@ -36,7 +35,7 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
   }
 
   Future<void> updateUser() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (state.registerFormKey.currentState!.validate()) {
       RegisterRequest registerRequest = RegisterRequest(
         id: state.userRequest?.id,
@@ -54,6 +53,6 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
         print(e);
       }
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }
