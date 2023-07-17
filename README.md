@@ -81,8 +81,8 @@ Uygulama fikri öneri olarak sunulduğunda yukarıda ki gibi hedef kitlemiz olac
 * Ve son olarak tüm bu eksikliklerin giderilmesini sağlanmak amacıyla bir uygulama olsa kullanır mısınız diye sorduk ve hedeflediğimiz %85 üzeri bir talep skalasına ulaştığımızı görmek bizi oldukça motive etti diyebiliriz. Kısaca sorulan her 10 kişiden 8 i böyle bir uygulamayı kullanacaklarını belirtmiş oldular.
 ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/9a788286-9414-4ec0-8c68-1722d745c09c)
 
-## Uygulamada son durum
-
+## Uygulamaya Genel Bakış
+![Authentication (6)](https://github.com/oua-f41/f41_flutter/assets/71042486/4b5b218e-e20c-4f90-90d7-7e02ef72d6f4)
 
 
 # Sprint-1
