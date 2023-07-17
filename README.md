@@ -45,11 +45,45 @@
   * Topluluk kanallarının kaydedilmesi
   * Kullanıcı, topluluk ve etkinlik için için geliştirilmiş kullanıcı özellikleri ve ekranları
   * Topluluklara bağış yapabilme
+  * Gruplar ve kişiler ile mesajlaşma, takip , beğeni , mesaj bildirimleri ve daha fazlası...
   
 ## Hedef Kitle 
    * Etkinliklerini daha çok kişiye duyurmak isteyen topluluklar
    * Bulunduğu bölgede toplulukların düzenlediği etkinliklerden haberdar olmak isteyenler
    * Kendi ilgi alanına sahip kişilerle yeni topluluklar kurmak isteyenler.
+
+Uygulama fikri öneri olarak sunulduğunda yukarıda ki gibi hedef kitlemiz olacağını kendi deneyimlerimizden de yola çıkarak belirlemiştik. Gerçekten de hedef kitle olarak belirlediğimiz kişiler var mıydı , kullanıcı sayısı nasıl olacaktı , yapacağımız uygulamayı kullanmak isteyen kullanıcılar olucak mıydı? Peki pazarda uygun talep görebilecek miydi? tüm bu soruların yanıtı alabilmek adına bir form oluşturduk ve oluşturduğumuz formu sosyal medya hikayelerinde , WhatsApp gruplarında ve durumlarında paylaştık. Kısa süreli oluşturduğumuz bu  formdan daha güvenilir bir sonuç alabilmemiz adında formu dolduran kişilerden mail ile giriş yapmalarını ancak kendilerini daha rahat hissedebilmeleri adına bu mailleri toplamamayı tercih ettik .Ve formdan aldığımız verilerin bizleri gerçekten heyecanlandırdığını söyleyebiliriz. 
+100 kişilik bir katılım gerçekleşti , sorulara verilen yanıtlar ve veri grafikleri sırasıyla aşağıdaki verilmiştir.
+
+* Görüldüğü üzere formu dolduranların %87'si 19-25 yaş , %7 si 26-35yaş aralığındaki bireylerden oluşmaktadır. Bu da bizlere uygulamanın daha çok 19-25 yaş arasına hitap ettiğini söylenebilir.
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/78082e59-95d4-42b8-9cb4-9c31234d6bda) 
+
+* Formu dolduranların yarısı bir topluluğa üye ya da toplulukta görevli olurken , diğer yarısı herhangi toplulukta görevli olmadığını belirtmiştir.
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/dbedff08-ab76-406f-a8fd-795d9c7952b6)
+
+* Herhangi bir toplulukta üye , gönüllü ya da yönetici olanların %62 si yapmış oldukları etkinlikleri duyurmakta zorlandıklarını belirtmiştir.<br>
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/f540700c-075d-41ec-a6e9-df44d61e7ffc)
+
+* Bu kişilere ne gibi zorluklarla karşılaştıkları sorulduğunda aşağıdaki gibi yanıtlar alınmıştır.Buradan çıkarmış olduğumuz sonuç ise genel olarak o etkinliğin ilgi alanına hitap eden kişilere ulaşılmasında , etkinliklerin daha çok kişiye duyurulması, etkinliklerin tanıtımı, sponsor, bağış vs. gibi konularda zorluklar yaşadıkları görülmekte.
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/a4c37e2a-04e3-4082-97a3-3661237d5eb3)
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/39674793-40de-40df-9f5f-1ca18356a98a)
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/736e1403-4bbe-42b9-a9ec-e6ae2acba3dd)
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/808ef20e-7203-418c-8fef-3cfb16b14ff4)
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/c1940eb4-d743-4807-8ff5-5966ef931366)
+
+* Herhangi bir toplulukta üye , gönüllü ya da yönetici olan bu kişilere bir de bağış konusunda zorluklar yaşayıp yaşamadıklarını sorduk %44 sorun yaşamadığını belirtirken %56 lık kısım ise sorun yaşadıklarını belirtmiştir.<br>
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/e7626354-0634-4c4a-ab04-5ca619d44627)
+
+* Herhangi bir toplulukta üye , gönüllü ya da yönetici olmayan kişilere ise toplulukların düzenlemiş oldukları etkinliklerden haberdar olup olamadıklarını ve kendi topluluklarını kurup etkinlikler oluşturmak isteyip istemediklerini sorduk.<br>
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/ef2b1c57-559e-49e5-87f4-7f4cfcbac6cc)
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/512da766-97fb-4f86-a7e1-f347e2adb4aa)
+
+* Ve son olarak tüm bu eksikliklerin giderilmesini sağlanmak amacıyla bir uygulama olsa kullanır mısınız diye sorduk ve hedeflediğimiz %85 üzeri bir talep skalasına ulaştığımızı görmek bizi oldukça motive etti diyebiliriz. Kısaca sorulan her 10 kişiden 8 i böyle bir uygulamayı kullanacaklarını belirtmiş oldular.
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/9a788286-9414-4ec0-8c68-1722d745c09c)
+
+## Uygulamada son durum
+
+
 
 # Sprint-1
 
