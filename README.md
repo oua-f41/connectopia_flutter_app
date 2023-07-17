@@ -76,15 +76,15 @@ Ekran görüntüleri:
 
 | |  | |
 | :--- | :---: | ---: |
-| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/fc5beea4-1494-42eb-9e85-c456a839d54f) | ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/1120d6de-d7c1-49fc-93d4-ec41008a9214)  | ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/d03b373d-6a8a-4cce-b116-0197480c67ed) |
+| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/fc5beea4-1494-42eb-9e85-c456a839d54f)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/1120d6de-d7c1-49fc-93d4-ec41008a9214)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/d03b373d-6a8a-4cce-b116-0197480c67ed)|
 
 | |  | |
 | :--- | :---: | ---: |
-| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/00b8d87d-6599-4614-9bd1-6f2bc2da9b1b) |![image](https://github.com/oua-f41/f41_flutter/assets/123990805/8aa75cf9-389b-48ba-a481-9556dc4e1b07)  | ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/6f9235bc-c520-4d64-a120-203a84182278) |
+| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/00b8d87d-6599-4614-9bd1-6f2bc2da9b1b)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/8aa75cf9-389b-48ba-a481-9556dc4e1b07)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/6f9235bc-c520-4d64-a120-203a84182278)|
 
 | |  | |
 | :--- | :---: | ---: |
-| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/8d2cd57e-bcd2-4c99-b69c-e5a4b5856b9d)| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/29c3aca3-c40c-4b17-97b9-1800b716bcd6) |  ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/71550d82-5a0c-4b5d-b7f6-4ad23a727a5e) |
+| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/8d2cd57e-bcd2-4c99-b69c-e5a4b5856b9d)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/29c3aca3-c40c-4b17-97b9-1800b716bcd6)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/71550d82-5a0c-4b5d-b7f6-4ad23a727a5e)|
 
 
 ## Sprint Review: 
@@ -148,4 +148,51 @@ Ekran görüntüleri:
 
 ## Sprint Retrospective:
   * 3.Sprint ve son sprint olması nedeniyle daha fazla görev ataması yapılacağı belirtilmiştir.
+
+
+# Sprint-3
+
+## **Sprint Notları:**
+Önceki sprint notlarında yer alan ve değiştirilmesi gereken yerler değiştirildi.Uygulama son halini ald, apk sı çıkarıldı. Google play onayı bekleniyor.İleride uygulamada iyileştirmeler yapılacaktır.
+
+## **Sprint içinde tamamlanması tahmin edilen puan:** 
+140 Puan
+
+## **Puan tamamlama mantığı:** 
+Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. İlk sprint için 100 diğer sprintler için yapılacak görevlere göre 140-140 olarak belirlenmiştir.Bu sprint 140 puan olarak belirlenmiştir. 
+
+## **Daily Scrum:** 
+F-41 Discord kanalında her gün 21.00 ya da 21.30 da Daily Scrum toplantılarını  yapmaktayız. Bu sprint ile birlikte sprint-3 sürecinin başından itibaren yapılan önemli toplantılar , alınan kararlar , daily scrum konuşmalarımızın özetleri vs. tüm ayrıntılar aşağıda yer alan Notion  linkinde yer almaktadır. 
+
+[SPRİNT-3](https://www.notion.so/Sprint-2-c6a95e953412411eb909a45a1e8f31c3?pvs=4)
+
+## **Sprint board update:** 
+Sprint board screenshotları:
+![image](https://github.com/oua-f41/f41_flutter/assets/123990805/e4a9117f-71a2-46e8-8f9d-726de53a5d01)
+
+
+## Ürün Durumu: 
+Ekran görüntüleri:
+
+| |  | |
+| :--- | :---: | ---: |
+| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/c2271089-9ddf-4d44-ae0c-2ddc7d3081eb)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/667bdfe7-2327-4d9e-abeb-9b19f3c62223)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/7188f2d2-f5bd-44f4-966e-dc1d3e6e2aba) |
+
+| |  | |
+| :--- | :---: | ---: |
+| ![image](https://github.com/oua-f41/f41_flutter/assets/123990805/50fa9cde-9ccc-4e1e-a8a9-719cad257945)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/9984c0e7-772e-4188-9301-9a22a3ce0287)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/f53c1390-c527-4451-8b52-aef613556e10)|
+
+
+| |  | |
+| :--- | :---: | ---: |
+|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/a79de98e-825b-4e6b-b9f2-1b9763096637)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/86d06fd8-aaf8-44f6-a0aa-da3a3021f27a)|![image](https://github.com/oua-f41/f41_flutter/assets/123990805/0ccae22e-c6af-4e88-bbb0-45fbd24dd347)|
+
+## Sprint Review: 
+  * Tüm sprintler ve son sprint boyunca yapılanlar gözden geçirildi; bu sprintte create event sayfası oluşturuldu, maps eklendi, hava durumu API eklendi, home page oluşturuldu, kullanıcının izinleri kabul etmesine göre home event algoritması oluşturuldu, takaipçi takip sistemi yaıldı, event silme , grup silme , google pay ile donate kısmının aktifleştirilmesi, notification , apk alma , google playe uygulamayı yükleme işlemi ve çokça bug fix yapıldı.
+  * 3.sprintte de hedeflenen görevler tamamlanmıştır. Ve uygulama son halini almıştır.
+  * Videonun çekilmesine başlanacaktır.
+
+    
+## Sprint Retrospective:
+  * 3.Sprint ve son sprint olması nedeniyle uygulamanın bitişi kutlanmıştır. 
 
