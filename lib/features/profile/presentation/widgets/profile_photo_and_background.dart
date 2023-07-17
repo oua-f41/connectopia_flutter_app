@@ -47,11 +47,10 @@ class ProfilePhotoAndBackground extends StatelessWidget {
                                       state.defaultUser?.profilePhotoUrl ??
                                       '',
                                   fit: BoxFit.cover,
-                                  loadingBuilder: (context, child, loadingProgress) {
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
                                     if (loadingProgress == null) return child;
-                                    return const SkeletonAvatar(
-                                      
-                                    );
+                                    return const SkeletonAvatar();
                                   },
                                 )
                               : Image.asset(

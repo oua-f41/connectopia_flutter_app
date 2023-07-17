@@ -30,7 +30,7 @@ class ConnectopiaApp extends StatelessWidget {
             routerConfig: getIt.get<AppRouter>().config(),
             scaffoldMessengerKey: snackbarKey,
             supportedLocales: L10n.all,
-            locale: Locale(state.localeKey?.name ?? 'en'),
+            locale: Locale(state.localeKey?.name ?? 'tr'),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,

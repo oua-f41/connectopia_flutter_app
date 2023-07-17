@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../../../product/models/core_models/user.dart' as ProjectUser;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../app/app_router.dart';
 
@@ -34,22 +35,26 @@ class MainPage extends StatelessWidget with AutoRouteWrapper {
                 SalomonBottomBarItem(
                   activeIcon: const Icon(Icons.location_on, size: 27),
                   icon: const Icon(Icons.location_on_outlined, size: 27),
-                  title: const Text('Maps'),
+                  title:
+                      Text(AppLocalizations.of(context)!.firstNavigationButton),
                 ),
                 SalomonBottomBarItem(
                   activeIcon: const Icon(Icons.home, size: 27),
                   icon: const Icon(Icons.home_outlined, size: 27),
-                  title: const Text('Home'),
+                  title: Text(
+                      AppLocalizations.of(context)!.secondNavigationButton),
                 ),
                 SalomonBottomBarItem(
                   activeIcon: const Icon(Icons.explore, size: 27),
                   icon: const Icon(Icons.explore_outlined, size: 27),
-                  title: const Text('Discover'),
+                  title:
+                      Text(AppLocalizations.of(context)!.thirdNavigationButton),
                 ),
                 SalomonBottomBarItem(
                   activeIcon: const Icon(Icons.person, size: 27),
                   icon: const Icon(Icons.person_outline, size: 27),
-                  title: const Text('Profile'),
+                  title: Text(
+                      AppLocalizations.of(context)!.fourthNavigationButton),
                 ),
               ],
               backgroundColor: context.colorScheme.background.withOpacity(0.1),

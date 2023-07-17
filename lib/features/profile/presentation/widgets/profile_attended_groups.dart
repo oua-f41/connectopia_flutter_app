@@ -6,6 +6,7 @@ import '../../../groups/presentation/widgets/group_grid.dart';
 import '../../../groups/presentation/widgets/group_loading.dart';
 import '../cubit/profile_cubit.dart';
 import '../cubit/view_model/profile_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileAttendedGroups extends StatelessWidget {
   const ProfileAttendedGroups({super.key});
@@ -29,7 +30,9 @@ class ProfileAttendedGroups extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
                     child: const GroupLoading(),
                   )
-                : const Center(child: TitleText(text: "No Group"));
+                : Center(
+                    child:
+                        TitleText(text: AppLocalizations.of(context)!.noGroup));
       },
     );
   }

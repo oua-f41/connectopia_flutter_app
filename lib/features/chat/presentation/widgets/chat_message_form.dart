@@ -3,6 +3,7 @@ import 'package:connectopia/features/chat/presentation/cubit/view_model/chat_vie
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChatMessageForm extends StatelessWidget {
   const ChatMessageForm({super.key});
@@ -25,7 +26,7 @@ class ChatMessageForm extends StatelessWidget {
                     context.read<ChatCubit>().onMessageChanged(value);
                   },
                   decoration: InputDecoration(
-                    hintText: "Mesajınızı yazın",
+                    hintText: AppLocalizations.of(context)!.chatMessageForm,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

@@ -6,6 +6,7 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../product/widgets/title_text.dart';
 import '../widgets/login_with_email_form.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class LoginWithEmailPage extends StatelessWidget {
@@ -42,7 +43,8 @@ class LoginWithEmailPage extends StatelessWidget {
             Container(
                 width: context.dynamicWidth(0.9),
                 padding: context.paddingNormal,
-                child: const TitleText(text: "Sign In")),
+                child: TitleText(
+                    text: AppLocalizations.of(context)!.emailPageSignIn)),
             Container(
                 padding: context.horizontalPaddingMedium,
                 child: const LoginWithEmailForm()),

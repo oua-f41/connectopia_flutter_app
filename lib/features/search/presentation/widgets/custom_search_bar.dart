@@ -5,6 +5,7 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
 import '../cubit/search_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
@@ -25,10 +26,10 @@ class CustomSearchBar extends StatelessWidget {
         canRequestFocus: isButton ? false : true,
         autofocus: isButton ? false : true,
         onTap: isButton ? () => context.router.push(const SearchRoute()) : null,
-        decoration: const InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold),
-            hintText: "Search",
-            prefixIcon: Icon(Icons.search)),
+        decoration: InputDecoration(
+            hintStyle: const TextStyle(fontWeight: FontWeight.bold),
+            hintText: AppLocalizations.of(context)!.search,
+            prefixIcon: const Icon(Icons.search)),
       ),
     );
   }

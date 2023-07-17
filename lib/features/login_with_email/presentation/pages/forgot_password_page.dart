@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import '../../../../product/constants/lottie_constants.dart';
 import '../../../../product/widgets/title_text.dart';
 import '../widgets/forgot_password_form.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ForgotPasswordPage extends StatelessWidget {
@@ -39,7 +40,8 @@ class ForgotPasswordPage extends StatelessWidget {
             Container(
                 width: context.dynamicWidth(0.9),
                 padding: context.paddingNormal,
-                child: const TitleText(text: "Forgot Password")),
+                child: TitleText(
+                    text: AppLocalizations.of(context)!.emailForgotPassword)),
             Container(
                 padding: context.horizontalPaddingMedium,
                 child: const ForgotPasswordForm()),

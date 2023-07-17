@@ -26,9 +26,7 @@ class EditProfilePage extends StatelessWidget with AutoRouteWrapper {
           ),
           body: SingleChildScrollView(
             child: Container(
-              alignment: Alignment.center, 
-              child: const EditProfileForm()
-            ),
+                alignment: Alignment.center, child: const EditProfileForm()),
           ),
           floatingActionButton: FloatingActionButton(
               heroTag: "",

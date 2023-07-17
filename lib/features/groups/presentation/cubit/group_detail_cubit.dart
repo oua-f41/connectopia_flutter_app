@@ -104,7 +104,8 @@ class GroupDetailCubit extends BaseCubit<GroupDetailViewModel> {
           (user) => user.userId == FirebaseAuth.instance.currentUser!.uid);
       if (userGroup?.id != null) {
         final response = await _userGroupRepository.delete(userGroup!.id!);
-        FirebaseMessaging.instance.unsubscribeFromTopic(state.groupResponse!.id!);
+        FirebaseMessaging.instance
+            .unsubscribeFromTopic(state.groupResponse!.id!);
         snackbarKey.currentState!
             .showSnackBar(InfoSnackBar(contentText: response!.message ?? ""));
         setIsAttended(isAttendedDirectly: false);

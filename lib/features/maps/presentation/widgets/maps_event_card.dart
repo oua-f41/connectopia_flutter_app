@@ -9,6 +9,7 @@ import 'package:kartal/kartal.dart';
 import '../../../../app/app_router.dart';
 import '../../../../product/constants/image_constants.dart';
 import '../../../../product/widgets/title_text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MapsEventCard extends StatelessWidget {
   const MapsEventCard({super.key});
@@ -145,7 +146,8 @@ class MapsEventCard extends StatelessWidget {
                                       context.router.push(EventDetailRoute(
                                           event: state.selectedEvent!));
                                     },
-                                    child: const Text("Go To Detail"))
+                                    child: Text(AppLocalizations.of(context)!
+                                        .goToDetail))
                               ],
                             ),
                           ),

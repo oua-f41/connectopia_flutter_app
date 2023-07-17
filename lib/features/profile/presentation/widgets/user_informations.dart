@@ -7,6 +7,7 @@ import 'package:skeletons/skeletons.dart';
 
 import '../cubit/profile_cubit.dart';
 import '../cubit/view_model/profile_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserInformations extends StatelessWidget {
   const UserInformations({
@@ -129,7 +130,7 @@ class UserInformations extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        "Takipçi",
+                                        AppLocalizations.of(context)!.followers,
                                         style: context.textTheme.headlineMedium
                                             ?.copyWith(
                                                 fontSize: 14,
@@ -166,7 +167,7 @@ class UserInformations extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        "Takip",
+                                        AppLocalizations.of(context)!.following,
                                         style: context.textTheme.headlineMedium
                                             ?.copyWith(
                                                 fontSize: 14,
@@ -197,7 +198,7 @@ class UserInformations extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        "Like",
+                                        AppLocalizations.of(context)!.like,
                                         style: context.textTheme.headlineMedium
                                             ?.copyWith(
                                                 fontSize: 14,

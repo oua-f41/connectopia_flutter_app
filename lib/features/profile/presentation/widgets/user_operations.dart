@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserOperations extends StatelessWidget {
   const UserOperations({
@@ -39,7 +40,8 @@ class UserOperations extends StatelessWidget {
                                       context.read<ProfileCubit>().refresh();
                                     }
                                   },
-                                  child: const Text("Profili Düzenle"))
+                                  child: Text(AppLocalizations.of(context)!
+                                      .editProfile))
                               : state.profileResponse?.followers?.any(
                                         (element) =>
                                             element.followerId ==

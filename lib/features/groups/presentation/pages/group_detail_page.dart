@@ -18,6 +18,7 @@ import '../cubit/view_model/edit_group_view_model.dart';
 import '../widgets/group_detail_description.dart';
 import '../widgets/group_detail_event_list.dart';
 import '../widgets/group_detail_grop_owner_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class GroupDetailPage extends StatelessWidget with AutoRouteWrapper {
@@ -222,7 +223,7 @@ class _CreateEventButton extends StatelessWidget {
                 const Icon(Icons.attach_money_outlined),
                 Padding(
                   padding: context.onlyLeftPaddingLow,
-                  child: const Text("Donate"),
+                  child: Text(AppLocalizations.of(context)!.donate),
                 ),
               ],
             )
@@ -230,7 +231,7 @@ class _CreateEventButton extends StatelessWidget {
               const Icon(Icons.add),
               Padding(
                 padding: context.onlyLeftPaddingLow,
-                child: const Text("Create Event"),
+                child: Text(AppLocalizations.of(context)!.createEvent),
               ),
             ]),
       onPressed: () async {

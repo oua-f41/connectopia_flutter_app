@@ -7,6 +7,7 @@ import 'package:kartal/kartal.dart';
 import 'package:skeletons/skeletons.dart';
 
 import '../../../../app/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GroupDetailCountInformations extends StatelessWidget {
   const GroupDetailCountInformations({super.key});
@@ -44,7 +45,7 @@ class GroupDetailCountInformations extends StatelessWidget {
                                   .copyWith(fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              "Members",
+                              AppLocalizations.of(context)!.members,
                               style: context.textTheme.bodyMedium!.copyWith(
                                   color: context.colorScheme.outline,
                                   fontWeight: FontWeight.w500),
@@ -63,7 +64,7 @@ class GroupDetailCountInformations extends StatelessWidget {
                                   .copyWith(fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              "Events",
+                              AppLocalizations.of(context)!.events,
                               style: context.textTheme.bodyMedium!.copyWith(
                                   color: context.colorScheme.outline,
                                   fontWeight: FontWeight.w500),

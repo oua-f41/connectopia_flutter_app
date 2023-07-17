@@ -12,6 +12,7 @@ import '../cubit/chat_cubit.dart';
 import '../widgets/chat_head.dart';
 import '../widgets/chat_loader.dart';
 import '../widgets/chat_message_form.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ChatPage extends StatelessWidget with AutoRouteWrapper {
@@ -39,7 +40,8 @@ class ChatPage extends StatelessWidget with AutoRouteWrapper {
                 if (snapshot.data!.docs.isNotEmpty) {
                   QueryDocumentSnapshot data = snapshot.data!.docs.firstWhere(
                       (element) =>
-                          element['users'].contains(profileResponse.id) &&
+                          element['users'].contains(
+                              FirebaseAuth.instance.currentUser!.uid) &&
                           element['users'].contains(profileResponse.id));
                   if (data["messages"].isNotEmpty) {
                     final datas = data.data() as Map<String, dynamic>;
@@ -78,8 +80,7 @@ class ChatPage extends StatelessWidget with AutoRouteWrapper {
                 } else {
                   return Center(
                       child: Container(
-                    child: const Text(
-                        "Mesajlaşma başlatmak için birini takip edin"),
+                    child: Text(AppLocalizations.of(context)!.chatPageMessage),
                   ));
                 }
               } else {

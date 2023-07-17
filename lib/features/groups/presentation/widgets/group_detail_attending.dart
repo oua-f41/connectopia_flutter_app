@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GroupDetailAttending extends StatelessWidget {
   const GroupDetailAttending({super.key});
@@ -32,7 +33,9 @@ class GroupDetailAttending extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(state.isAttended != true ? "Join" : "Leave"),
+                        Text(state.isAttended != true
+                            ? "Join"
+                            : AppLocalizations.of(context)!.leave),
                         state.attendingLoading
                             ? Container(
                                 padding: context.paddingLow,

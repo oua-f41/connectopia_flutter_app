@@ -45,5 +45,3 @@ class MapsPage extends StatelessWidget {
         ));
   }
 }
-
-

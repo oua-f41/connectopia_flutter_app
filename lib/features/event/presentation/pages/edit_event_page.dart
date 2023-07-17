@@ -9,6 +9,7 @@ import 'package:kartal/kartal.dart';
 import '../cubit/edit_event_cubit.dart';
 import '../widgets/delete_event_button.dart';
 import '../widgets/edit_event_form.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class EditEventPage extends StatelessWidget with AutoRouteWrapper {
@@ -38,7 +39,7 @@ class EditEventPage extends StatelessWidget with AutoRouteWrapper {
               await context.read<MapsCubit>().refresh();
             }
           },
-          label: const Text('Update Event')),
+          label: Text(AppLocalizations.of(context)!.editEventPage)),
     );
   }
 

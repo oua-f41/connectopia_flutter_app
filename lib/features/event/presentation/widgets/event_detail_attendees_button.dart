@@ -7,6 +7,7 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
 import '../../../../product/models/core_models/event.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 class EventDetailAttendeesButton extends StatelessWidget {
   const EventDetailAttendeesButton({super.key, required this.event});
@@ -30,7 +31,7 @@ class EventDetailAttendeesButton extends StatelessWidget {
                               ?.map((e) => e.user)
                               .toList() ??
                           [],
-                      title: "Attendees"),
+                      title: AppLocalizations.of(context)!.attendees),
                 );
               },
               child: Row(
@@ -40,7 +41,7 @@ class EventDetailAttendeesButton extends StatelessWidget {
                       padding: context.horizontalPaddingLow,
                       child: const Icon(Icons.group)),
                   Text(
-                    "${state.event?.eventAttendees?.length ?? event.eventAttendees?.length} Attendees",
+                    "${state.event?.eventAttendees?.length ?? event.eventAttendees?.length} ${AppLocalizations.of(context)!.attendees}",
                     style: context.textTheme.bodyLarge,
                   ),
                 ],

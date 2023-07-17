@@ -43,8 +43,7 @@ class EventDetailGroupAndLike extends StatelessWidget {
                       margin: const EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: state.event?.group?.iconUrl
-                                    .isNotNullOrNoEmpty ==
+                        image: state.event?.group?.iconUrl.isNotNullOrNoEmpty ==
                                 true
                             ? DecorationImage(
                                 image: NetworkImage(
@@ -54,8 +53,8 @@ class EventDetailGroupAndLike extends StatelessWidget {
                                 fit: BoxFit.cover,
                               )
                             : DecorationImage(
-                                image: AssetImage(ImageConstants
-                                    .defaultGroupPhoto.imagePath),
+                                image: AssetImage(
+                                    ImageConstants.defaultGroupPhoto.imagePath),
                                 fit: BoxFit.cover,
                               ),
                         boxShadow: [
@@ -68,11 +67,8 @@ class EventDetailGroupAndLike extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      state.event?.group?.name ??
-                          event.group?.name ??
-                          "",
-                      style:
-                          Theme.of(context).textTheme.bodyMedium,
+                      state.event?.group?.name ?? event.group?.name ?? "",
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -92,13 +88,10 @@ class EventDetailGroupAndLike extends StatelessWidget {
                         padding: context.paddingLow,
                         child: const Icon(Icons.favorite)),
                     Text(
-                      state.event?.userLikeEvents?.length
-                              .toString() ??
-                          event.userLikeEvents?.length
-                              .toString() ??
+                      state.event?.userLikeEvents?.length.toString() ??
+                          event.userLikeEvents?.length.toString() ??
                           "0",
-                      style:
-                          Theme.of(context).textTheme.titleSmall,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 ),

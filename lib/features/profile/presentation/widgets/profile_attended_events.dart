@@ -5,6 +5,7 @@ import 'package:connectopia/product/widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileAttendedEvents extends StatelessWidget {
   const ProfileAttendedEvents({super.key});
@@ -27,7 +28,8 @@ class ProfileAttendedEvents extends StatelessWidget {
                       event:
                           state.profileResponse?.eventAttendees?[index].event,
                     ))
-            : const Center(child: TitleText(text: "No Event"));
+            : Center(
+                child: TitleText(text: AppLocalizations.of(context)!.noEvent));
       },
     );
   }

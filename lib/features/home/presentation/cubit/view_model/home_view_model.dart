@@ -44,6 +44,14 @@ class HomeViewModel extends BaseViewModel {
   }
 
   @override
-  List<Object?> get props =>
-      [isLoading, title, events, eventsLoading, eventsOnCity, eventsOnCityLoading, otherEvents, otherEventsLoading];
+  List<Object?> get props => [
+        isLoading,
+        title,
+        events,
+        eventsLoading,
+        eventsOnCity,
+        eventsOnCityLoading,
+        otherEvents,
+        otherEventsLoading
+      ];
 }

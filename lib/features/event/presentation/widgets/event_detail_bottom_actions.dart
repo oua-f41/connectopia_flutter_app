@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../product/models/core_models/event.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventDetailBottomActions extends StatelessWidget {
   const EventDetailBottomActions({super.key, required this.event});
@@ -82,10 +83,10 @@ class EventDetailBottomActions extends StatelessWidget {
                                     FirebaseAuth.instance.currentUser?.uid ||
                                 event.group?.owner?.id ==
                                     FirebaseAuth.instance.currentUser?.uid
-                            ? "Your Event !"
+                            ? AppLocalizations.of(context)!.yourEvent
                             : state.isAttended == true
-                                ? "Left Event"
-                                : "Attend to Event",
+                                ? AppLocalizations.of(context)!.leftEvent
+                                : AppLocalizations.of(context)!.attendToEvent,
                         style: context.textTheme.headlineLarge?.copyWith(
                           fontSize: 16,
                           wordSpacing: 1.5,

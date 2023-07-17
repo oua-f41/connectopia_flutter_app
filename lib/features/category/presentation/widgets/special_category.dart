@@ -6,6 +6,7 @@ import '../../../../app/app_router.dart';
 import '../../../../product/widgets/title_text.dart';
 import '../cubit/view_model/category_view_model.dart';
 import 'category_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PageHead extends StatelessWidget {
   const PageHead({super.key});
@@ -18,12 +19,13 @@ class PageHead extends StatelessWidget {
         Container(
             padding: context.paddingNormal,
             alignment: Alignment.topLeft,
-            child: const TitleText(text: "Categories;")),
+            child: TitleText(
+                text: "${AppLocalizations.of(context)!.categories};")),
         TextButton(
             onPressed: () {
               context.router.push(GroupsRoute());
             },
-            child: const Text("See All"))
+            child: Text(AppLocalizations.of(context)!.language))
       ],
     );
   }

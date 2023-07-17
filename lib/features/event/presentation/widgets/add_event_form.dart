@@ -5,10 +5,12 @@ import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
+import '../../../../core/helpers/globals.dart';
 import '../../../../product/widgets/title_text.dart';
 import '../../../location_picking/domain/models/event_location.dart';
 import '../cubit/add_event_cubit.dart';
 import '../cubit/view_model/add_event_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddEventForm extends StatelessWidget {
   const AddEventForm({super.key});
@@ -19,14 +21,15 @@ class AddEventForm extends StatelessWidget {
       builder: (context, state) {
         return Form(
           key: state.formKey,
-          child:  Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const _ImagePicker(),
               Container(
                   padding: context.paddingNormal,
                   alignment: Alignment.centerLeft,
-                  child: const TitleText(text: "Create Event ;")),
+                  child: TitleText(
+                      text: "${AppLocalizations.of(context)!.createEvent} ;")),
               const _EventNameInput(),
               const _EventDescriptionInput(),
               const _EventDatePicker(),
@@ -38,7 +41,6 @@ class AddEventForm extends StatelessWidget {
     );
   }
 }
-
 
 class _EventLocationPicker extends StatelessWidget {
   const _EventLocationPicker();
@@ -61,7 +63,8 @@ class _EventLocationPicker extends StatelessWidget {
             child: TextFormField(
               validator: (value) {
                 if (state.eventRequest.eventAddress == null) {
-                  return 'Please select event location';
+                  return AppLocalizations.of(snackbarKey.currentContext!)!
+                      .addEventFormSelectLocation;
                 }
                 return null;
               },

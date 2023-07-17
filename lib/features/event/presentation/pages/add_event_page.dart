@@ -5,6 +5,7 @@ import 'package:connectopia/features/maps/presentation/cubit/maps_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class AddEventPage extends StatelessWidget with AutoRouteWrapper {
@@ -31,7 +32,7 @@ class AddEventPage extends StatelessWidget with AutoRouteWrapper {
               context.read<MapsCubit>().refresh();
             }
           },
-          label: const Text('Create Event')),
+          label: Text(AppLocalizations.of(context)!.createEvent)),
     );
   }
 

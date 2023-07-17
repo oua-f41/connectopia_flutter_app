@@ -6,6 +6,7 @@ import 'package:connectopia/product/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../product/models/core_models/group.dart';
 import '../widgets/custom_search_bar.dart';
@@ -30,7 +31,7 @@ class SearchPage extends StatelessWidget with AutoRouteWrapper {
                   onPressed: () {
                     context.router.pop();
                   },
-                  child: const Text("Cancel"))
+                  child: Text(AppLocalizations.of(context)!.cancel))
             ],
           )),
       body: BlocBuilder<SearchCubit, SearchViewModel>(

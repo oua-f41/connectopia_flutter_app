@@ -5,10 +5,12 @@ import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
+import '../../../../core/helpers/globals.dart';
 import '../../../../product/widgets/title_text.dart';
 import '../../../location_picking/domain/models/event_location.dart';
 import '../cubit/edit_event_cubit.dart';
 import '../cubit/view_model/edit_event_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditEventForm extends StatelessWidget {
   const EditEventForm({super.key});
@@ -63,7 +65,8 @@ class _EventLocationPicker extends StatelessWidget {
             child: TextFormField(
               validator: (value) {
                 if (state.eventRequest.eventAddress == null) {
-                  return 'Please select event location';
+                  return AppLocalizations.of(snackbarKey.currentContext!)!
+                      .addEventFormSelectLocation;
                 }
                 return null;
               },

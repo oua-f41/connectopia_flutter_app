@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:connectopia/app/base_cubit.dart';
 import 'package:connectopia/app/connectopia_app_cubit.dart';
 import 'package:connectopia/product/di/injection.dart';

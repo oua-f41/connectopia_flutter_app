@@ -10,6 +10,7 @@ import 'package:kartal/kartal.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../product/helpers/setup_token.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class SettingsPage extends StatelessWidget {
@@ -19,7 +20,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Settings'),
+          title: Text(AppLocalizations.of(context)!.settings),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
@@ -31,8 +32,8 @@ class SettingsPage extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: context.paddingNormal,
-            title: const Text('Theme Mode'),
-            subtitle: const Text('Change your theme mode'),
+            title: Text(AppLocalizations.of(context)!.themeMode),
+            subtitle: Text(AppLocalizations.of(context)!.themeModeDescription),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
               showDialog(
@@ -41,7 +42,7 @@ class SettingsPage extends StatelessWidget {
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        title: const Text('Theme Mode'),
+                        title: Text(AppLocalizations.of(context)!.themeMode),
                         content: BlocBuilder<ConnectopiaAppCubit,
                             ConnectopiaAppViewModel>(
                           builder: (context, state) {
@@ -86,8 +87,8 @@ class SettingsPage extends StatelessWidget {
           ),
           ListTile(
             contentPadding: context.paddingNormal,
-            title: const Text('Language'),
-            subtitle: const Text('Change your language settings'),
+            title: Text(AppLocalizations.of(context)!.language),
+            subtitle: Text(AppLocalizations.of(context)!.languageDescription),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
               showDialog(
@@ -96,7 +97,7 @@ class SettingsPage extends StatelessWidget {
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        title: const Text('Language'),
+                        title: Text(AppLocalizations.of(context)!.language),
                         content: BlocBuilder<ConnectopiaAppCubit,
                             ConnectopiaAppViewModel>(
                           builder: (context, state) {
@@ -141,8 +142,8 @@ class SettingsPage extends StatelessWidget {
           ),
           ListTile(
             contentPadding: context.paddingNormal,
-            title: const Text('Sign Out'),
-            subtitle: const Text('Sign out from your account'),
+            title: Text(AppLocalizations.of(context)!.signOut),
+            subtitle: Text(AppLocalizations.of(context)!.signOutDescription),
             trailing: const Icon(Icons.logout_outlined),
             onTap: () {
               showDialog(
@@ -151,13 +152,14 @@ class SettingsPage extends StatelessWidget {
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        title: const Text('Are You Sure?'),
+                        title: Text(AppLocalizations.of(context)!.sureQuestion),
                         actions: [
                           TextButton(
                               onPressed: () {
                                 context.pop();
                               },
-                              child: const Text('Cancel')),
+                              child:
+                                  Text(AppLocalizations.of(context)!.cancel)),
                           OutlinedButton(
                               onPressed: () async {
                                 getIt<ConnectopiaAppCubit>().changeIsLoading();
@@ -173,7 +175,8 @@ class SettingsPage extends StatelessWidget {
                                 getIt.get<AppRouter>().pop();
                                 getIt<ConnectopiaAppCubit>().changeIsLoading();
                               },
-                              child: const Text('Sign Out')),
+                              child:
+                                  Text(AppLocalizations.of(context)!.signOut)),
                         ],
                       ));
             },

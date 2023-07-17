@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kartal/kartal.dart';
 import 'package:skeletons/skeletons.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventDetailLocation extends StatelessWidget {
   const EventDetailLocation({super.key});
@@ -22,7 +23,7 @@ class EventDetailLocation extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AutoSizeText(
-                      "Where is the event ?",
+                      AppLocalizations.of(context)!.whereEvent,
                       maxFontSize: 25,
                       minFontSize: 12,
                       style: context.textTheme.headlineMedium
@@ -32,7 +33,7 @@ class EventDetailLocation extends StatelessWidget {
                   TextButton(
                       onPressed: () {},
                       child: AutoSizeText(
-                        "View On Map",
+                        AppLocalizations.of(context)!.viewOnMap,
                         style: TextStyle(color: context.colorScheme.secondary),
                       ))
                 ],

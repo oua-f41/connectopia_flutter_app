@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../product/models/core_models/event.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventDetailCategoryAndDate extends StatelessWidget {
   const EventDetailCategoryAndDate({super.key, required this.event});
@@ -66,8 +67,8 @@ class EventDetailCategoryAndDate extends StatelessWidget {
                                       .difference(state.event?.eventDate ??
                                           DateTime.now())
                                       .isNegative
-                                  ? "Upcomming"
-                                  : "Passed",
+                                  ? AppLocalizations.of(context)!.upcomming
+                                  : AppLocalizations.of(context)!.passed,
                               style: context.textTheme.titleSmall?.copyWith(
                                 color: context.colorScheme.outline,
                               ),

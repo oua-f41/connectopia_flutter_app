@@ -16,6 +16,7 @@ import '../../../../product/helpers/firebase_utilities.dart';
 import '../../../../product/models/core_models/city.dart';
 import '../../domain/models/request/event_request.dart';
 import 'view_model/add_event_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddEventCubit extends BaseCubit<AddEventViewModel> {
   AddEventCubit()
@@ -74,8 +75,9 @@ class AddEventCubit extends BaseCubit<AddEventViewModel> {
           eventLng: location.longitude.toString(),
         )));
       } catch (e) {
-        snackbarKey.currentState!.showSnackBar(const SnackBar(
-          content: Text("Application is not working in this city"),
+        snackbarKey.currentState!.showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(snackbarKey.currentContext!)!
+              .addEventCubitCard),
         ));
       }
     }

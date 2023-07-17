@@ -12,6 +12,7 @@ import '../../../../product/constants/lottie_constants.dart';
 import '../../../../product/di/injection.dart';
 import '../view_model/main_login_view_model.dart';
 import '../widgets/login_option_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class MainLoginPage extends StatefulWidget {
@@ -41,21 +42,24 @@ class _MainLoginPageState extends MainLoginViewModel {
                   children: [
                     LoginOptionButton(
                       symbol: const Icon(Icons.mail),
-                      text: 'Log In with Email',
+                      text:
+                          AppLocalizations.of(context)!.firstLoginOptionButton,
                       onPressed: () {
                         context.router.replace(const LoginWithEmailRoute());
                       },
                     ),
                     LoginOptionButton(
                       symbol: const Icon(Icons.phone),
-                      text: 'Log in with phone',
+                      text:
+                          AppLocalizations.of(context)!.secondLoginOptionButton,
                       onPressed: () {
                         context.router.replace(const LoginWithPhoneRoute());
                       },
                     ),
                     LoginOptionButton(
                       symbol: Image.asset(ImageConstants.google.imagePath),
-                      text: 'Log in with Google',
+                      text:
+                          AppLocalizations.of(context)!.thirdLoginOptionButton,
                       onPressed: () async {
                         await signInWtihGoogle();
                       },
@@ -79,7 +83,9 @@ class _MainLoginPageState extends MainLoginViewModel {
                             context.router.replace(
                                 const MainRoute(children: [HomeRoute()]));
                           },
-                          child: Text("- Continue without Login -",
+                          child: Text(
+                              AppLocalizations.of(context)!
+                                  .fourthLoginOptonButton,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium

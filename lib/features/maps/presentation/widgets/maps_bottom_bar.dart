@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../../../app/connectopia_app_cubit.dart';
+import '../../../../product/di/injection.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class MapsBottomBar extends StatelessWidget {
   const MapsBottomBar({super.key});
 
@@ -32,34 +36,42 @@ class MapsBottomOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: context.paddingNormal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                disabledBackgroundColor: context.colorScheme.outlineVariant,
-              ),
-              onPressed: context.watch<MapsCubit>().state.mapSelectedJustCity
-                  ? null
-                  : () {
-                      context.read<MapsCubit>().getCityEvents();
-                    },
-              child: const Text("Your City")),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                disabledBackgroundColor: context.colorScheme.outlineVariant,
-              ),
-              onPressed: context.watch<MapsCubit>().state.mapSelectedJustCity
-                  ? () {
-                      context.read<MapsCubit>().getAllEvents();
-                    }
-                  : null,
-              child: const Text("All Events")),
-        ],
-      ),
-    );
+    return getIt.get<ConnectopiaAppCubit>().state.currentLocation != null
+        ? Container(
+            padding: context.paddingNormal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      disabledBackgroundColor:
+                          context.colorScheme.outlineVariant,
+                    ),
+                    onPressed:
+                        context.watch<MapsCubit>().state.mapSelectedJustCity
+                            ? null
+                            : () {
+                                context.read<MapsCubit>().getCityEvents();
+                              },
+                    child:
+                        Text(AppLocalizations.of(context)!.firstMapsBottomBar)),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      disabledBackgroundColor:
+                          context.colorScheme.outlineVariant,
+                    ),
+                    onPressed:
+                        context.watch<MapsCubit>().state.mapSelectedJustCity
+                            ? () {
+                                context.read<MapsCubit>().getAllEvents();
+                              }
+                            : null,
+                    child: Text(
+                        AppLocalizations.of(context)!.secondMapsBottomBar)),
+              ],
+            ),
+          )
+        : const SizedBox();
   }
 }
 

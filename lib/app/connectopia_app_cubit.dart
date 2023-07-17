@@ -49,6 +49,8 @@ class ConnectopiaAppCubit extends BaseCubit<ConnectopiaAppViewModel> {
       } else if (_applicationProperties?.locale == LocaleKeys.tr.name) {
         emit(state.copyWith(localeKey: LocaleKeys.tr));
       }
+    } else {
+      changeLocale(LocaleKeys.tr);
     }
 
     await getCurrentPosition();
@@ -87,7 +89,7 @@ class ConnectopiaAppCubit extends BaseCubit<ConnectopiaAppViewModel> {
       emit(state.copyWith(isLoading: isLoading));
     }
     /* Eğer hata olursa 5 saniye sonra göstermesin */
-    await Future.delayed(const Duration(seconds: 5), () {
+    await Future.delayed(const Duration(seconds: 10), () {
       if (state.isLoading == true) {
         emit(state.copyWith(isLoading: false));
       }

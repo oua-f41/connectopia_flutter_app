@@ -16,10 +16,9 @@ class UserAbout extends StatelessWidget {
                 state.defaultUser?.about.isNotNullOrNoEmpty == true
             ? state.isLoading
                 ? Container(
-            padding: context.horizontalPaddingLow,
-            child: SkeletonParagraph())
-
-            : Container(
+                    padding: context.horizontalPaddingLow,
+                    child: SkeletonParagraph())
+                : Container(
                     padding: context.horizontalPaddingNormal,
                     height: context.dynamicHeight(0.08),
                     alignment: Alignment.centerLeft,
@@ -32,8 +31,8 @@ class UserAbout extends StatelessWidget {
                   )
             : state.isLoading
                 ? Container(
-          padding: context.horizontalPaddingLow,
-            child: SkeletonParagraph())
+                    padding: context.horizontalPaddingLow,
+                    child: SkeletonParagraph())
                 : const SizedBox();
       },
     );

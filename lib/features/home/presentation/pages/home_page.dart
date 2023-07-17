@@ -12,6 +12,7 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../app/app_router.dart';
 import '../../../../product/di/injection.dart';
+import '../../../main/presentation/cubit/main_cubit.dart';
 import '../widgets/home_attended_groups.dart';
 
 @RoutePage()
@@ -82,7 +83,7 @@ class _HomeAppBar extends PreferredSize {
               actions: [
                 IconButton(
                   onPressed: () {
-                    getIt.get<AppRouter>().push(const SearchRoute());
+                    getIt.get<MainCubit>().navigateToDiscover();
                   },
                   icon: const Icon(Icons.search),
                 ),

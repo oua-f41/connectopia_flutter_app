@@ -7,6 +7,7 @@ import 'package:kartal/kartal.dart';
 import '../../../../product/widgets/title_text.dart';
 import '../../../event/presentation/widgets/event_card.dart';
 import '../../../event/presentation/widgets/event_card_loading.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GroupDetailEventList extends StatelessWidget {
   const GroupDetailEventList({super.key});
@@ -23,7 +24,8 @@ class GroupDetailEventList extends StatelessWidget {
                 Container(
                     padding: context.paddingNormal,
                     alignment: Alignment.bottomLeft,
-                    child: const TitleText(text: "Events ;")),
+                    child: TitleText(
+                        text: "${AppLocalizations.of(context)!.events} ;")),
                 state.isLoading
                     ? Expanded(
                         child: ListView.builder(
@@ -48,7 +50,7 @@ class GroupDetailEventList extends StatelessWidget {
                                     event: state.groupResponse?.events?[index]))
                             : Center(
                                 child: Text(
-                                "No Event",
+                                AppLocalizations.of(context)!.noEvent,
                                 style: context.textTheme.bodyLarge,
                               )),
                       ),
