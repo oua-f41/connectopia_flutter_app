@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import '../../../../app/app_router.dart';
 import '../../../../product/helpers/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../../app/app_router.dart';
 import '../cubit/login_with_phone_cubit.dart';
 import '../cubit/view_model/login_with_phone_view_model.dart';
 

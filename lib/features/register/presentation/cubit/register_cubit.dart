@@ -1,3 +1,4 @@
+import 'package:connectopia/product/constants/error_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_router.dart';
@@ -26,7 +27,6 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
         userRequest: state.userRequest?.copyWith(
             fullName:
                 "${firstName ?? state.userRequest?.fullName?.split(" ")[0]} ${lastName ?? state.userRequest?.fullName?.split(" ")[1]}")));
-    print(state.userRequest?.fullName);
   }
 
   void onUserNameChange(String userName) {
@@ -35,7 +35,7 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
   }
 
   Future<void> updateUser() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     if (state.registerFormKey.currentState!.validate()) {
       RegisterRequest registerRequest = RegisterRequest(
         id: state.userRequest?.id,
@@ -47,11 +47,12 @@ class RegisterCubit extends BaseCubit<RegisterViewModel> {
             await _registerRepository.register(registerRequest);
         getIt.get<AppRouter>().replace(const MainRoute());
       } catch (e) {
+        if (e == ErrorConstants.userAlreadyExists.value) {
+          emit(state.copyWith(isExistUserName: true));
+        }
         print(e);
       }
-      /* print(registerRequest.toJson()); */
     }
-    /* _registerRepository.register(state.userRequest!)); */
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }

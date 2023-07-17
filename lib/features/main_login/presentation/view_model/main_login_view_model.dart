@@ -5,6 +5,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../app/app_router.dart';
 import '../../../../app/connectopia_app_cubit.dart';
 import '../../../../product/auth/data/operations/login_operations.dart';
+import '../../../../product/cache/application_properties.dart';
+import '../../../../product/cache/application_properties_manager.dart';
+import '../../../../product/cache/cache_enums.dart';
 import '../../../../product/di/injection.dart';
 import '../../../../product/models/user/request/user_request.dart';
 import '../pages/main_login_page.dart';
@@ -27,7 +30,7 @@ abstract class MainLoginViewModel extends State<MainLoginPage> {
       idToken: googleAuth?.idToken,
     );
 
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
 
     try {
       UserCredential user =
@@ -40,18 +43,28 @@ abstract class MainLoginViewModel extends State<MainLoginPage> {
             profilePhotoUrl: user.user!.photoURL,
             id: user.user!.uid);
         bool isNewUser = await _loginOperations.login(createdUserRequest);
+        ApplicationPropertiesManager applicationPropertiesManager =
+            getIt.get<ApplicationPropertiesManager>();
+        applicationPropertiesManager.putItem(
+            CacheEnums.applicationProperties.name,
+            applicationPropertiesManager
+                    .getItem(CacheEnums.applicationProperties.name)
+                    ?.copyWith(isNewUser: false) ??
+                ApplicationProperties(isNewUser: false));
         if (isNewUser) {
           getIt
               .get<AppRouter>()
               .replace(RegisterRoute(userRequest: createdUserRequest));
         } else {
-          getIt.get<AppRouter>().replace(const OnboardRoute());
+          getIt.get<AppRouter>().replace(const MainRoute(
+                children: [HomeRoute()],
+              ));
         }
       }
     } catch (e) {
       print(e);
     }
 
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 }

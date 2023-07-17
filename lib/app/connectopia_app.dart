@@ -22,7 +22,7 @@ class ConnectopiaApp extends StatelessWidget {
       child: BlocBuilder<ConnectopiaAppCubit, ConnectopiaAppViewModel>(
         builder: (context, state) {
           return MaterialApp.router(
-            title: 'Student App',
+            title: 'Connectopia',
             debugShowCheckedModeBanner: false,
             theme: ThemeConsts.light,
             darkTheme: ThemeConsts.dark,
@@ -30,7 +30,7 @@ class ConnectopiaApp extends StatelessWidget {
             routerConfig: getIt.get<AppRouter>().config(),
             scaffoldMessengerKey: snackbarKey,
             supportedLocales: L10n.all,
-            locale: Locale(state.localeKey?.name ?? 'en'),
+            locale: Locale(state.localeKey?.name ?? 'tr'),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,

@@ -5,6 +5,7 @@ import 'package:kartal/kartal.dart';
 import '../cubit/login_with_email_cubit.dart';
 import '../cubit/view_model/login_with_email_view_model.dart';
 import 'email_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgotPasswordForm extends StatelessWidget {
   const ForgotPasswordForm({super.key});
@@ -27,8 +28,8 @@ class ForgotPasswordForm extends StatelessWidget {
                   onPressed: () {
                     context.read<LoginWithEmailCubit>().forgotPassword();
                   },
-                  child: const Text(
-                    "Continue",
+                  child: Text(
+                    AppLocalizations.of(context)!.emailForgotPasswordForm,
                   ))
             ],
           ),

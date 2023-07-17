@@ -15,6 +15,7 @@ abstract class DioModule {
       receiveTimeout: const Duration(seconds: NetworkConstants.RECIEVE_TIMEOUT),
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
       },
     );
 

@@ -1,11 +1,16 @@
 import 'dart:async';
+import 'package:connectopia/product/widgets/info_snack_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_router.dart';
 import '../../../../app/base_cubit.dart';
 import '../../../../app/connectopia_app_cubit.dart';
+import '../../../../core/helpers/globals.dart';
 import '../../../../product/auth/data/operations/login_operations.dart';
+import '../../../../product/cache/application_properties.dart';
+import '../../../../product/cache/application_properties_manager.dart';
+import '../../../../product/cache/cache_enums.dart';
 import '../../../../product/constants/duration_constants.dart';
 import '../../../../product/di/injection.dart';
 import '../../../../product/models/user/request/user_request.dart';
@@ -35,7 +40,7 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
   }
 
   Future<void> sendCode() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     startTimer();
     emit(state.copyWith(
         durationSeconds: DurationConstants.verifyPhoneDuration.inSeconds));
@@ -43,7 +48,8 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
         phoneNumber: "${state.selectedCountryCode}${state.phoneNumber}",
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          print(e.message);
+          snackbarKey.currentState!.showSnackBar(InfoSnackBar(
+              contentText: e.message ?? "An error occured while sending code"));
           emit(state.copyWith(verificationCode: ""));
         },
         codeSent: (String verificationId, int? resendToken) {
@@ -51,14 +57,15 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
           getIt.get<AppRouter>().replace(const LoginVerifyPhoneRoute());
         },
         codeAutoRetrievalTimeout: (String verificationId) {
-          print("timed out!!!");
+          snackbarKey.currentState!.showSnackBar(InfoSnackBar(
+              contentText: "Code sending timed out. Please try again"));
         },
         timeout: DurationConstants.verifyPhoneDuration);
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 
   Future<void> resendCode() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     startTimer();
     emit(state.copyWith(
         durationSeconds: DurationConstants.verifyPhoneDuration.inSeconds));
@@ -66,20 +73,22 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
         phoneNumber: "${state.selectedCountryCode}${state.phoneNumber}",
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          print(e.message);
+          snackbarKey.currentState!.showSnackBar(InfoSnackBar(
+              contentText: e.message ?? "An error occured while sending code"));
         },
         codeSent: (String verificationId, int? resendToken) {
           emit(state.copyWith(verificationId: verificationId));
         },
         codeAutoRetrievalTimeout: (String verificationId) {
-          print("timed out!!!");
+          snackbarKey.currentState!.showSnackBar(InfoSnackBar(
+              contentText: "Code sending timed out. Please try again"));
         },
         timeout: DurationConstants.verifyPhoneDuration);
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 
   Future<void> verifyCode() async {
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: true);
     try {
       FirebaseAuth auth = FirebaseAuth.instance;
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
@@ -93,16 +102,31 @@ class LoginWithPhoneCubit extends BaseCubit<LoginWithPhoneViewModel> {
         );
         bool isNewUser = await getIt.get<ILoginOperations>().login(createdUser);
         if (isNewUser) {
-          getIt.get<AppRouter>().replace(RegisterRoute(userRequest: createdUser));
+          getIt
+              .get<AppRouter>()
+              .replace(RegisterRoute(userRequest: createdUser));
         } else {
-          getIt.get<AppRouter>().replace(const OnboardRoute());
+          getIt
+              .get<AppRouter>()
+              .replace(const MainRoute(children: [HomeRoute()]));
         }
+        ApplicationPropertiesManager applicationPropertiesManager =
+            getIt.get<ApplicationPropertiesManager>();
+
+        applicationPropertiesManager.putItem(
+            CacheEnums.applicationProperties.name,
+            applicationPropertiesManager
+                    .getItem(CacheEnums.applicationProperties.name)
+                    ?.copyWith(isNewUser: false) ??
+                ApplicationProperties(isNewUser: false));
       }
     } catch (e) {
-      print("$e hata oluştu");
+      snackbarKey.currentState!.showSnackBar(InfoSnackBar(
+          contentText:
+              e as String? ?? "An error occured while verifying code"));
       state.verifyPhoneNumberController?.clear();
     }
-    getIt.get<ConnectopiaAppCubit>().changeIsLoading();
+    getIt.get<ConnectopiaAppCubit>().changeIsLoading(isLoading: false);
   }
 
   void startTimer() {

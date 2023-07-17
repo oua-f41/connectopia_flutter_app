@@ -14,7 +14,6 @@ class EmailTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LoginWithEmailCubit, LoginWithEmailViewModel>(
       builder: (context, state) {
-        print(state.loginWithEmailRequest?.email);
         return TextFormField(
             initialValue: state.loginWithEmailRequest?.email,
             keyboardType: TextInputType.emailAddress,

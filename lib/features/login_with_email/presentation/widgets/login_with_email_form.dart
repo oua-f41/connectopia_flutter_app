@@ -8,6 +8,7 @@ import '../cubit/login_with_email_cubit.dart';
 import '../cubit/view_model/login_with_email_view_model.dart';
 import 'email_text_field.dart';
 import 'password_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginWithEmailForm extends StatelessWidget {
   const LoginWithEmailForm({super.key});
@@ -43,10 +44,11 @@ class LoginWithEmailForm extends StatelessWidget {
                     onTap: () {
                       context.router.push(ForgotPasswordRoute());
                     },
-                    child: const Text("Forgot Password?",
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                        ))),
+                    child:
+                        Text(AppLocalizations.of(context)!.loginWithEmailForm,
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                            ))),
               ),
               ElevatedButton(
                   onPressed: () {

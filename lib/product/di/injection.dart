@@ -1,4 +1,7 @@
 import 'package:connectopia/app/app_router.dart';
+import 'package:connectopia/features/category/data/cache/category_cache_manager.dart';
+import 'package:connectopia/features/main/presentation/cubit/main_cubit.dart';
+import 'package:connectopia/features/weather/presentation/cubit/weather_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import '../../app/connectopia_app_cubit.dart';
@@ -8,6 +11,7 @@ import '../../core/error/default_error_factory.dart';
 import '../../core/error/error_factory.dart';
 import '../../core/error/error_separator.dart';
 import '../cache/application_properties_manager.dart';
+import '../helpers/firebase_notification.dart';
 import 'injection.config.dart';
 
 final getIt = GetIt.instance;
@@ -26,4 +30,10 @@ Future<void> configureDependencies() async {
   getIt.registerLazySingleton(() => PropertiesApp());
 
   getIt.registerLazySingleton(() => ApplicationPropertiesManager());
+
+  getIt.registerLazySingleton(() => MainCubit());
+
+  getIt.registerLazySingleton(() => CategoryCacheManager());
+  getIt.registerLazySingleton(() => WeatherCubit());
+  getIt.registerLazySingleton(() => FirebaseNotification());
 }
